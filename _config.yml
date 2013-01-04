@@ -1,1 +1,7 @@
+# no need to reload server
 auto: true 
+
+# sass
+sass:
+    syntax: scss        
+    style:  compressed  
