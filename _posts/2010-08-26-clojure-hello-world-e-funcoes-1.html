@@ -1,0 +1,92 @@
+--- 
+layout: post
+title: "Clojure: Hello World e Fun\xC3\xA7\xC3\xB5es\xC2\xA0#1"
+tags: 
+- clojure
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+  jabber_published: "1282804325"
+  _wp_old_slug: ""
+---
+Para rodar seus programas Clojure, além do clojure.zip, você precisa do Java runtime. Precisa ser a versão 5 no mínimo, mas é muito recomendado usar 6 pois melhorias de performance a melhores logs de erros.
+
+Vamos analizar um pouco mais da linguagem agora. Quando estamos no prompt, podemos imprimir usando a função println. 
+
+<code>hello world
+user=&gt; (println "hello world") 
+| hello world 
+-&gt; nil
+</code>
+
+A segunda linha é o output e a terceira linha, nil, é o retorno da função.
+
+
+
+<blockquote>Definindo funções</blockquote>
+
+
+
+
+Como toda linguagem você pode definir suas próprias funções:
+
+<code>user=&gt; (defn hello [name] (str "Hello, " name)) 
+⇒ 
+#'user/hello 
+</code>
+
+O que essa linha faz ?
+
+<ul>
+	<li> <strong>defn</strong> define uma função. </li>
+
+	<li><strong>hello</strong> é o nome da função. </li>
+
+	<li>a função hello recebe um argumento, <strong>name</strong>. </li>
+
+	<li><strong>str</strong> é uma chamada a uma função que concatena argumento em uma string. </li>
+
+</ul>
+
+
+
+O valor de retorno é <strong>#’user/hello</strong>. O prefixo <strong>#</strong>’ indica que a função foi guardada em uma <strong>variável Clojure</strong>, e user é o <strong>namespace</strong> dessa função.
+
+
+
+
+<blockquote>Usando funções</blockquote>
+<a href="http://andersonleiteblog.files.wordpress.com/2010/08/state_youre_doing_it_wrong_tshirt-p2350635438588072523gsv_210.jpg"><img src="http://andersonleiteblog.files.wordpress.com/2010/08/state_youre_doing_it_wrong_tshirt-p2350635438588072523gsv_210.jpg" alt="" title="state_youre_doing_it_wrong_tshirt-p2350635438588072523gsv_210" width="210" height="210" class="alignnone size-full wp-image-621" /></a>
+
+
+Uma vez criada a função e guardada em uma variável <strong>clojure</strong>, podemos chama=la:
+
+<code>user=&gt; (hello "anderson") 
+⇒ 
+"Hello, anderson"
+
+</code>
+
+
+<blockquote>Variaveis especiais</blockquote>
+
+
+
+As variáveis que criamos e guardamos no <strong>Clojure</strong> continuam acessíveis:
+
+<code>user=&gt; (hello "anderson") 
+"Hello, anderson" 
+</code>
+
+<code>user=&gt; (hello "Caelum") 
+"Hello, Caelum" 
+</code>
+
+E agora podemos combinar essas variáveis especiais:
+
+<code>(str *1 " and " *2) 
+⇒ 
+"Hello, Caelum and Hello, anderson"
+</code>

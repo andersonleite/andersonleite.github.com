@@ -1,0 +1,72 @@
+--- 
+layout: post
+title: DDD - Part 4 - Services e Modules
+tags: 
+- ddd
+- oo
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+---
+As vezes você não encontra o local ideal para colocar determinada feature do sistema, uma feature que não se encaixa nem como Entity nem como Value Object. Pode ser um envio de email para alguns usuários cadastrados ou alguma notificação temporária do sistema.
+<blockquote>"Sometimes, it just isn't a thing"</blockquote>
+<blockquote>
+"In some cases, the clearest and most pragmatic design includes operation that do not conceptually belong to any object."</blockquote>
+
+<blockquote>"Some concepts from the domain aren't natural to model as objects. Forcing the required domain funcionality to be the responsibility of an ENTITY or VALUE it distorts the definition of a model-based objects or adds meaningless artificial objects."
+</blockquote>
+
+
+Nesse momento não faz sentido colocar o código em alguma Entity ou Value Object próximo, pelo fato de gerar um acoplamento grande no sistema e perder a coesão entre as classes. É ai que entram os Services, sendo utilizados basicamente para colocar aquilo que não se encaixa com seus objetos do modelo, porém podem ou não  possuir regras de negócio.
+
+Ítens importantes sobre services:
+<ul>
+	<li>1) The operation relates to a domain concept that is not a natural part of an ENTITY or VALUE OBJECT
+</li>
+	<li>2) The interface is defined in terms of other elements of the domain model.</li>
+
+	<li>3) The operatio is stateless</li>
+	
+</ul>
+
+
+Conversando com <a href="http://blog.caelum.com.br/">Sergio Lopes</a> e <a href="http://www.davidpaniz.com">David Paniz</a>, ambos da Caelum, concluí que é difícil distinguir um aplication Service de um domain Service.
+
+Procurando mais sobre o assunto no livro do Evans conclui-se basicamente o seguinte, como exemplo:
+
+Se uma aplicação bancária deve exportar transações bancárias para um planilha,  a característica é mais próxima de um aplication Service.
+Porém, uma feature que transfere valores entre contas deve estar na domain Service, pois possui regras de negócio.
+
+<strong>Modules</strong>
+
+
+<blockquote>"The MODULES in the domain layer should emerge as a meaningful part of the model, telling history of the domain on a larger scale."
+</blockquote>
+
+
+
+
+<blockquote>"It isn't just code being divided into MODULES, but concepts."</blockquote>
+
+
+
+
+
+<blockquote>"Low Coupling between MODULES minimizes the costs."
+</blockquote>
+
+
+Modulos são formas deorganizar conceitos, e devem ser sempre revistos.
+Refatorar modulos da mais trabalho e pode ser mais complicado do que refatorar classes, portanto não pode ser tão frequente. 
+
+Quando você coloca classes juntas em Modulos, você está dizendo aos próximos programadores para olharem para aquelas classes de forma única. É como se seus modelos estivessem contando histórias e seus Modulos são os capítulos.
+
+
+
+<blockquote>"Unless there is a real intention to distribute code on different servers, keep all the code that implements a single conceptual object in the same MODULE, if not the same object."
+</blockquote>
+
+
+No próximo capítulo, o ciclo de vida de um objeto de domínio...

@@ -1,0 +1,98 @@
+--- 
+layout: post
+title: "Javascript, Prototype e Orienta\xC3\xA7\xC3\xA3o a Objetos"
+tags: 
+- funcional
+- javascript
+- oo
+- prototype
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+---
+Durante o desenvolvimento de um software usando Ruby e Rails muitas vezes batemos na questão do javascript, seja pelas vantagens do Rails ou seja pela forma de programar em ruby (e sim , Ruby E Rails pois por mais que o framework Rails esteja muito falado hoje, a linguagem Ruby em sim é extremamente necessária pra desenvolver bons projetos com Ruby ON Rails).
+
+A todo momento em RoR também caimos num novo paradigma, numa nova forma de pensar para
+as coisas que já estamos acostumados, muito disso vindo das idéias de linguagens funcionais (como Erlang) exemplo disso o foreach do ruby.
+
+E ao falar de javascript muita gente pensa apenas em validações de formulários ou efeitos legais fantasiando seu código HTML, porém o poder do javascript vai muito além disso, pois a linguagem é orientada a objetos. Você pode criar classes, você pode usar polimorfismo, herança, etc.
+
+O código html abaixo é uma calculadora "super potente :)" que faz as 4 operações matemáticas básicas.
+<img src="http://andersonleiteblog.files.wordpress.com/2009/02/calc.jpg" alt="calc" title="calc" width="150" height="92" class="aligncenter size-full wp-image-25" />
+
+
+	//input type="text" id="a" size="2"
+	//input type="text" id="b" size="2"
+	=
+	//input type="text" id="c" size="2"
+
+
+	//input type="button" onclick="executa('Soma')" 			value="+" 
+       //input type="button" onclick="executa('Subtracao')" 	value="-" 
+	//input type="button" onclick="executa('Multiplicacao')" value="*" 
+	//input type="button" onclick="executa('Divisao')" 		value="/" 
+
+Mas o código abaixo não faz nada e é claro que poderíamos encher de functions porém o objetivo agora é fazer isso de forma orientada a objetos, e ai que vamos usa o <a href="http://www.prototypejs.org/">Prototype</a>, um framework javascript
+que facilita muito esse nosso trabalho. As idéias do Prototype são tão parecidas com as do Ruby que na documentação do Prototype se encontram várias vezes referências ao Ruby.
+
+Perceba que todas as functions chamam o mesmo método =&gt; executa(), sendo a única diferença o parâmetro passado. Como agora executar a operação desejada ? Fácil não ? Só colocar um "if":
+
+<code>
+function executa(obj){
+	if(obj=='soma'){
+		//pega valor de a 
+		//pega valor de b
+		//soma
+	}else if(obj=='subtracao'){
+		//pega valor de a 
+		//pega valor de b
+		//subtrai
+	}else if(obj=='multiplicacao'){
+		//...
+	}else if(obj=='divisao'){
+		//..
+	}				
+	$('c').value = valor
+};
+</code>
+
+Olha que sujeira...como melhorar? Primeira coisa, algo se repete, vamos criar uma classe apenas para recuperar os valores do form:
+
+<code>
+var Operacao = Class.create({
+	initialize: function(){
+		this.a = parseFloat($('a').value);
+		this.b = parseFloat($('b').value);
+	}
+});
+</code>
+
+Esse código cria um objeto baseado em um protótipo, e agora permite ser extendida por outros protótipos:
+<code>
+var Soma =  Class.create(Operacao, {
+	executa: function(){
+		return this.a+this.b;
+	}
+});</code>
+
+<code>var Subtracao =  Class.create(Operacao, {
+	executa: function(){
+		return this.a-this.b;
+	}
+});</code>
+
+
+Os objetos Soma e Subtração extendem de Operação permitindo que o objeto seja construído da mesma forma, ou seja, pelo <b>initialize</b>, apenas precisamos definir a function executa, que deve saber, subtrair, somar, etc.
+
+Ok..mas ..e como eu crio esse objeto se a única informação que tenho é o parametro em String passado ao executa() ?
+
+Criando o objeto em tempo de execução apartir dessa string, utilizando para isso a function eval():
+
+<code>function executa(obj){
+	$('c').value = eval('new ' + obj + '()').executa()
+};</code>
+
+
+Nossa calculadora agora faz as quatro operações básicas de forma polimófica. É claro que o exemplo é simples mas o código poderia seguir para coisas bem mais complexas. O que importa como sempre é conhecer a orientação  a objetos, pois seja qual for a linguagem que você utilizar no seu projeto as idêias continuam sendo aplicáveis, e dessa forma você consegue utilizar a ferramenta certa para o problema que estiver passando, escrevendo código mais fácil de ser mantido. Mais pra frente quem sabe um post sobre testes automatizados em javascript.

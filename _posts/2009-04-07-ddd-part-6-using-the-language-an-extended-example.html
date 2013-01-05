@@ -1,0 +1,89 @@
+--- 
+layout: post
+title: "DDD - Part 6 - Using the Language: An Extended Example"
+tags: 
+- ddd
+- oo
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+---
+Os últimos assuntos mostraram os patterns e a linguagem utilizados para modelar e manter um software seguindo MODEL-DRIVEN-DESIGN.
+
+Para exemplificar, um sistema de entregas é modelado, seguindo 3 funções básicas:
+<ul>
+	<li>1. Track key handling of customer cargo</li>
+
+	<li>2. Book cargo in advance</li>
+
+	<li>3. Send invoices to customers automatically when the cargo reaches some point in its handling</li>
+
+</ul>
+
+As principais necessidades captadas do domínio são:
+
+
+<blockquote>"Multiple <b>Customers</b> are involved with a <b>Cargo</b>, each playing a different role"</blockquote>
+
+
+
+
+<blockquote>"The <b>Cargo</b> delivery <i>goal</i> is <i>specified</i>"
+</blockquote>
+
+
+
+<blockquote>"A serie of <b>Carrier Movements</b> satisfying the <b>Specifications</b> will fulfill the delivery <i>goal</i>"
+</blockquote>
+
+
+<b>Isolando o domínio</b>
+
+Como visto antes, DDD aplica LAYERED ARCHITECTURE, e para o sistema em questão, divide em 3 classes:
+
+<ul>
+	<li>1. A <b>Tracking Query</b> that can access past and present handling of particular <b>Cargo</b></li>
+
+	<li>2. A <b>Booking Application</b> that allows a new <b>Cargo</b> to be registered and prepares the system
+for it
+</li>
+	<li>3. An <b>Incident Logging Application</b> that can record each handling of the <b>Cargo</b>
+</li>
+</ul>
+
+
+A partir disso, pode-se iniciar a distinção entre Entitys e Value Objects
+<strong>Entity =&gt;</strong> Customer, Cargo, Handling Event, Carrier Movement, Location, Delivery History
+<strong>Value Object =&gt;</strong> Delivery Specification, Roles
+
+Uma profunda análises dos relacionamentos começa a partir de então, eliminando referencias circulares  do modelo, substituindo query's por listas, encontrando Aggregates, etc. Além disso, são definidos os  repositórios <i>Customer repository, Location Repository e Carrier Movement Repository</i>. 3 Factories são sugeridas, todas visando o mesmo resultado:
+
+
+
+<blockquote>"A <b>Cargo</b> with an empty <b>Delivery History</b>, and a null <b>Delivery Specification</b>."</blockquote>
+
+
+
+Uma pausa pra Refactoring acontece também:
+
+
+
+<blockquote>"Modeling and design is not a constant forward process."</blockquote>
+
+
+
+
+<blockquote>"Replacing the <b>Delivery History's</b> collection of <b>Handling Events</b> with a query would allow 
+<b>Handling Events</b> to be added without raising any integrity issues outside its own AGGREGATE."
+</blockquote>
+
+
+
+Nesse momento, o diagrama de classes corresponde a:
+<a href="http://andersonleiteblog.files.wordpress.com/2009/04/cimg00011.jpg"><img src="http://andersonleiteblog.files.wordpress.com/2009/04/cimg00011.jpg?w=300" alt="cimg00011" title="cimg00011" width="300" height="225" class="aligncenter size-medium wp-image-64" /></a>
+O capítulo fecha com a adição de uma nova feature, mostrando como fazer as relações com partes não esperadas e até mesmo não escritas da aplicação, linkando o modelo construído com a nova necessidade.
+
+Aqui acaba a parte II do livro (de um total de IV). <strong>Próximo</strong>: Refactoring Toward Deeper Insight
+

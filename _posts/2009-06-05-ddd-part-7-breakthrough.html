@@ -1,0 +1,46 @@
+--- 
+layout: post
+title: DDD - Part 7 - Breakthrough
+tags: 
+- ddd
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+---
+(Aqui inicia-se a Part III - Refactoring Toward Deeper Insight)
+
+Os capítulos passados trataram assuntos relacionados a modelo e implementação.
+A partir de agora, Eric Evans mostra refatorações. Porém as refatorações aqui não são de código e sim de modelagem.
+
+<blockquote>The refactorings that have the greatest impact on the viability of the system are those moivated by new insights through the code. This type of refactorings does not in any way replace the refactorings
+to design-patters or the micro-refactorings, which should proceed continously.</blockquote>
+
+Basicamente, a refatoração sugerida por Evans não elimina a refatoração sugerida por Martin Fowler no livro Refactorig: Improving the design of existing code, e sim são complementares.
+
+Evans cita tres pontos de sucesso para designs de sucesso:
+
+<ul>
+	<li>Sophisticated domain models are achievable and worth the trouble.</li>
+	<li>They are seldon developed except through an iterative process of refactoring, including close involvement of the domain experts with developers interested in learning about the domain.
+</li>
+	<li>They may call for sophisticated design skills to implement and to use effectively.</li>
+</ul>
+
+Como primeiro exemplo, é citado as modelagens iniciais feitas em qualquer sofware, onde os objetos são muito óbvious. No caso, Evans cita um software gerenciador de containers navais. Os objetos obvious criados inicialmente são o navio, e o cantainer. Pórem...
+
+<blockquote>A deep model provides a lucid expression of the primary concerns of the domain experts and their most relevant knowledge while it sloughs off the superficial aspects of the domain.
+</blockquote>
+
+O dominio gerado com objetos obvious gera uma distância do real problema a ser enfrentado pelo software, nesse caso, a troca dos objetos obvious como "navios" e "containers" por objetos "viagens" aproximou a modelagem do domínio ao real problema.
+
+<strong>
+Breakthrough!</strong>
+<blockquote>The returns from refactoring are not linear...Sloly but surely, the team assimilates knowledge and crunches it into a model.
+</blockquote>
+
+A grande lição desse capítulo está no refactor que surge do aprimoramento dos programadores em relação ao problema real a ser desenvolvido pelo software, ou seja, quando o domínio fica tão claro que pede por mudanças.
+
+<blockquote>The transition to a deep model is a profound shift in your thinking and demands a major change to the design. On many projects the most important progress in model and design come in these <strong>breakthroughs</strong>.</blockquote>
+

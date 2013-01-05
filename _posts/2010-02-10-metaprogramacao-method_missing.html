@@ -1,0 +1,48 @@
+--- 
+layout: post
+title: "#3 Metaprograma\xC3\xA7\xC3\xA3o: method_missing()"
+tags: 
+- "metaprograma\xC3\xA7\xC3\xA3o"
+- oo
+- ruby
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+---
+No último post vimos como aplicar metaprogramação para melhorar
+a classe Computador, utilizando <strong>Dynamic Methods</strong> e <strong>Dynamic Dispatch</strong>.
+
+Porém essa não é a única forma. Você já conhece o <a href="http://andersonleiteblog.wordpress.com/2010/02/09/metaprogramacao-ruby-object-model/">modelo de objetos Ruby</a> e a técnica "<strong>one step right, then up</strong>", que consiste em primeiro procurar um método na <strong>classe do objeto</strong> <strong>receiver</strong> e depois subir em suas <strong>superclasses</strong>.
+    
+Quando o Ruby não encontra o método invocado nesse caminho, é disparado <strong>NoMethodError</strong>:    
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-13.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-13.png" alt="" title="Picture 1" width="474" height="164" class="aligncenter size-full wp-image-518" /></a>
+
+Quando o método <b>format</b> é chamado, Ruby verifica a classe <strong>Computador</strong> e procura pelos <b>métodos de instância</b>. Se ele não encontrar lá, ele começa a procurar nas superclasses até chegar em <b>Object</b> e <b>Object</b> inclui um método chamado <b>method_missig()</b>.
+
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-23.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-23.png" alt="" title="Picture 2" width="478" height="80" class="aligncenter size-full wp-image-519" /></a>
+<blockquote>Ghost Methods: Sobrescrevendo o method_missing() </blockquote>
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/lego-ghost.jpg"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/lego-ghost.jpg" alt="" title="lego-ghost" width="224" height="300" class="aligncenter size-full wp-image-513" /></a>
+
+Toda mensagem direcionada ao <b>method_missing</b> inclui o nome
+do método chamado mais todos os argumentos ou blocos associados.
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-32.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-32.png" alt="" title="Picture 3" width="480" height="259" class="aligncenter size-full wp-image-520" /></a>
+
+Obs: <b>method_missing</b> é muito usado em Ruby, bons exemplos
+podem ser encontrados no Ruport, OpenStruct e no próprio Rails.
+
+<blockquote>Refatorando</blockquote>
+
+Vamos utilizar o <b>method_missig</b> para refatorar nossa classe <b>Computador</b>.
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-42.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-42.png" alt="" title="Picture 4" width="479" height="288" class="aligncenter size-full wp-image-521" /></a>
+                    
+O que acontece quando um método como <b>cpu</b> é chamado ? A chamada chega no <b>method_missig</b>, que verifica se a classe possui um método chamado <b>get_cpu_info()</b>. Caso não exista, a chamada cai no method_missing do Kernel, que foi sobrescrito! Agora com apenas um método nossa classe resolve todos os casos que precisamos!
+
+<strong>Continua</strong>
+Próximo post - <a href="http://andersonleiteblog.wordpress.com/2010/02/12/metaprogramacao-blocos/">Blocos</a> 
+

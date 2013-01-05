@@ -1,0 +1,70 @@
+--- 
+layout: post
+title: "#2 Metaprograma\xC3\xA7\xC3\xA3o: Definindo m\xC3\xA9todos"
+tags: 
+- "metaprograma\xC3\xA7\xC3\xA3o"
+- oo
+- ruby
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+---
+Ruby não tem um compilador para analisar as chamadas aos métodos. 
+Compiladores podem verificar por erros antes do código rodar, porém 
+essa proteção tem um<strong> custo alto</strong>, onde linguagens estáticas forçam o programador a escrever códigos repetitivos, como os os getters e setters do Java.                               
+                                                  
+Vamos analizar um problema e refatorá-lo usando um pouco de <strong>metaprogramação</strong>.
+
+Temos um banco de dados com objetos referentes a um <strong>Computador</strong>, como mouse, teclado e cpu. Um código legado busca informações sobre determinado <strong>Computador</strong> através de uma classe chamada <strong>BancoDeDados</strong>:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-12.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-12.png" alt="" title="Picture 1" width="475" height="189" class="aligncenter size-full wp-image-497" /></a>
+                    
+Argh..! Pra cada informação um método diferente. Muita repetição.
+Vamos melhorar esse código.
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/arte-con-lego-286x300.jpg"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/arte-con-lego-286x300.jpg" alt="" title="arte-con-lego-286x300" width="286" height="300" class="aligncenter size-full wp-image-505" /></a>
+
+<blockquote>Metaprogramação</blockquote>
+
+Uma primeira idéia seria criar uma classe chamada <strong>Computador</strong>,  que poderia receber os dados do banco e o id do computador procurado. Além disso poderia ser melhorada a questão dos métodos. Poderíamos ter métodos mais interessantes e expressivos, como mouse e cpu, retornando a informação.
+
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-22.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-22.png" alt="" title="Picture 2" width="480" height="344" class="aligncenter size-full wp-image-498" /></a>
+É bem mais interessante trabalhar com a classe <strong>Computador</strong>. Porém..da-lhe repetição novamente. Pra criar informações de teclado seria um método praticamente copiado dos anteriores.
+
+<blockquote>Dynamic Methods</blockquote>
+
+Invocar um método significa enviar uma mensagem a um objeto. Isso pode ser feito da maneira tradicional, ou seja, "objeto ponto método", ou através do método <b>send</b>.
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-31.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-31.png" alt="" title="Picture 3" width="470" height="255" class="aligncenter size-full wp-image-499" /></a>
+
+O primeiro argumento do método <b>send</b> é o nome do método a ser invocado.
+
+E por que você usaria essa notação ? Qual a vantagem em chamar um método através do <b>send</b> ?
+
+Esse é um dos pontos mais interessantes da linguagem, pois com o método <b>send</b> os nomes dos métodos não são nada mais que argumentos. <strong>Strings!</strong>. Ou seja, você pode decidir a qualquer momento qual método vai chamar. Essa técnica é conhecida como <b>Dynamic Dispatch</b>.
+
+Você pode ainda definir um método dinamicamente com o método <b>define_method</b>.
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-41.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-41.png" alt="" title="Picture 4" width="456" height="179" class="aligncenter size-full wp-image-500" /></a>
+
+<blockquote>Refatorando</blockquote>
+
+Ok. E onde usar isso tudo ?
+
+Refatorando a classe <strong>Computador</strong> para invocar métodos através do método <b>send</b> conseguimos retirar muita duplicação:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-51.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-51.png" alt="" title="Picture 5" width="480" height="404" class="aligncenter size-full wp-image-501" /></a>
+
+Agora uma chamada ao método <b>cpu</b> delega para <b>componente</b> que utiliza o parametro string para invocar o método! 
+<strong>Muito melhor</strong>. Mas... ainda existe duplicação, cada componente tem um método de delegação, por que não utilizar o <b>define_method</b> visto anteriormente ?
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-61.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-61.png" alt="" title="Picture 6" width="480" height="307" class="aligncenter size-full wp-image-502" /></a>
+
+Ha! Tomara que nesse momento você esteja lembrando de uma série de métodos encontrados em gems ou mesmo no Rails... :D 
+(Você ainda pode retirar essa última duplicação na definição dos componentes, pense um pouco)
+
+<strong>Continua</strong>
+Próximo post - <a href="http://andersonleiteblog.wordpress.com/2010/02/10/metaprogramacao-method_missing/">method_missing()</a>

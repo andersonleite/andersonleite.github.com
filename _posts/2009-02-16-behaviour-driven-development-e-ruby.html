@@ -1,0 +1,127 @@
+--- 
+layout: post
+title: Behaviour Driven Development e Ruby
+tags: 
+- bdd
+- cucumber
+- rspecs
+- ruby
+- tdd
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+  _oembed_79238a20d727d1d1feb289fe352b106b: "{{unknown}}"
+  _oembed_7473c50062e38c988b19166f72a2a16d: "{{unknown}}"
+  _oembed_319eefe2ca1f0bf834f9b3ec81a749ea: "{{unknown}}"
+  _oembed_8779e2cffcd52957f8f38d894848465f: "{{unknown}}"
+  _oembed_9b0c8ac80773c0035b5f947eeae8a773: "{{unknown}}"
+  _oembed_db8763e17ce0d65a0e264d03cfc91414: "{{unknown}}"
+  _oembed_78dfea15bd71c01517cee0a9b506b041: "{{unknown}}"
+  _oembed_b230d9300d866cd55bca26a366a9dc7f: "{{unknown}}"
+  _oembed_cf00bae53d5ce07cdb9cb982f45f057e: "{{unknown}}"
+  _oembed_a6642335b34584160ff1074b9651590c: "{{unknown}}"
+  _oembed_2f83cf8e6b05c3d66d8576aaa78491e7: "{{unknown}}"
+  _oembed_969a2934bb230736cf09e17f376dae4e: "{{unknown}}"
+  _oembed_c7af8740cac7f1c77388fcd86b05b4ea: "{{unknown}}"
+  _oembed_cdc81cda0fd1f45439a06b5cf1badd54: "{{unknown}}"
+  _oembed_faf05d89a555bbb2bd33ef171db0cbf5: "{{unknown}}"
+  _oembed_eff4a997765545bb1efac39b649f0457: "{{unknown}}"
+  _oembed_b1ffbda4d2e639d187d5dbf72da52984: "{{unknown}}"
+  _oembed_e3ad27da41afed055f5df3923770e0ae: "{{unknown}}"
+  _oembed_c10a87e04986217a0f8207a453c78320: "{{unknown}}"
+  _oembed_76200d37e88c9378e4ef3ee1a7b87fdc: "{{unknown}}"
+  _oembed_790022bfc1cdffd5b03bcd45ed6fe237: "{{unknown}}"
+  _oembed_bcf5ad47e3017a8bb953d56d18648155: "{{unknown}}"
+  _oembed_a0016d91811bdd0bf2c58812dc2cad19: "{{unknown}}"
+  _oembed_a85f511f5edc813fd2fffc30cd22ee4e: "{{unknown}}"
+---
+	No último Caelum Dojo a linguagem de programação usada foi Ruby. Para os testes
+	<strong>RSpecs</strong> e <strong>Cucumber</strong> foram utilizados, sempre TDD/BDD.
+	
+	Pra iniciar o projeto foi usado New Gem Generator =&gt; newgem
+	
+	pra instalar basta rodar
+<code>	$ sudo gem install newgem</code>
+	
+	E criar o projeto com RSpecs:
+	<code>$ newgem projeto -T rspec</code>
+	
+	Um exemplo de teste com RSpecs, o mesmo do site. Primeiro crie a classe que diz o que
+	seu código deve fazer:
+	
+	# bowling_spec.rb
+<code>	require 'bowling'
+	describe Bowling do
+	  before(:each) do
+	    @bowling = Bowling.new
+	  end
+	  it "should score 0 for gutter game" do
+	    20.times { @bowling.hit(0) }
+	    @bowling.score.should == 0
+	  end
+	end
+</code>
+	
+	Agora você pode rodar o teste com 
+<code>	$spec bowling_spec.rb </code>
+	ou utilizando a opção AUTOSPEC=TRUE do RSpecs. 
+	
+	Como ainda não temos o código o rspec te devolve um erro uninitialized constant Bowling.
+	Vamos criar então a classe Bowling
+	
+<code>	# bowling.rb
+	class Bowling
+	  def hit(pins)
+	  end
+	  def score
+	    0
+	  end
+	end
+</code>
+	
+	Agora podemos rodar o teste de novo com:
+<code>	$ spec bowling_spec.rb --format specdoc</code>
+
+	Bowling
+	- should score 0 for gutter game
+
+	Finished in 0.007534 seconds
+
+	1 example, 0 failures
+	
+	<strong>Cucumber</strong>
+	<a href="http://cukes.info/">Cucumber</a>, outro framework de testes utilizados, permite que você escreva
+	seus testes de forma muito mais próxima da ubiquitous language do Domain-Driven-Design. 
+	Cucumber foca os testes em Behaviour Driven Development, pode ser integrado a testes com Selenium 
+	e exige um pouco de conhecimento de regexp (da pra usar sem, mas com um pouco de duplicação de código).
+	
+	Alguns exemplos retirados também do próprio site do Cucumber, primeiro um "step":
+<code>	Feature: Addition
+		In order to avoid silly mistakes
+		As a math idiot
+		I want to be told the sum of two numbers
+</code>
+
+<code>		Scenario: Add two numbers
+		  Given I have entered 50 into the calculator
+		  And I have entered 70 into the calculator
+		  When I press add
+		  Then the result should be 120 on the screen
+</code>		
+	
+seguido de uma "feature":
+<code>	Given /I have entered (.*) into the calculator/ do |n|
+	  calculator = Calculator.new
+	  calculator.push(n.to_i)
+	end
+</code>
+	
+	Existe um bundle para textmate no github:
+	http://github.com/bmabey/cucumber-tmbundle/tree/master
+	
+	Pra finalizar, está pra sair um livro apenas voltado a testes com RSpecs, Cucumber e outros framewors:
+	http://www.pragprog.com/titles/achbd/the-rspec-book
+		
+	
