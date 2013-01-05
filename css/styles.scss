@@ -1,10 +1,15 @@
+@import "compass";
+// @import "compass/reset";
+// @import "../../images/posts/*.jpg";
+// @include all-my-icons-sprites;
+
 body {
 
   background: #b7b7b7;
   color: #ffffff;
   
   a {
-    color: #ccc;
+    color: #ffffff;
     text-decoration: none;
   }
   
