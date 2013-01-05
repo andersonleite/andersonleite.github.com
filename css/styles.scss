@@ -1,7 +1,5 @@
 @import "compass";
-// @import "compass/reset";
-// @import "../../images/posts/*.jpg";
-// @include all-my-icons-sprites;
+$icons: sprite-map("posts/*.png");
 
 body {
 
@@ -15,4 +13,15 @@ body {
   
 }
 
+i{
+	background: $icons;
+	display: inline-block;
+}
+
+@each $i in sprite_names($icons){
+	.icn-#{$i}{
+		background-position: sprite-position($icons, $i);
+		@include sprite-dimensions($icons, $i);		
+	}
+}
 
