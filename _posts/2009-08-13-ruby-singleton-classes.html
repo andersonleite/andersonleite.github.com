@@ -1,0 +1,58 @@
+--- 
+layout: post
+title: ruby singleton classes
+tags: 
+- oo
+- rails
+- ruby
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+---
+Muita gente que estuda ruby on rails acaba achando estranho a notação <strong>class &lt;&lt; object</strong>, que aparece em alguns lugares da api.
+
+Essa notação define as chamadas <strong>singleton classes</strong> em ruby. Por exemplo, uma classe normal em ruby poderia ser:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2009/08/picture-11.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/08/picture-11.png" alt="Picture 1" title="Picture 1" width="161" height="107" class="aligncenter size-full wp-image-142" /></a>
+
+Podemos instancia e invocar o método normalmente:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2009/08/picture-21.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/08/picture-21.png" alt="Picture 2" title="Picture 2" width="225" height="51" class="aligncenter size-full wp-image-143" /></a>
+
+Entretanto, também é possível definir métodos apenas para esse objeto "p", pois tudo em ruby, até mesmo
+as classes, são objetos, fazendo :
+
+<a href="http://andersonleiteblog.files.wordpress.com/2009/08/picture-3.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/08/picture-3.png" alt="Picture 3" title="Picture 3" width="164" height="96" class="aligncenter size-full wp-image-144" /></a>
+
+O método "anda" é chamado de <b>singleton method</b> do objeto "p".
+
+<blockquote>E onde estão os singleton methods ?</blockquote>
+
+Um singleton method "vive" em uma <b>singleton class</b>. Todo objeto em ruby possui 2 classes:
+
+<ul>
+	<li>a classe a qual foi instanciado</li>
+	<li>sua singleton class</li>
+</ul>
+
+A singleton class é exclusiva para guardar os metodos desse objeto, sem compartilhar com outras instâncias da mesma classe.
+
+<blockquote>E como defino uma singleton class ?</blockquote>
+
+Existe uma notação especial para definir uma singleton class:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2009/08/picture-4.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/08/picture-4.png" alt="Picture 4" title="Picture 4" width="161" height="120" class="aligncenter size-full wp-image-145" /></a>
+
+Definindo o código dessa forma temos o mesmo que no exemplo anterior, porém definindo o método anda explicitamente na singleton class.
+É possível ainda definir tudo na mesma classe:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2009/08/picture-5.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/08/picture-5.png" alt="Picture 5" title="Picture 5" width="161" height="140" class="aligncenter size-full wp-image-146" /></a>
+
+Mais uma vez o método foi definido apenas para um obejto, no caso , o objeto "Pessoa", podendo ser executado com:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2009/08/picture-6.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/08/picture-6.png" alt="Picture 6" title="Picture 6" width="130" height="34" class="aligncenter size-full wp-image-147" /></a>
+
+<a href="http://andersonleiteblog.wordpress.com/2009/11/04/onde-posso-usar-singleton-classes/">Clique aqui para ir a um post mais avançado sobre singleton classes.
+</a>

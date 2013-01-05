@@ -1,0 +1,77 @@
+--- 
+layout: post
+title: Mais sobre Restfulie
+tags: 
+- rails
+- ruby
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+---
+As vezes para executar uma operação precisamos analizar diversos estados de um recurso,  fazer diversas requisições, analizar parametros, etc. Tudo isso por nao termos a real informação do que é possivel fazer com aquele recurso no estado atual em que ele se encontra.
+
+Se ao pedir por um recurso que se encontra em qualquer servidor web, o xml retornado  fosse um pouco mais dinâmico, inteligente suficiente para fornecer não todas as  possibilidades de operações que aquele recurso possui em diversos estados, mas sim aquelas possíveis no estado atual do objeto, então diversas requisições ou análises seriam poupadas, permitindo com certeza execurtar as operações que naquele momento realmente importam.
+
+<blockquote>server-side</blockquote>
+
+O servidor aqui é responsável por disponibilizar um xml do recurso solicitado, (o que o cliente vai fazer com essas informações veremos adiante).  O rails já automaticamente consegue renderizar os dados básicos do objetos solicitado, teriamos normalmente alogo do tipo:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2009/11/picture-17.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/11/picture-17.png" alt="" title="Picture 1" width="409" height="119" class="aligncenter size-full wp-image-410" /></a>
+
+Mas queremos disponibilizar aqui um pouco mais de informações. Um pedido pode ter sido pago ou não. Isso caracteriza o estado dessa informação, que muda totalmente o que podemos fazer com esse recurso.
+
+Se o pedido já foi pago, podemos por exemplo liberar a funcionalidade de envia-lo para os correios, enquanto se ele não foi pago ainda não podemos liberar essa funcionalidade.
+
+Isso é uma máquina de estados, determindos estados podem ser atingidos dependendo do estado  atual do recurso.
+
+Supondo que nosso pedido já foi pago e que é possível chamar a ação de despachar para os correios seria ideal que o xml retornado tivesse um pouco mais de informações, como por exemplo:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2009/11/picture-25.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/11/picture-25.png" alt="" title="Picture 2" width="480" height="119" class="aligncenter size-full wp-image-411" /></a>
+
+Ou seja, o cliente tem no xml recebido todas as informações necessarias sobre o que  pode fazer com aquele recurso naquele momento, evitando por exemplo requisições desnecessárias ao servidor ou mesmo chamadas erradas de metodos.
+
+<blockquote>E como defino esses estados ?</blockquote>
+
+Obviamente o Rails não gera essa informação a mais que queremos no xml e é ai que entra o <a href="http://github.com/caelum/restfulie">Restfulie</a>. O <strong>Restfulie</strong> sobrescreve a geracao do xml padrão do Rails, adicionando informações em tempo real sobre o estado do objeto solicitado.
+
+<blockquote>Tutorial</blockquote>
+
+Vamos criar nossa aplicacao para fazer o teste:
+<strong>rails restfulie_server</strong>
+
+Abra o arquivo config/environment.rb e adicione:
+<a href="http://andersonleiteblog.files.wordpress.com/2009/11/picture-35.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/11/picture-35.png" alt="" title="Picture 3" width="456" height="48" class="aligncenter size-full wp-image-414" /></a>
+
+Atualize fazendo:
+<strong>rake gems:install</strong>
+
+Já temos uma aplicação base com a gem do <strong>Restfulie</strong> instalada. Precisamos do recurso "Pedido" para fazer os testes. Vamos criá-lo com scaffold para facilitar o exemplo:
+
+<strong>script/generate scaffold pedido preco:float descricao:string status:string</strong>
+
+<blockquote>Status ? </blockquote>
+
+Esse é um campo obrigatório no <strong>Restfulie</strong> atualmente. Para definir o que seu recurso pode liberar em tempo real, ele precisa ter um <em>status</em>. Por exemplo, para liberar o "despachar" do nosso pedido o status dele deve ser "pago".
+O status de pago poderia ainda lberar outras acoes em cima do recurso, como baixar o estoque
+por exemplo, tudo dependendo da sua regra de negócio.
+
+<blockquote>Definindo o estado</blockquote>
+
+O <strong>Restfulie</strong> vai procurar pelo método "<strong>following_transitions</strong>" para saber o que colocar no xml em tempo real. Abra o arquivo <strong>models/pedido.rb</strong> e adicione:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2009/11/picture-43.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/11/picture-43.png" alt="" title="Picture 4" width="480" height="208" class="aligncenter size-full wp-image-416" /></a>
+
+Pronto! É disso que precisamos para em tempo real saber quando é possível despachar ou não nosso pedido, a url <strong>http://servidor/pedido/1</strong> deve agora mostrar o seguinte resultado:
+
+	<a href="http://andersonleiteblog.files.wordpress.com/2009/11/picture-53.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/11/picture-53.png" alt="" title="Picture 5" width="480" height="129" class="aligncenter size-full wp-image-417" /></a>
+
+Podemos executar no cliente a chamada a esse recurso. O <strong>Restfulie</strong> devolverá um objeto serializado contendo os métodos possíveis para aquele estado:
+
+<a href="http://andersonleiteblog.files.wordpress.com/2009/11/picture-63.png"><img src="http://andersonleiteblog.files.wordpress.com/2009/11/picture-63.png" alt="" title="Picture 6" width="480" height="49" class="aligncenter size-full wp-image-418" /></a>
+
+Ao chamar "<strong>p.despachar</strong>" a action despachar do PedidosController será executada.
+
+<blockquote>Mais utilizações</blockquote>
+Informação certa no momento certo, o recurso disponibiliza seu estado verdadeiro atraves do <strong>Restfulie</strong>. É possivel fazer uma série de configurações ainda no <strong>Restfulie</strong>para deixar sua maquina de estados corretamente implementada, configurar actions que não são padrão, etc. Além disso a parte do <em>client</em> também é facilitada com o <strong>Restfulie</strong>, mas isso fica para um próximo post.

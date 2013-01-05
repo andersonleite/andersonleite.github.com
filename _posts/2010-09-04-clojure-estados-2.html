@@ -1,0 +1,94 @@
+--- 
+layout: post
+title: "Clojure:\xC2\xA0Estados\xC2\xA0#2"
+tags: 
+- clojure
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "597486"
+  jabber_published: "1283624199"
+  _wp_old_slug: ""
+---
+A <a href="http://andersonleiteblog.wordpress.com/2010/08/26/clojure-hello-world-e-funcoes-1/">função hello criada anteriormente</a> é <strong>pura</strong>. Isto significa que ela não tem nenhum efeito colateral. Esse tipo de função é relativamente fácil de escrever, testar e entender além de ser
+recomendada pra diversas necessidades.
+ 
+Porém muitos programas possuem <strong>estado compartilhado</strong> e precisam de funções não puras como essa para manter esse estado compartilhado.
+
+<blockquote>Melhorando a função hello</blockquote>
+
+Nossa função agora manterá um registro de todas as chamadas que forem feitas a ela. Para isso, usaremos um "<strong>set</strong>" do <strong>Clojure</strong>.
+
+<code>#{} 
+⇒ 
+#{} 
+</code>
+
+Como adicionar elementos nesse <strong>set</strong> ? Para isso utilizaremos um "<strong>conj</strong>".
+<strong>Conj</strong> é a significa conjoin de forma simplificada e ele cria novas coleções com os ítens adicionados.
+Podemos então usar o <strong>conj</strong> com um elemento em um <strong>set</strong>.
+
+<code>
+(conj #{} "Anderson") 
+⇒ 
+#{"Anderson"} 
+
+</code>
+Agora que sabemos como criar "<strong>sets</strong>", precisamos de alguma forma manter os registros das chamadas a nossa função hello.
+Para isso, <strong>Clojure</strong> possui referencias (<strong>refs</strong>) e para nomear uma referência usamos <strong>def</strong>.
+
+<strong>def</strong> é quase igual ao <strong>defn</strong> mas de uma forma mais generalista. Usando <strong>def</strong> podemos definir funções ou dados.
+Usamos <strong>def</strong> para criar referências e associá-las a nossa função:
+
+<code>
+(def visitors (ref #{})) 
+⇒ 
+#'user/visitors 
+</code>
+
+
+
+<blockquote>E onde está esse controle de estados tão forte em Closure ?</blockquote>
+
+<a href="http://andersonleiteblog.files.wordpress.com/2010/09/sharing-300x273.gif"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/sharing-300x273.gif" alt="" title="sharing-300x273" width="300" height="273" class="alignnone size-full wp-image-631" /></a>
+
+O que acontece se tentarmos <strong>alterar</strong> essa referência que criamos ? 
+Vamos tentar fazer isso usando "<strong>alter</strong>". Usando "<strong>alter</strong>" podemos tentar alterar nossa referência, inclusive passando argumentos se necessário. Vamos tentar alterar "visitor" para "visitors".
+<code>
+(alter visitors conj "Anderson") 
+⇒ 
+java.lang.IllegalStateException: No transaction running
+</code>
+
+Como vemos acima, <strong>clojure</strong> protege as referências. Podemos alterá-las mas precisamos de "<strong>transactions</strong>", deixando para o <strong>Clojure</strong> o trabalho pesado de lidar com concorrêcia entre múltiplas chamadas a nossa função.
+
+E como crio essa <strong>transaction</strong> ?
+Para criar uma <strong>transaction</strong> usamos <strong>dosync</strong>. 
+
+<code>(dosync (alter visitors conj "Anderson")) 
+⇒ 
+#{"Anderson"} 
+</code>
+Agora podemos buscar a referência com <strong>deref</strong>, veja:
+
+<code>(deref visitors) 
+⇒ 
+#{"Anderson"} 
+@visitors 
+⇒ 
+#{"Anderson"}
+</code>
+
+Agora podemos construir uma função hello muito mais avançada e elaborada:
+ <code>(defn hello 
+    "Returns a hello message, calling you by username. 
+      Knows if you have been here before." 
+	[username] 
+	(dosync 
+		(let [past-visitor (@visitors username)] 
+			(if past-visitor 
+				(str "Welcome back, " username) 
+				(do 
+					(alter visitors conj username) 
+					(str "Hello, " username)))))) </code>

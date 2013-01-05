@@ -1,0 +1,59 @@
+--- 
+layout: post
+title: Testes de controllers com RSpec
+tags: []
+
+status: draft
+type: post
+published: false
+meta: 
+  _edit_last: "597486"
+---
+Muita gente não consegue evoluir muito nos testes do RSpec, principalmente de controller,
+mais pelo fato de não entender o que deve ser testado do que de compreender os métodos da ferramenta.
+
+O RSpec tem métodos bem diretos pra serem utilizados nos testes, mas juntar todos eles em uma boa suite
+pode ser um pouco mais complicado.
+
+Vou tentar criar aqui um caso simples que possa demostrar uma séries dos principais métodos utilizados
+de forma conjunta. Nesse teste pretendo explorar o uso do before, mock_model, stub, and_return, stub_chain,
+should_receive, with, get, assigns, render_template e claro o should.
+
+Mais uma vez, os nomes de cada um são muito alto explicativos, os problema costuma se dar a juntar todos e 
+aplicar a teoria com eles em conjunto.
+
+Action e Controller
+
+Para esse teste, vamos analisar uma action de apenas duas linhas visando facilitar o fluxo.
+Vamos utilizar um model que tenha uma associação. 
+
+def beta_live
+  @participant = Participant.new
+  @participant.competition = Competition.where("name='Beta Live'").first
+end
+
+Dessa forma conseguimos dividir bem as coisas pra passar pelos métodos do RSpec.
+Independente se essa é a melhor forma deescrever, acho que é uma boa forma de entender alguns conceitos.
+
+
+====================================================================================
+
+
+before(:each) do
+  @participant = mock_model(Participant)
+  Participant.stub(:new).and_return(@participant)
+  
+  @competition = mock_model(Competition)
+  Competition.stub_chain(:where, :first).and_return(@competition)
+end
+
+describe "[GET] beta live" do
+  
+  it "should assign competition, deliver new participant and render template" do
+    @participant.should_receive(:competition=).with(@competition)
+    get :beta_live
+    assigns(:participant).should == @participant
+    response.should render_template('beta_live')
+  end
+
+end
