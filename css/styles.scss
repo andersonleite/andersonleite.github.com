@@ -24,7 +24,13 @@ body{
 	    background-repeat: no-repeat;
 	    height: 297px;
 	    width: 	346px; 
+		@include transition-duration(2s);
+  		@include transition-timing-function(ease-in); 	    
 	}
+}
+
+#logo:hover{
+		@include opacity(0.1); 
 }
  
 header{
@@ -77,7 +83,7 @@ header{
 	margin-top: 20px;
 	padding-bottom: 33px;
 	p{
-		left: 24px;
+		left: 45px;
 		position: relative;
 		text-align: left;
 		top: 10px;
@@ -86,7 +92,7 @@ header{
 		font-weight: normal;
 		font-size: 9px;
 		text-align: left;
-		left: 24px;
+		left: 45px;
 		position: relative;
 		top: 20px;
 	}
@@ -111,10 +117,15 @@ header{
 	}
 
 	.article{
-		background: #ffffff ;
 		width: 300px;
 	}
 	
+}
+
+@media only screen and (max-width: 768px) {
+	.article{
+		margin-right: 90px;
+	}
 }
 
 li{
