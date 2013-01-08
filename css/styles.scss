@@ -5,7 +5,7 @@ $icons: sprite-map("posts/*.png");
 
 html{
 	font-size: 16px;
-	font-family: Tahoma, Helvetica, Arial, Sans-Serif;
+	font-family: Helvetica, Arial, Sans-Serif;
 }
 
 body{
@@ -14,11 +14,9 @@ body{
 	a{
 		text-decoration: none;
 		color: #656565;
-		font-size: 12px;
+		font-size: 14px;
 		font-weight: bold;
-		:hover{
-			color: #507346;
-		}
+		
 	}
 	#logo{
 		margin: 0 auto;
@@ -83,6 +81,18 @@ header{
 		position: relative;
 		text-align: left;
 		top: 10px;
+	}
+	aside{
+		font-weight: normal;
+		font-size: 9px;
+		text-align: left;
+		left: 24px;
+		position: relative;
+		top: 20px;
+	}
+	:hover{
+		opacity: 0.9;
+		color: #507346;
 	}
 }
 
