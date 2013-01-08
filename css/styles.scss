@@ -1,7 +1,11 @@
 @import "compass";
 @import "compass/reset";
+@import "susy";
 
-$icons: sprite-map("posts/*.png");
+$total-columns  : 12;             // a 12-column grid
+$column-width   : 4em;            // each column is 4em wide
+$gutter-width   : 1em;            // 1em gutters between columns
+$grid-padding   : $gutter-width;  // grid-padding equal to gutters
 
 html{
   font-size: 16px;
@@ -60,6 +64,7 @@ header{
 .content{
   width: 960px;
   margin: 0 auto;
+  // border: 1px solid red;
   text-align: center;
   margin-top: -30px;
 
@@ -74,12 +79,10 @@ header{
 }
 
 .article{
-  width: 30%;
-  height: 20%;
+  
   float: left;
-  margin-left: 30px;
-  margin-top: 20px;
-  padding-bottom: 33px;
+  
+  
   p{
     padding-top: 15px;
     padding-bottom: 5px;    
@@ -98,6 +101,10 @@ header{
 
 section{
   margin: 0 auto;
+  width: 960px;
+  // border: 1px solid blue;
+  overflow: hidden;
+  position: relative;
 }
 
 @media only screen and (max-width: 600px) {
@@ -152,6 +159,8 @@ footer{
 }
 
 // Sprites
+$icons: sprite-map("posts/*.png");
+
 i{
   background: $icons;
   display: inline-block;
