@@ -4,28 +4,28 @@ layout: default
 
 <div class="content">
 
-	<header>
-		<p>Olá! Meu nome é <span>Anderson Leite</span> e este é meu blog. <br>
-		Sou um desenvolvedor web neque quit quisquam est qui dolorem ipsum quia. <br>
-		Trabalho em uma agência digital chamada <span>R/GA</span> e m est qui dolorem ipsum q ipsum quia.</p>
-	</header>	
+  <header>
+    <p>Olá! Meu nome é <span>Anderson Leite</span> e este é meu blog. <br>
+    Sou um desenvolvedor web neque quit quisquam est qui dolorem ipsum quia. <br>
+    Trabalho em uma agência digital chamada <span>R/GA</span> e m est qui dolorem ipsum q ipsum quia.</p>
+  </header> 
 
-	<div id="shadow"></div>
+  <div id="shadow"></div>
 
-	<div class="section">
-		
-		{% for post in site.posts %}
-			<div class="article">
-				<li>
-					<a href="{{ post.url }}">
-						<i class="icn-{{ post.image }}"></i>	
-						<p>{{ post.title }}</p>
-						<aside>{{ post.date }}</aside>
-					</a>
-				</li>
-			</div>	
-		{% endfor %}
+  <section>
 
-	</div>				
+    <ul>
+    {% for post in site.posts %}
+      <li class="article">
+        <a href="{{ post.url }}">
+          <i class="icn-{{ post.image }}"></i>  
+          <p>{{ post.title }}</p>
+          <aside>{{ post.date | date: "%d %B %Y" }}</aside>
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+
+  </section>        
 
 </div>
