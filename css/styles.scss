@@ -36,6 +36,9 @@ body{
 
   header{
     text-align: center;
+    a{
+      text-decoration: none;
+    }
     h1{
       font-size: 24px;
       font-weight: 900;
@@ -161,8 +164,6 @@ li{
 // || ====== ||
 @include at-breakpoint($medium-columns) {
 
-  $main : 8;
-
   body header{
     p{
       text-align: center;
@@ -174,7 +175,8 @@ li{
   }
 
   ul{
-    width: columns($main);
+    width: 610px;
+    margin: 0 auto;
   }
     
   li{
@@ -248,4 +250,17 @@ li{
     width: columns($main + 1);
   }
 
+}
+
+// || ==== ||
+// || POST ||
+// || ==== ||
+article{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  a{
+    color: #507346;
+    text-decoration: none;
+  }
 }
