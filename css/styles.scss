@@ -17,6 +17,10 @@ body{
     width:  346px; 
   }
 
+  header{
+    color: #656565;
+  }
+
 }
 
 #green_bar{
@@ -46,18 +50,22 @@ i{
 
 ul{
   margin-top: 20px;
+  overflow: hidden;
 }
 
 li{
   margin-bottom: 10px;
   a{
     text-decoration: none;
-    color: #507346;
+    font-size: 13px;
+    font-weight: bold;
+    color: #656565;
   }
   aside{
     color: #656565;
     font-size: 11px;
     line-height: 2;
+    font-weight: lighter;
   }
 
 }
@@ -69,6 +77,10 @@ li{
 @include at-breakpoint($medium-columns) {
 
   $main : 8;
+
+  header{
+    text-align: center;
+  }
 
   .container {
     //background-color: #375d81;
@@ -82,7 +94,7 @@ li{
     width: 273px;
     height: 176px;
     float: left;
-  
+    margin-bottom: 100px;
     border: 8px solid #fff;
     margin-right: 2.44828%; // *
   }
@@ -101,6 +113,12 @@ li{
     right: auto;
     bottom: 0;  
   }
+
+  i{
+    display: block;
+    margin-bottom: 15px;
+  }
+
 }
 
 @include at-breakpoint($large-columns) {
