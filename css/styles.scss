@@ -15,6 +15,7 @@ body{
     background-repeat: no-repeat;
     height: 297px;
     width:  346px; 
+    margin-top: -55px;
   }
 
   header{
@@ -36,7 +37,7 @@ body{
   @include container;
   overflow: hidden;
 
-  // background-color: #183152;
+  // background-color: #183152; 
 } 
 
 .main{
@@ -71,7 +72,7 @@ li{
 }
 
 
-// || ====== ||
+// || ====== || 
 // || TABLET ||
 // || ====== ||
 @include at-breakpoint($medium-columns) {
@@ -80,6 +81,36 @@ li{
 
   header{
     text-align: center;
+    h1{
+      font-size: 24px;
+      font-weight: 900;
+      color: #656565;
+      line-height: 1.1em;
+      margin-bottom: 0.5em;
+      span{
+        color: #507346;
+        cursor: pointer;
+        cursor: hand;
+      }
+      :hover{
+        color: #44A653;
+      }
+    }
+    p{
+      font-size: 1.1em;
+      line-height: 1.4em;
+      margin-bottom: 1.5em;
+    }
+    p {
+      span{
+        color: #507346;
+        cursor: pointer;
+        cursor: hand;
+      }
+      :hover{
+        color: #44A653;
+      }
+    }
   }
 
   .container {
@@ -97,6 +128,12 @@ li{
     margin-bottom: 100px;
     border: 8px solid #fff;
     margin-right: 2.44828%; // *
+    p{
+      font-size: 15px;
+    }
+    :hover{
+      color: #44A653;
+    }
   }
 
   #green_bar{
@@ -119,8 +156,20 @@ li{
     margin-bottom: 15px;
   }
 
+  #shadow{
+    width: 782px;
+    height: 75px;
+    margin: 0 auto;
+    background: transparent url(/images/shadow.png);
+    background-repeat: no-repeat;
+    margin-top: 20px;
+  }
+
 }
 
+// || ======= ||
+// || DESKTOP ||
+// || ======= ||
 @include at-breakpoint($large-columns) {
 
   .container {
