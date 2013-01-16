@@ -7,23 +7,25 @@
 
 body{
   background: #474747 url(/images/bg.png);
+  font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
 
   #logo{
     margin: 0 auto;
     background: transparent url(/images/logo.png);
-      background-repeat: no-repeat;
-      height: 297px;
-      width:  346px; 
+    background-repeat: no-repeat;
+    height: 297px;
+    width:  346px; 
   }
 
-  #green_bar{
-    width: 100%;
-    height: 10px;
-    background-color: green;
-    @include background-image(linear-gradient(left, #44A653, #507346));
-    float: none;  
-    top: 0; 
-  }
+}
+
+#green_bar{
+  width: 100%;
+  height: 10px;
+  background-color: green;
+  @include background-image(linear-gradient(left, #44A653, #507346));
+  float: none;  
+  top: 0; 
 }
 
 .container {
@@ -40,6 +42,24 @@ body{
 
 i{
   display: none;
+}
+
+ul{
+  margin-top: 20px;
+}
+
+li{
+  margin-bottom: 10px;
+  a{
+    text-decoration: none;
+    color: #507346;
+  }
+  aside{
+    color: #656565;
+    font-size: 11px;
+    line-height: 2;
+  }
+
 }
 
 
