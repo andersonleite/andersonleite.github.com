@@ -18,7 +18,7 @@ body{
     background: #507346;
     border-radius: 0.2em;
     position: relative;
-    margin-top: 50px;
+    margin-top: 80px;
     margin-bottom: 37px;
     font-size: 51px;
   }
@@ -35,7 +35,39 @@ body{
   }
 
   header{
-    color: #656565;
+    text-align: center;
+    h1{
+      font-size: 24px;
+      font-weight: 900;
+      color: #656565;
+      line-height: 1.1em;
+      margin-bottom: 0.5em;
+      span{
+        color: #507346;
+        cursor: pointer;
+        cursor: hand;
+      }
+      :hover{
+        color: #44A653;
+      }
+    }
+    p{
+      font-size: 1.1em;
+      line-height: 1.4em;
+      margin-bottom: 1.5em;
+      text-align: left;
+      color: #656565;
+    }
+    p {
+      span{
+        color: #507346;
+        cursor: pointer;
+        cursor: hand;
+      }
+      :hover{
+        color: #44A653;
+      }
+    }
   }
 
   footer{
@@ -92,7 +124,22 @@ ul{
 }
 
 li{
+  // 
+  margin-top: 10px;
+  border-top: 1px solid #656565;
+  border-color: rgba(0,0,0,0.075);
   margin-bottom: 10px;
+  padding: 12px;
+  // 
+  margin-bottom: 10px;
+  p{
+    //
+    color: #507346;
+    font-weight: 300;
+    font-size: 1.875rem;
+    //
+  }
+
   a{
     text-decoration: none;
     font-size: 13px;
@@ -101,7 +148,7 @@ li{
   }
   aside{
     color: #656565;
-    font-size: 11px;
+    font-size: 1em/1.5;
     line-height: 2;
     font-weight: lighter;
   }
@@ -116,37 +163,9 @@ li{
 
   $main : 8;
 
-  header{
-    text-align: center;
-    h1{
-      font-size: 24px;
-      font-weight: 900;
-      color: #656565;
-      line-height: 1.1em;
-      margin-bottom: 0.5em;
-      span{
-        color: #507346;
-        cursor: pointer;
-        cursor: hand;
-      }
-      :hover{
-        color: #44A653;
-      }
-    }
+  body header{
     p{
-      font-size: 1.1em;
-      line-height: 1.4em;
-      margin-bottom: 1.5em;
-    }
-    p {
-      span{
-        color: #507346;
-        cursor: pointer;
-        cursor: hand;
-      }
-      :hover{
-        color: #44A653;
-      }
+      text-align: center;
     }
   }
 
@@ -165,12 +184,15 @@ li{
     margin-bottom: 100px;
     border: 8px solid #fff;
     margin-right: 2.44828%; // *
+    padding: 0px;
     p{
+      color: #656565;
       font-size: 15px;
+      font-weight: bold;
     }
-    :hover{
-      color: #44A653;
-    }
+  }
+  li:hover{
+    color: #44A653;
   }
 
   #green_bar{
@@ -208,7 +230,6 @@ li{
       width: 100%;
     }
   }
-
 
 }
 
