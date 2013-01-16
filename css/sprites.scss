@@ -1,0 +1,15 @@
+// Sprites
+$icons: sprite-map("posts/*.png");
+
+i{
+  background: $icons;
+  display: inline-block;
+  //border: 8px solid #ffffff;
+}
+
+@each $i in sprite_names($icons){
+  .icn-#{$i}{
+    background-position: sprite-position($icons, $i);
+    @include sprite-dimensions($icons, $i);   
+  }
+}

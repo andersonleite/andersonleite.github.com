@@ -2,174 +2,89 @@
 @import "compass/reset";
 @import "susy";
 
-$total-columns  : 12;             // a 12-column grid
-$column-width   : 4em;            // each column is 4em wide
-$gutter-width   : 1em;            // 1em gutters between columns
-$grid-padding   : $gutter-width;  // grid-padding equal to gutters
-
-html{
-  font-size: 16px;
-  font-family: Helvetica, Arial, Sans-Serif;
-}
+@import "base";
+@import "sprites";
 
 body{
-  font-size: 62.5%;
   background: #474747 url(/images/bg.png);
-  a{
-    text-decoration: none;
-    color: #656565;
-    font-size: 14px;
-    font-weight: bold;
-    
-  }
-  #logo{
-    margin: 0 auto;
-    background: transparent url(/images/logo.png);
-      background-repeat: no-repeat;
-      height: 297px;
-      width:  346px; 
-  }
 }
-
-#logo:hover{
-    @include opacity(0.1); 
-    @include transition-duration(2s);
-}
- 
-header{
-  p{
-    color: #656565;
-    font-size: 18px;
-    span{
-      color: #507346;
-    }
-  }
-} 
 
 #green_bar{
-  width: 10px;
-  height: 100%;
+  width: 100%;
+  height: 10px;
   background-color: green;
-  @include background-image(linear-gradient(#44A653, #507346));
-  float: left;
-  width: 10px;
-  height: 100%;
-  background-color: green;
-  float: left;
-  position: fixed;
-  right: auto;
-  bottom: 0;  
+  @include background-image(linear-gradient(left, #44A653, #507346));
+  float: none;  
+  top: 0; 
 }
 
-.content{
-  width: 960px;
-  margin: 0 auto;
-  // border: 1px solid red;
-  text-align: center;
-  margin-top: -30px;
-
-  #shadow{
-    width: 782px;
-    height: 75px;
-    margin: 0 auto;
-    background: transparent url(/images/shadow.png);
-    background-repeat: no-repeat;
-    margin-top: 20px;
-  }
-}
-
-.article{
-  
-  float: left;
-  
-  
-  p{
-    padding-top: 15px;
-    padding-bottom: 5px;    
-    
-  }
-
-  aside{
-    font-weight: normal;
-    font-size: 11px;
-  }
-  :hover{
-    color: #507346;
-  }
-  
-}
-
-section{
-  margin: 0 auto;
-  width: 960px;
-  // border: 1px solid blue;
+.container {
+  @include container;
   overflow: hidden;
-  position: relative;
-}
 
-@media only screen and (max-width: 600px) {
-  #green_bar{
-    width: 100%;
-    height: 10px;
-    background-color: green;
-    @include background-image(linear-gradient(left, #44A653, #507346));
-    float: none;  
-    top: 0; 
-  }
+  // background-color: #183152;
+} 
 
-  .content{
-  	width: 90%;
-  }
-
-  .article{
-    width: 300px;
-  }
-
-  .article i{
-    display: none;
-    border: 10px solid red;
-  }
-  
-}
-
-@media only screen and (max-width: 768px) {
-  .article{
-    margin-right: 90px;
-  }
-}
-
-li{
-  list-style: none;
-}
-
-footer{
-  clear: both;
-  width: 80%;
-  height: 10%;
+.main{
+  @include span-columns($total-columns);
   margin: 0 auto;
-  background: #656565;
-  margin-bottom: 30px;
-  @include border-radius(5px); 
-  @include opacity(0.5);  
-  p{
-    text-align: center; 
-    padding: 20px;
-    color: #ffffff; 
-  }
 }
-
-// Sprites
-$icons: sprite-map("posts/*.png");
 
 i{
-  background: $icons;
-  display: inline-block;
-  border: 8px solid #ffffff;
+  display: none;
 }
 
-@each $i in sprite_names($icons){
-  .icn-#{$i}{
-    background-position: sprite-position($icons, $i);
-    @include sprite-dimensions($icons, $i);   
+
+// || ====== ||
+// || TABLET ||
+// || ====== ||
+@include at-breakpoint($medium-columns) {
+
+  $main : 8;
+
+  .container {
+    //background-color: #375d81;
   }
+
+  ul{
+    width: columns($main);
+  }
+    
+  li{
+    width: 273px;
+    height: 176px;
+    float: left;
+  
+    border: 8px solid #fff;
+    margin-right: 2.44828%; // *
+  }
+
+  #green_bar{
+    width: 10px;
+    height: 100%;
+    background-color: green;
+    @include background-image(linear-gradient(#44A653, #507346));
+    float: left;
+    width: 10px;
+    height: 100%;
+    background-color: green;
+    float: left;
+    position: fixed;
+    right: auto;
+    bottom: 0;  
+  }
+}
+
+@include at-breakpoint($large-columns) {
+
+  .container {
+    //background-color: #ABC8E2;
+  }
+  
+  $main : 12;
+
+  ul{
+    width: columns($main + 1);
+  }
+
 }
