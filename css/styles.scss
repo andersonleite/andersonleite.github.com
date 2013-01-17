@@ -188,9 +188,12 @@ li{
     margin-right: 2.44828%; // *
     padding: 0px;
     p{
-      color: #656565;
+      // color: #656565;
       font-size: 15px;
       font-weight: bold;
+    }
+    :hover{
+      color: #44A653;
     }
   }
   li:hover{
