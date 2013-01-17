@@ -26,7 +26,8 @@ Agora imagine um ação digital que ocorreu principalmente no Orkut e fez com qu
 <br><br>
 O problema aqui é que claramente o Orkut não oferece recursos de desenvolvimento tão avançados, e é sobre essa experiencia que quero descrever nesse post. Antes, queria lembrar a todos que, em tempos modernos que todos querem fazer aplicativos pra facebook/twitter, bons programadores querem resolver problemas de software.
 
-<strong>Ei Orkut, me autoriza.</strong>
+<br><br>
+<b>Ei Orkut, me autoriza.</b>
 <br>
 Eu nunca tinha visto nenhuma aplicação web que tenha um Orkut conect até então. E esse é o primeiro problema.
 Muito desenvolvimento já foi feito prao Orkut na forma de aplicativos, aqueles que rodam dentro dá própria rede social,mas não me recordo e não encontrei nenhum que utilizasse na forma <a href="http://code.google.com/apis/orkut/docs/off-site-apps/index.html" target="_blank">off-site</a>.
@@ -39,12 +40,12 @@ Qualquer biblioteca de connect hoje utiliza <a href="http://oauth.net/" target="
 Existe uma lib do Orkut chamada <a href="http://code.google.com/p/orkut-os-client/" target="_blank">Orkut OS Client</a>, escrita em Java. Após testar essa lib, da pra ver que ela consegue fazer o connect e acessar dados de perfil do Orkut, além de scraps e outras coisas.
 
 <br><br>
-<strong>Atravessando a ponte</strong>
+<b>Atravessando a ponte</b>
 <br>
 Uma primeira solução aqui poderia ser um serviço intermediário. Esse serviço precisaria ser acessado pela app Rails, faria o connect utilizando a lib java e devolveria o resultado da requisição. Nada impossível de se fazerm utilizando <a href="http://www.sinatrarb.com/" target="_blank">Sinatra</a> e <a href="http://jruby.org/" target="_blank">JRuby</a>, acessados via REST. Essa solução tem pontos positivos, como utilizar a própria lib do Google pra fazer as coisas, mas subir um serviço a mais gera mais possíveis pontos de falha, como tratamento mensagens entre os servers, falha no serviço, etc.
 
 <br><br>
-<strong>Portando</strong>
+<b>Portando</b>
 <br>
 Se a lib Java faz, então da pra fazer em Ruby. A primeira idéia que vem na cabeça aqui normalmente é: <em>"Abre lá a lib Java, ve as URL's que ela chama e faz todos os parsers você mesmo em Ruby". 
 </em>
@@ -58,7 +59,7 @@ Basicamente esse formato espera apenas posts, mesmo que pra solicitar informaç�
 O retorno é outro JSON com a resposta da requisição.
 
 <br><br>
-<strong>Mas eu to na moda</strong>
+<b>Mas eu to na moda</b>
 <br>
 Minha primeira opção pra resolver esse problema de connect e authorização pelo orkut em um sistema Rails, foi utilizar o <a href="https://github.com/intridea/omniauth" target="_blank">Omniauth</a>.
 O Omniauth é uma gem bem reconhecida pra isso no meio Ruby e permite que você crie sua própria estratégia caso um provider nnao esteja pronto.
@@ -74,7 +75,7 @@ Aparentemente uma primeira etapa concluída, agora só falta consumir os dados c
 O Orkut não aceita utilizar um token gerado por outras formas pra pedir os dados no serviço RPC-JSON. Ele responde com falha na autenticação e bloqueia tudo. Voltamos a estaca zero.
 <br><br>
 
-<strong>Faça-se a luz</strong>
+<b>Faça-se a luz</b>
 <br>
 Voltar pra solução do serviço intermediário utilizando a própria lib java do Orkut é uma opção. Mas pelos problemas citados acima vale mais um estudo. Conhecendo um pouco mais do processo interno da lib Java, e entendendo como é feito todo processo de requissição e autenticação, resolvi portar a lib pra uma versão Ruby. Essa alternativa tem o problema de ser um pouco mais trabalhosa e precisar de conhecimento de Ruby e Java,
 e refazer processos como o de autenticação por captcha com oauth autorizado, entre outras partes,
@@ -89,7 +90,7 @@ Tenho muitas dúvidas de como melhorá-la ou como testa, ou seja, se você estiv
 Essa biblioteca já passou por diversas requisições, e o código é utilizado em um sistema com um número pesado de acessos por minuto, ou seja, vem cumprindo bem sua função
 
 <br><br>
-<strong>Conclusão</strong>
+<b>Conclusão</b>
 <br>
 O Phillip Calçado fez um <a href="http://philcalcado.com/2011/12/29/read_the_dinossaurs.html">post muito legal</a> sobre a importância do conhecimento de tecnologias antigas, sua evolução, etc.
 Se você é um programador, o problema a ser resolvido deveria ser aquilo que te motiva. Conhecimento de tecnologias antigas ajuda muito na criação de tecnologias novas.

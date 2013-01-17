@@ -15,7 +15,7 @@ body{
     font-size: 20px;
     width: 2em;
     height: 1.5em;
-    background: #507346;
+    background: #44A653;
     border-radius: 0.2em;
     position: relative;
     margin-top: 80px;
@@ -31,7 +31,7 @@ body{
     width:0em;
     height:0em;
     border-bottom:0.4em solid transparent;
-    border-left:0.4em solid #507346;
+    border-left:0.4em solid #44A653;
   }
 
   header{
@@ -51,7 +51,7 @@ body{
         cursor: hand;
       }
       :hover{
-        color: #44A653;
+        color: #507346;
       }
     }
     p{
@@ -68,7 +68,7 @@ body{
         cursor: hand;
       }
       :hover{
-        color: #44A653;
+        color: #507346;
       }
     }
   }
@@ -194,11 +194,11 @@ li{
       font-weight: lighter;
     }
     :hover{
-      color: #44A653;
+      color: #507346;
     }
   }
   li:hover{
-    color: #44A653;
+    color: #507346;
   }
 
   #green_bar{
@@ -237,6 +237,15 @@ li{
     }
   }
 
+  article{
+     width: 500px;
+  }
+
+  .article{
+    width: 500px;
+    margin: 0 auto;
+  }
+
 }
 
 // || ======= ||
@@ -260,8 +269,10 @@ li{
 // || POST ||
 // || ==== ||
 article{
+  text-align: left;
+  margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   line-height: 1.5;
   a{
     color: #507346;
@@ -271,5 +282,10 @@ article{
     color: #507346;
     font-weight: 300;
     font-size: 1.875rem;
+    line-height: 1.1;
+  }
+  b{
+    font-weight: bold;
+    font-size: 1.5em;
   }
 }
