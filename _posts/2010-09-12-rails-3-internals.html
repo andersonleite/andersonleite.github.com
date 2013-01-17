@@ -12,116 +12,115 @@ meta:
   _wp_old_slug: ""
 image: internals
 ---
-O <strong>Rails 3</strong> foi finalmente anunciado e nele uma série de mudanças arquiteturais foram feitas.
+<strong>O <strong>Rails 3</strong> foi finalmente anunciado e nele uma série de mudanças arquiteturais foram feitas.</strong>
+
+<br><br>
 A princípio, para que programa, as mudanças podem parecer simples, penas novos comandos ou novas API's. Mas se olharmos nos detalhes internos do framework podemos ver que as mudanças impactam diretamente na forma de usar o framework.
 
+<br><br>
 O <strong>Rails 3</strong> tem uma série de melhorias, mas nesse post quero tratar especificamente de uma, que é <strong>Modularidade</strong>.
+<br>
 <strong>Modularidade</strong> lembra de alguma forma baixo-acoplamento, fator indispensável para uma boa arquitetura.
 
-<blockquote>Active Relation</blockquote>
-
+<br><br>
+<strong>Active Relation</strong>
+<br>
 Podemos analisar a questão da modularidade de várias maneiras, aqui vamos analisar usando o <strong>ActiveRelation</strong>.
 O <strong>ActiveRelation</strong> permite querys muito mais interessantes, veja essa diferença entre Rails 2 e <strong>Rails 3</strong>.
-
-<a href="http://andersonleiteblog.files.wordpress.com/2010/09/picture-1.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/picture-1.png" alt="" title="Picture 1" width="480" height="215" class="alignnone size-full wp-image-640" /></a>
+<br>
+<a href="http://andersonleiteblog.files.wordpress.com/2010/09/picture-1.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/picture-1.png" alt="" title="Picture 1" width="480" height="215" class="alignnone size-full wp-image-640" /></a><br>
 
 O que percebemos nessa figura é que a nova API possui métodos muito mais intuitivos e interessantes
 para criar querys. Alguns detalhes importantes aqui são: 
 
+ 	- No Rails 2 o retorno já era um array com seus models. No Rails 3 cada método devolve um objeto chamado Relation<br>
+	- Esse objeto Relation é capaz de fazer um encadeamento de operações. Com isso, auery final só é chamada quando 
+executado explicitamente algum método como all ou each.<br>
+	- No Rails 3 comportamento é Lazy Loading.<br>
 
-<ul>
-
-	<li>No Rails 2 o retorno já era um array com seus models. No Rails 3 cada método devolve um objeto chamado Relation</li>
-
-	<li>Esse objeto Relation é capaz de fazer um encadeamento de operações. Com isso, auery final só é chamada quando 
-executado explicitamente algum método como all ou each.</li>
-
-	<li>No Rails 3 comportamento é Lazy Loading.</li>
-</ul>
-
-
-
+<br><br>
 Visto isso, duas coisas podem ser analisádas:
-<ul>
 
-	<li>Como isso é feito por dentro?</li>
+	- Como isso é feito por dentro?<br>
 
-	<li>Como usar isso na minha app?</li>
-</ul>
+	- Como usar isso na minha app?<br>
 
-
-
-
-
-<blockquote>Internamente</blockquote>
-
+<br><br>
+<strong>Internamente</strong>
+<br>
 
 
 Procurando internamente no fonte do <strong>Rails</strong>, encontramos o arquivo <strong>query_methods.rb</strong>. Esse é o arquivo responsável pela idéia de encadeamento:
+<br><br>
+<a href="http://andersonleiteblog.files.wordpress.com/2010/09/picture-2.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/picture-2.png" alt="" title="Picture 2" width="480" height="247" class="alignnone size-full wp-image-641" /></a><br>
 
-<a href="http://andersonleiteblog.files.wordpress.com/2010/09/picture-2.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/picture-2.png" alt="" title="Picture 2" width="480" height="247" class="alignnone size-full wp-image-641" /></a>
-
+<br><br>
 Repare no código fonte. Independente do método chamado o <strong>Rails</strong> sempre faz uma cópia do encadeamento atual, adiciona um novo comportamento e devolve essa <strong>Relation</strong> atualizada. E quem é esse <strong>relation</strong> ?
 
 <a href="http://andersonleiteblog.files.wordpress.com/2010/09/picture-3.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/picture-3.png" alt="" title="Picture 3" width="480" height="143" class="alignnone size-full wp-image-642" /></a>
 
+<br><br>
 <strong>relation</strong> é um método do <strong>ActiveRecord</strong> que verifica se o encadeamento já foi inicializado e decide por criar um novo ou devolver o mesmo.
 Ainda temos na classe <strong>Relation</strong> um delegate, que roda o método <strong>to_a</strong> toda vez que o Relation for disparado. É nesse ponto que  o <strong>Rails</strong> controla o hit no banco de dados. Interessante notar que o método <strong>find_by_sql</strong> ainda é utilizado, porém, com uma query
 gerada pelo <strong>ARel</strong>.
 
 
-
-<blockquote>Como melhorar meu código com isso?</blockquote>
-
-
-
+<br><br>
+<strong>Como melhorar meu código com isso?</strong>
+<br>
 O que não pode acontecer é apenas aceitar como funciona e usar a API. Esse <strong>encadeamneto</strong> abre novas possíbilidades de querys muito mais interessantes e otimizadas. Um ponto sempre complexo em aplicações são filtros que necessitam <strong>querys dinâmicas</strong>.
 
+<br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/09/picture-4.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/picture-4.png" alt="" title="Picture 4" width="402" height="235" class="alignnone size-full wp-image-645" /></a>
 
+<br><br>
 Filtros que necessitam muitos parâmetros com um número grande de <strong>combinações possíveis entre eles</strong> são complicados de fazer e manter.
 Como tirar proveito do ActiveRelation pra melhorar isso ?
 
+<br><br>
 Se utilizarmos a mesma idéia de clonar o relation e devolve-lo de acordo com cada filtro preenchido pelo usuário, podemos montar uma implementação bem interessante com um pouco de meta-programação.
 
+<br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/09/picture-5.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/picture-5.png" alt="" title="Picture 5" width="480" height="373" class="alignnone size-full wp-image-646" /></a>
 
-Repare que com um método <strong>filtered_relation</strong> podemos iterar sobre cada filtro possível, adicionando uma nova relation.
-Cada <strong>relation</strong> é única e ensinamos como tratar com um método exclusivo.
+<br><br>
+Repare que com um método <strong>filtered_relation</strong> podemos iterar sobre cada filtro possível, adicionando uma nova relation.<br>
+Cada <strong>relation</strong> é única e ensinamos como tratar com um método exclusivo.<br>
 
 
-
+<br><br>
 Nesse caso utilizamos o ActiveRecord, mas hoje o Rails 3 não é opnionated. Até hoje, o Rails era considerado um 
-meta-framework, ou seja, um conjunto de frameworks, que juntos formavam o Rails. 
+meta-framework, ou seja, um conjunto de frameworks, que juntos formavam o Rails. <br>
 
 No Rails 3, um componente central foi totalmente alterado para servir de fundação para o Rails. Todos os 
-considerados frameworks principais como ActiveRecord, ActionMailer etc deixaram de ser framewors e hoje são plugins.
+considerados frameworks principais como ActiveRecord, ActionMailer etc deixaram de ser framewors e hoje são plugins.<br>
 
 O componente que organiza tudo isso é o Railtie. Todo plugin hoje é herda de Railtie. Ao inicializar o Rails,
 o Railtie procura todos as classes que herdam de Railtie e começa sua inicialização. Nesse momento, cada plugin é responsável
-pelo seu processo de boot, ou seja, desacoplado do Rails.
+pelo seu processo de boot, ou seja, desacoplado do Rails.<br>
 
 <a href="http://andersonleiteblog.files.wordpress.com/2010/09/picture-6.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/picture-6.png" alt="" title="Picture 6" width="480" height="148" class="alignnone size-full wp-image-649" /></a>
 
-
+<br><br>
 Se olhar os geradores, podemos entender como o Rails pluga os principais componentes(ActiveRecord, ActionController, etc)
 
+<br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/09/picture-71.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/picture-71.png" alt="" title="Picture 7" width="480" height="360" class="alignnone size-full wp-image-653" /></a>
 
 
 
-
-<blockquote>Railtie + Plugins + ARel...</blockquote>
-
+<br><br>
+<strong>Railtie + Plugins + ARel...</strong>
+<br>
 
 
 
 Se apartir do fonte do Rails criamos uma funcinalidade de filtro e se o Rails aceita fácilmente plugins hoje, por que não 
-juntar tudo agora ?
+juntar tudo agora ?<br>
 
-Podemos criar um plugin de filtros dinâmicos. Se você se interessar por ver o código ou contribuir, basta acessar o <strong>github do plugin</strong> <a href="http://github.com/andersonleite/filtered_relation">filtered_relation</a>
+Podemos criar um plugin de filtros dinâmicos. Se você se interessar por ver o código ou contribuir, basta acessar o <strong>github do plugin</strong> <a href="http://github.com/andersonleite/filtered_relation">filtered_relation</a><br>
 
-Os slides dessa apresentação estão no SlideShare
+Os slides dessa apresentação estão no SlideShare<br><br>
 
 <a href="http://www.slideshare.net/andersonleite/rails-3-internals-5201474"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/picture-21.png" alt="" title="Picture 2" width="480" height="293" class="alignnone size-full wp-image-660" /></a>
 
