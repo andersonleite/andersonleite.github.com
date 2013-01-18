@@ -4,7 +4,10 @@
 
 @import "base";
 @import "sprites";
-@import "social";
+@import "social";   
+
+$base_color: #409F89;
+$contrast_color: #D24054;
 
 body{
   //background: #474747 url(/images/bg.png);
@@ -15,7 +18,7 @@ body{
     font-size: 20px;
     width: 2em;
     height: 1.5em;
-    background: #44A653;
+    background: $base_color;
     border-radius: 0.2em;
     position: relative;
     margin-top: 80px;
@@ -31,7 +34,7 @@ body{
     width:0em;
     height:0em;
     border-bottom:0.4em solid transparent;
-    border-left:0.4em solid #44A653;
+    border-left:0.4em solid $base_color;
   }
 
   header{
@@ -46,12 +49,12 @@ body{
       line-height: 1.1em;
       margin-bottom: 0.5em;
       span{
-        color: #44A653;
+        color: $base_color;
         cursor: pointer;
         cursor: hand;
       }
       :hover{
-        color: #507346;
+        color: #D24054;
       }
     }
     p{
@@ -63,12 +66,12 @@ body{
     }
     p {
       span{
-        color: #44A653;
+        color: $base_color;
         cursor: pointer;
         cursor: hand;
       }
       :hover{
-        color: #507346;
+        color: #D24054;
       }
     }
   }
@@ -89,7 +92,10 @@ body{
       font-size: 11px;
 
       a{
-        color: #507346;
+        color: $base_color;
+      }
+      :hover{
+        color: $contrast_color;
       }
     }
   }
@@ -100,7 +106,7 @@ body{
   width: 100%;
   height: 10px;
   background-color: green;
-  @include background-image(linear-gradient(left, #44A653, #507346));
+  @include background-image(linear-gradient(left, $base_color, $contrast_color));
   float: none;  
   top: 0; 
 }
@@ -137,7 +143,7 @@ li{
   margin-bottom: 10px;
   p{
     //
-    color: #507346;
+    color: $base_color;
     font-weight: 300;
     font-size: 1.875rem;
     //
@@ -189,23 +195,23 @@ li{
     margin-right: 2.44828%; // *
     padding: 0px;
     p{
-      color: #44A653;
+      color: $base_color;
       font-size: 1.1em;
       font-weight: lighter;
     }
     :hover{
-      color: #507346;
+      color: #D24054;
     }
   }
   li:hover{
-    color: #507346;
+    color: #D24054;
   }
 
   #green_bar{
     width: 10px;
     height: 100%;
     background-color: green;
-    @include background-image(linear-gradient(#44A653, #507346));
+    @include background-image(linear-gradient($base_color, $contrast_color));
     float: left;
     width: 10px;
     height: 100%;
