@@ -42,18 +42,21 @@ Existe uma lib do Orkut chamada <a href="http://code.google.com/p/orkut-os-clien
 <br><br>
 <b>Atravessando a ponte</b>
 <br>
-Uma primeira solução aqui poderia ser um serviço intermediário. Esse serviço precisaria ser acessado pela app Rails, faria o connect utilizando a lib java e devolveria o resultado da requisição. Nada impossível de se fazerm utilizando <a href="http://www.sinatrarb.com/" target="_blank">Sinatra</a> e <a href="http://jruby.org/" target="_blank">JRuby</a>, acessados via REST. Essa solução tem pontos positivos, como utilizar a própria lib do Google pra fazer as coisas, mas subir um serviço a mais gera mais possíveis pontos de falha, como tratamento mensagens entre os servers, falha no serviço, etc.
+Uma primeira solução aqui poderia ser um serviço intermediário. Esse serviço precisaria ser acessado pela app Rails, faria o connect utilizando a lib java e devolveria o resultado da requisição. Nada impossível de se fazerm utilizando <a href="http://www.sinatrarb.com/" target="_blank">Sinatra</a> e <a href="http://jruby.org/" target="_blank">JRuby</a>, acessados via REST. 
+
+<br><br>
+Essa solução tem pontos positivos, como utilizar a própria lib do Google pra fazer as coisas, mas subir um serviço a mais gera mais possíveis pontos de falha, como tratamento mensagens entre os servers, falha no serviço, etc.
 
 <br><br>
 <b>Portando</b>
 <br>
 Se a lib Java faz, então da pra fazer em Ruby. A primeira idéia que vem na cabeça aqui normalmente é: <em>"Abre lá a lib Java, ve as URL's que ela chama e faz todos os parsers você mesmo em Ruby". 
 </em>
-<br>
+<br><br>
 Seria órimo se fosse assim. A lib Java utiliza uma forma bem peculiar pra prover as informações. Não temos aqui um webservices preparadinho pra atender e responder nossas necessidades.
-<br>
+<br><br>
 O Orkut oferece as informações via <a href="http://json-rpc.org/" target="_blank">RPC-JSON</a>. Esse não é de longe o formato de comunicação mais da moda, mas é o que tem.
-<br>
+<br><br>
 Basicamente esse formato espera apenas posts, mesmo que pra solicitar informações. Esses posts deve ser feitos pra um RPC Endpoint com uma mensagem formatada, adivinhe em que, JSON. Claro que essa mensagem deve seguir as convenções e parametros que o serviço entenda.
 <br>
 O retorno é outro JSON com a resposta da requisição.
@@ -63,7 +66,7 @@ O retorno é outro JSON com a resposta da requisição.
 <br>
 Minha primeira opção pra resolver esse problema de connect e authorização pelo orkut em um sistema Rails, foi utilizar o <a href="https://github.com/intridea/omniauth" target="_blank">Omniauth</a>.
 O Omniauth é uma gem bem reconhecida pra isso no meio Ruby e permite que você crie sua própria estratégia caso um provider nnao esteja pronto.
-<br>
+<br><br>
 Fiz isso e <a href="http://blog.caelum.com.br/criando-novas-estrategias-com-omniauth/" target="_blank">criei</a> a <a href="https://github.com/intridea/omniauth/pull/396" target="_blank">estratégia</a> para o Orkut.
 Um belo passo frente ao problema, agora era capaz de pedir ao orkut a conexão, autorizar o usuário, e receber um token de acesso.
 <br>
@@ -82,7 +85,7 @@ e refazer processos como o de autenticação por captcha com oauth autorizado, e
 porém elimina os problemas de ter um serviço a mais só pra executar essa tareefa. Tendo uma lib Ruby pra fazer tanto o connect quanto oas requisições pra serviços temos tudo na mesma linguagem e ambiente, faciltando muito as coisas.
 
 <br><br>
-A bliblioteca em questão foi chamada de <strong>orkut_os_client</strong>, tem um <a href="http://orkut.heroku.com/" target="_blank">demo</a> online e o código está no <a href="https://github.com/andersonleite/orkut_os_client" target="_blank">Github</a>.
+A bliblioteca em questão foi chamada de <span>orkut_os_client</span>, tem um <a href="http://orkut.heroku.com/" target="_blank">demo</a> online e o código está no <a href="https://github.com/andersonleite/orkut_os_client" target="_blank">Github</a>.
 <br>
 Tenho muitas dúvidas de como melhorá-la ou como testa, ou seja, se você estiver a fim de dar uma olhada, não exite em conversar comigo.
 
