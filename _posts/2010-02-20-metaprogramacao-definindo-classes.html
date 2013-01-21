@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: "#6 Metaprograma\xC3\xA7\xC3\xA3o: Definindo Classes"
+title: "#6 Metaprogramação: Definindo Classes"
 tags: 
 - "metaprograma\xC3\xA7\xC3\xA3o"
 - ruby
@@ -11,44 +11,55 @@ meta:
   _edit_last: "597486"
 image: meta6  
 ---
-Algumas pessoas tem comentado que os conceitos de <strong>metaprogramação</strong> tem ajudado na <strong>quebra de paradigma</strong> de Ruby e suas linguagens anteriores, como Java ou C#.
+<strong>Algumas pessoas tem comentado que os conceitos de metaprogramação tem ajudado na quebra de paradigma de Ruby e suas linguagens anteriores, como Java ou C#.</strong>
 
+<br><br>
 De fato as diferenças são grandes e aqui vai mais uma delas. Em linguagens como Java e C#, ao definir uma classe você está dizendo ao compilador: "<em>Ei compilador, quando eu criar um objeto desse tipo, ele deve se comportar dessa forma</em>".
 
-Em Ruby isso é diferente. Ao definir uma classe você está <b>rodando código</b>.
+<br><br>
+Em Ruby isso é diferente. Ao definir uma classe você está <span>rodando código</span>.
 
-<strong>ps</strong>: Tudo que for aplicado aqui em classes também é aplicável em módulos.
+<br><br>
+<span>ps</span>: Tudo que for aplicado aqui em classes também é aplicável em módulos.
 
-<blockquote>Definindo classes</blockquote>
+<br><br>
+<b>Definindo classes</b><br>
+Em <span>Ruby</span>, uma classe não é um lugar onde você apenas coloca métodos. Você pode retornar valores em uma classe, como em métodos. Além disso, classes(e módulos) são muitas vezes o <span>objeto corrente (self)</span>, afinal, <span>classes também são objetos</span>.
 
-Em <strong>Ruby</strong>, uma classe não é um lugar onde você apenas coloca métodos. Você pode retornar valores em uma classe, como em métodos. Além disso, classes(e módulos) são muitas vezes o <strong>objeto corrente (self)</strong>, afinal, <strong>classes também são objetos</strong>.
-
+<br><br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-16.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-16.png?w=300" alt="" title="Picture 1" width="300" height="147" class="aligncenter size-medium wp-image-567" /></a>
 
-Em Ruby você sempre tem um objeto corrente, sempre existe o <strong>self</strong>, e consequentemente uma classe. Lembre-se que sempre que você define um método, <a href="http://andersonleiteblog.wordpress.com/2010/02/09/metaprogramacao-ruby-object-model/">você está definindo um método de instância</a>.
+<br><br>
+Em Ruby você sempre tem um objeto corrente, sempre existe o <span>self</span>, e consequentemente uma classe. Lembre-se que sempre que você define um método, <a href="http://andersonleiteblog.wordpress.com/2010/02/09/metaprogramacao-ruby-object-model/">você está definindo um método de instância</a>.
 
-Você já deve ter visto o <a href="http://andersonleiteblog.wordpress.com/2009/03/28/ruby-metaprogramacao-e-convencoes/">básico sobre adicionar métodos em tempo de execução</a>, mas existem outras formas. Uma forma importante é conhecer o método <strong>class_eval</strong>.
+<br><br>
+Você já deve ter visto o <a href="http://andersonleiteblog.wordpress.com/2009/03/28/ruby-metaprogramacao-e-convencoes/">básico sobre adicionar métodos em tempo de execução</a>, mas existem outras formas. Uma forma importante é conhecer o método <span>class_eval</span>.
 
-Assim como o <strong>instance_eval</strong>, o método <strong>class_eval</strong> pode mudar o comportamento de um objeto corrente (<strong>self</strong>), mas além disso, pode mudar também o comportamento da classe de desse objeto:
+<br><br>
+Assim como o <span>instance_eval</span>, o método <span>class_eval</span> pode mudar o comportamento de um objeto corrente (<span>self</span>), mas além disso, pode mudar também o comportamento da classe de desse objeto:
 
+<br><br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-26.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-26.png?w=238" alt="" title="Picture 2" width="238" height="300" class="aligncenter size-medium wp-image-568" /></a>
 
-<blockquote>Variáveis de instância da classe</blockquote>
+<br><br>
+<b>Variáveis de instância da classe</b><br>
 
 Como classes são objetos, nada proibe que a classe tenha então suas próprias variáveis de instância:
 
+<br><br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-35.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-35.png?w=286" alt="" title="Picture 3" width="286" height="300" class="aligncenter size-medium wp-image-569" /></a>
 
-<strong>PS</strong>: se voce vem do java, não confunda com static. A classe criada é uma instância da classe <a href="http://ruby-doc.org/core/classes/Class.html">Class</a>. (Vale dar uma lida nessa parte da documentação).
+<br><br>
+<span>PS</span>: se voce vem do java, não confunda com static. A classe criada é uma instância da classe <a href="http://ruby-doc.org/core/classes/Class.html">Class</a>. (Vale dar uma lida nessa parte da documentação).
 
+<br><br>
+<span>PS</span>: Esse post é uma preparação para o próximo sobre <em>singleton classes e methods</em>. Sugiro a leitura do post "<a href="http://andersonleiteblog.wordpress.com/2009/11/04/onde-posso-usar-singleton-classes/">Onde posso usar singleton classes?</a>".
 
-<strong>PS</strong>: Esse post é uma preparação para o próximo sobre <em>singleton classes e methods</em>. Sugiro a leitura do post "<a href="http://andersonleiteblog.wordpress.com/2009/11/04/onde-posso-usar-singleton-classes/">Onde posso usar singleton classes?</a>".
-
+<br><br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/25_legoman_lg.jpg"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/25_legoman_lg.jpg?w=300" alt="" title="25_legoman_lg" width="300" height="200" class="aligncenter size-medium wp-image-563" /></a>
 
-
-
-<strong>Continua</strong>
+<br><br>
+<b>Continua</b><br>
 Próximo post - <a href="http://andersonleiteblog.wordpress.com/2010/03/10/7-metaprogramacao-eigenclasses/">Eigenclasses</a>
 
 

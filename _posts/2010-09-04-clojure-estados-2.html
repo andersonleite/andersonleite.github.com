@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: "Clojure:\xC2\xA0Estados\xC2\xA0#2"
+title: "Clojure: Estados"
 tags: 
 - clojure
 status: publish
@@ -12,23 +12,26 @@ meta:
   _wp_old_slug: ""
 image: closure2
 ---
-A <a href="http://andersonleiteblog.wordpress.com/2010/08/26/clojure-hello-world-e-funcoes-1/">função hello criada anteriormente</a> é <strong>pura</strong>. Isto significa que ela não tem nenhum efeito colateral. Esse tipo de função é relativamente fácil de escrever, testar e entender além de ser
-recomendada pra diversas necessidades.
+
+<strong>A função hello criada anteriormente é pura. Isto significa que ela não tem nenhum efeito colateral. Esse tipo de função é relativamente fácil de escrever, testar e entender além de ser
+recomendada pra diversas necessidades.</strong>
  
-Porém muitos programas possuem <strong>estado compartilhado</strong> e precisam de funções não puras como essa para manter esse estado compartilhado.
+<br><br> 
+Porém muitos programas possuem <span>estado compartilhado</span> e precisam de funções não puras como essa para manter esse estado compartilhado.
 
-<blockquote>Melhorando a função hello</blockquote>
+<br><br>
+<b>Melhorando a função hello</b><br>
 
-Nossa função agora manterá um registro de todas as chamadas que forem feitas a ela. Para isso, usaremos um "<strong>set</strong>" do <strong>Clojure</strong>.
+Nossa função agora manterá um registro de todas as chamadas que forem feitas a ela. Para isso, usaremos um "<span>set</span>" do <span>Clojure</span>.
 
 <code>#{} 
 ⇒ 
 #{} 
 </code>
 
-Como adicionar elementos nesse <strong>set</strong> ? Para isso utilizaremos um "<strong>conj</strong>".
-<strong>Conj</strong> é a significa conjoin de forma simplificada e ele cria novas coleções com os ítens adicionados.
-Podemos então usar o <strong>conj</strong> com um elemento em um <strong>set</strong>.
+Como adicionar elementos nesse <span>set</span> ? Para isso utilizaremos um "<span>conj</span>".
+<span>Conj</span> é a significa conjoin de forma simplificada e ele cria novas coleções com os ítens adicionados.
+Podemos então usar o <span>conj</span> com um elemento em um <span>set</span>.
 
 <code>
 (conj #{} "Anderson") 
@@ -49,29 +52,33 @@ Usamos <strong>def</strong> para criar referências e associá-las a nossa funç
 </code>
 
 
-
-<blockquote>E onde está esse controle de estados tão forte em Closure ?</blockquote>
+<br><br>
+<b>E onde está esse controle de estados tão forte em Closure ?</b><br>
 
 <a href="http://andersonleiteblog.files.wordpress.com/2010/09/sharing-300x273.gif"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/sharing-300x273.gif" alt="" title="sharing-300x273" width="300" height="273" class="alignnone size-full wp-image-631" /></a>
 
-O que acontece se tentarmos <strong>alterar</strong> essa referência que criamos ? 
-Vamos tentar fazer isso usando "<strong>alter</strong>". Usando "<strong>alter</strong>" podemos tentar alterar nossa referência, inclusive passando argumentos se necessário. Vamos tentar alterar "visitor" para "visitors".
+<br><br>
+O que acontece se tentarmos <span>alterar</span> essa referência que criamos ? 
+Vamos tentar fazer isso usando "<span>alter</span>". Usando "<span>alter</span>" podemos tentar alterar nossa referência, inclusive passando argumentos se necessário. Vamos tentar alterar "visitor" para "visitors".
 <code>
 (alter visitors conj "Anderson") 
 ⇒ 
 java.lang.IllegalStateException: No transaction running
 </code>
 
-Como vemos acima, <strong>clojure</strong> protege as referências. Podemos alterá-las mas precisamos de "<strong>transactions</strong>", deixando para o <strong>Clojure</strong> o trabalho pesado de lidar com concorrêcia entre múltiplas chamadas a nossa função.
+<br><br>
+Como vemos acima, <span>clojure</span> protege as referências. Podemos alterá-las mas precisamos de "<span>transactions</span>", deixando para o <span>Clojure</span> o trabalho pesado de lidar com concorrêcia entre múltiplas chamadas a nossa função.
 
-E como crio essa <strong>transaction</strong> ?
-Para criar uma <strong>transaction</strong> usamos <strong>dosync</strong>. 
+
+<br><br>
+E como crio essa <span>transaction</span> ?
+Para criar uma <span>transaction</span> usamos <span>dosync</span>. 
 
 <code>(dosync (alter visitors conj "Anderson")) 
 ⇒ 
 #{"Anderson"} 
 </code>
-Agora podemos buscar a referência com <strong>deref</strong>, veja:
+Agora podemos buscar a referência com <span>deref</span>, veja:
 
 <code>(deref visitors) 
 ⇒ 
@@ -81,6 +88,7 @@ Agora podemos buscar a referência com <strong>deref</strong>, veja:
 #{"Anderson"}
 </code>
 
+<br><br>
 Agora podemos construir uma função hello muito mais avançada e elaborada:
  <code>(defn hello 
     "Returns a hello message, calling you by username. 
