@@ -164,6 +164,10 @@ li{
 
 }
 
+li:hover a{
+  margin: 40px;
+  color: yellow !important;
+}
 
 // || ====== || 
 // || TABLET ||
@@ -197,7 +201,7 @@ li{
     p{
       color: $base_color;
       font-size: 1.1em;
-      font-weight: lighter;
+      font-weight: bold;
     }
     :hover{
       color: #D24054;
@@ -269,7 +273,7 @@ li{
     width: columns($main + 1);
   }
 
-}
+} 
 
 // || ==== ||
 // || POST ||
@@ -298,4 +302,5 @@ article{
     font-weight: bold;
     color: #507346;
   }
-} 
+}
+          
