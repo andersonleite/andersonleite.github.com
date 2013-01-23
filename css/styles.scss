@@ -162,8 +162,8 @@ li{
 
 }
 
-li:hover a{
-  color: yellow !important;
+li p:hover{
+    color: $contrast_color;
 }
 
 // || ====== || 
@@ -200,13 +200,12 @@ li:hover a{
       font-size: 1.1em;
       font-weight: bold;
     }
-    :hover{
-      color: #D24054;
-    }
   }
-  li:hover{
+  
+  #nav li:hover a p{
     color: #D24054;
   }
+
 
   #green_bar{
     width: 10px;
