@@ -51,7 +51,6 @@ body{
       span{
         color: $base_color;
         cursor: pointer;
-        cursor: hand;
       }
       :hover{
         color: #D24054;
@@ -68,7 +67,6 @@ body{
       span{
         color: $base_color;
         cursor: pointer;
-        cursor: hand;
       }
       :hover{
         color: #D24054;
@@ -164,9 +162,8 @@ li{
 
 }
 
-li:hover a{
-  margin: 40px;
-  color: yellow !important;
+li p:hover{
+    color: $contrast_color;
 }
 
 // || ====== || 
@@ -190,7 +187,7 @@ li:hover a{
     margin: 0 auto;
   }
     
-  li{
+  li.featured{
     width: 273px;
     height: 176px;
     float: left;
@@ -203,13 +200,12 @@ li:hover a{
       font-size: 1.1em;
       font-weight: bold;
     }
-    :hover{
-      color: #D24054;
-    }
   }
-  li:hover{
+  
+  #nav li:hover a p{
     color: #D24054;
   }
+
 
   #green_bar{
     width: 10px;
@@ -219,8 +215,6 @@ li:hover a{
     float: left;
     width: 10px;
     height: 100%;
-    background-color: green;
-    float: left;
     position: fixed;
     right: auto;
     bottom: 0;  
@@ -302,4 +296,7 @@ article{
     color: #507346;
   }
 }
-          
+
+#disqus_thread{
+  margin-top: 30px;
+}
