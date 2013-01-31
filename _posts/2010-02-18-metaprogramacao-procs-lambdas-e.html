@@ -11,75 +11,106 @@ meta:
   _edit_last: "597486"
 image: meta5  
 ---
-Existem ainda diversas formas de se trabalhar com <strong>blocos</strong> em Ruby, métodos como <a href="http://ruby-doc.org/core/classes/Object.html#M000334">instance_eval</a> e <a href="http://eigenclass.org/hiki/instance_exec">instance_exec</a>(este último apenas no Ruby 1.9) são formas de utilizá-los. 
 
-Com o passar do tempo objetos criados apenas para testar o comportamento de blocos foram criados, e a esses é dado o nome de <strong>Clean Rooms</strong>. Diversos frameworks se utilizam desses conceitos, como o <strong>RSpec</strong>, para citar um exemplo, no método <a href="http://rspec.info/documentation/mocks/message_expectations.html">should_receive</a>.
+<strong>
+Existem ainda diversas formas de se trabalhar com blocos em Ruby, métodos como <a href="http://ruby-doc.org/core/classes/Object.html#M000334">instance_eval</a> e <a href="http://eigenclass.org/hiki/instance_exec">instance_exec</a>(este último apenas no Ruby 1.9) são formas de utilizá-los. 
+</strong>
+
+<br><br>
+Com o passar do tempo objetos criados apenas para testar o comportamento de blocos foram criados, e a esses é dado o nome de <span>Clean Rooms</span>. Diversos frameworks se utilizam desses conceitos, como o <span>RSpec</span>, para citar um exemplo, no método <a href="http://rspec.info/documentation/mocks/message_expectations.html">should_receive</a>.
  
-Mas existe algo mais obscuro com relação a <strong>blocos</strong>. Blocos tem a característica de ser um conjuto de código a ser empacotado e chamado apenas depois, quando o programador julgar necessário. 
+<br><br>
+Mas existe algo mais obscuro com relação a <span>blocos</span>. Blocos tem a característica de ser um conjuto de código a ser empacotado e chamado apenas depois, quando o programador julgar necessário. 
 
-<blockquote>Package code ﬁrst, call it later</blockquote>
+<br><br>
+<b>Package code ﬁrst, call it later</b><br>
 
 Existem 3 maneiras basicamente para se utilizar essa estratégia em Ruby. São elas:
 
+<br>
+
 <ul>
-	<li><strong>Proc</strong>, que basicamente é um bloco convertido em objeto</li>
-	<li><strong>Lambda</strong>, que é uma pequena variação de uma proc</li>
-	<li>em um <strong>método</strong>.  </li>
+	<li>1) <span>Proc</spanb> que basicamente é um bloco convertido em objeto</li>
+	<li>2) <span>Lambda</span>, que é uma pequena variação de uma proc</li>
+	<li>3) em um <span>método</span>.  </li>
 </ul>
 
-
+<br><br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/3.jpg"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/3.jpg?w=300" alt="" title="3" width="300" height="199" class="aligncenter size-medium wp-image-546" /></a>
 
-<blockquote>Proc</blockquote>
+<br><br>
+<b>Proc</b><br>
 
-Blocos não são objetos, e isso é uma discussão longa na comunidade Ruby. Porém, imagine que você precisa guardar um bloco de código para executar depois. Você precisa de um objeto. Isso é uma <strong>Proc</strong>, um bloco que foi convertido em objeto. Para criar uma <strong>Proc</strong> basta passar o bloco para <strong>Proc.new</strong> e chamá-lo com <strong>call</strong>. Essa técnica é conhecida como <strong>Deferred Evaluation</strong>.    
+Blocos não são objetos, e isso é uma discussão longa na comunidade Ruby. Porém, imagine que você precisa guardar um bloco de código para executar depois. Você precisa de um objeto. Isso é uma <span>Proc</span>, um bloco que foi convertido em objeto. Para criar uma <span>Proc</span> basta passar o bloco para <span>Proc.new</span> e chamá-lo com <span>call</span>. Essa técnica é conhecida como <span>Deferred Evaluation</span>.    
 
-Existem ainda dois métodos do Kernel que convertem blocos para Procs: <strong>lambda() e proc()</strong>.
+<br><br>
+Existem ainda dois métodos do Kernel que convertem blocos para Procs: <span>lambda() e proc()</span>.
 
+<br><br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-15.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-15.png?w=300" alt="" title="Picture 1" width="300" height="154" class="aligncenter size-medium wp-image-549" /></a>
-<blockquote>O operador &amp;</blockquote>
 
-Um bloco é como um argumento adicional e anonimo passado a um método. Normalmente um bloco é chamado utilizando <strong>yield</strong>.  Mas existem dois casos que isso não é suficiente:
+<br><br>
+<b>O operador &amp;</b><br>
 
+Um bloco é como um argumento adicional e anonimo passado a um método. Normalmente um bloco é chamado utilizando <span>yield</span>.  Mas existem dois casos que isso não é suficiente:
+
+<br><br>
 <ul>
 	<li>Quando você precisa passar o bloco pra outro método.</li>
 	<li>Quando você quer converter o bloco para Proc.</li>
 </ul>
 
-Pra conseguir isso você precisa de alguma forma nomear o bloco. Pra isso você precisa de um argumento especial no seu método. Esse argumento deve ser o <strong>último</strong> e deve começar com o <strong>operador &amp;.</strong>
+<br><br>
+Pra conseguir isso você precisa de alguma forma nomear o bloco. Pra isso você precisa de um argumento especial no seu método. Esse argumento deve ser o <span>último</span> e deve começar com o <span>operador &amp;.</span>
 
-
+<br><br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-25.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-25.png?w=300" alt="" title="Picture 2" width="300" height="177" class="aligncenter size-medium wp-image-550" /></a>
-Utilizando o<strong> operador &amp;</strong>, podemos enviar o bloco (agora como <strong>Proc</strong>) para outro método ou mesmo retornar a <strong>Proc</strong>:
 
+<br><br>
+Utilizando o<span> operador &amp;</span>, podemos enviar o bloco (agora como <span>Proc</span>) para outro método ou mesmo retornar a <span>Proc</span>:
+
+<br><br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-34.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-34.png?w=300" alt="" title="Picture 3" width="300" height="121" class="aligncenter size-medium wp-image-551" /></a>
 
-Ainda é possível fazer o contrário, ou seja, converter uma <strong>Proc</strong> para bloco com o operador &amp;. Quando o método for chamado, o operador vai converter a <strong>Proc</strong> para bloco e passar para o método:
+<br><br>
+Ainda é possível fazer o contrário, ou seja, converter uma <span>Proc</span> para bloco com o operador &amp;. Quando o método for chamado, o operador vai converter a <span>Proc</span> para bloco e passar para o método:
 
+<br><br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-44.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-44.png?w=300" alt="" title="Picture 4" width="300" height="155" class="aligncenter size-medium wp-image-552" /></a>
 
+<br><br>
+<b>Procs x Lambdas</b>
 
-<blockquote>Procs x Lambdas</blockquote>
+<br>
+Ok..mas.. afinal..qual a diferença entre criar uma <span>Proc</span> através de proc() ou lambda() ?
 
+<br><br>
+Existem basicamente 2 diferenças entre <span>procs</span> e <span>lambdas</span>. A primeira tem a ver com a palavra <span>return</span> e a segunda com <span>argumentos</span>.
 
-Ok..mas.. afinal..qual a diferença entre criar uma <strong>Proc</strong> através de proc() ou lambda() ?
+<br><br>
+<b>Return</b>
 
-Existem basicamente 2 diferenças entre <strong>procs</strong> e <strong>lambdas</strong>. A primeira tem a ver com a palavra <b>return</b> e a segunda com <strong>argumentos</strong>.
+<br>
+A primeira diferenca entre <span>proc() e lambda()</span> está na palvra <span>return</span>.
 
-<blockquote>Return</blockquote>
-
-A primeira diferenca entre <strong>proc() e lambda()</strong> está na palvra <strong>return</strong>.
-
-Com <strong>lambda</strong>, <strong>return</strong> apenas retorna alguma informação do lambda. Com proc(), o return retorna do escopo onde a <strong>proc</strong> foi definida:  
-               
+<br><br>
+Com <span>lambda</span>, <span>return</span> apenas retorna alguma informação do lambda. Com proc(), o return retorna do escopo onde a <span>proc</span> foi definida:  
+        
+<br><br>               
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-52.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-52.png?w=300" alt="" title="Picture 5" width="300" height="245" class="aligncenter size-medium wp-image-553" /></a>
-<blockquote>Argumentos</blockquote>
 
-A segunda diferença entre <strong>proc() e lambda()</strong> está na forma com que os <strong>argumentos</strong> são checados. 
+<br><br>
+<b>Argumentos</b>
 
-Suponha que a Proc tenha sido criada precisando receber 2 parâmetros. Existe um método chamado <b>arity</b> para checar esse número. O que acontece caso seja passado apenas 1 ou 3 argumentos, ou seja, o número errado? No geral, <strong>lambda</strong> geraria um <b>ArgumentError</b> enquanto <strong>proc</strong> tentaria preencher da melhor forma possível:
+<br>
+A segunda diferença entre <span>proc() e lambda()</span> está na forma com que os <span>argumentos</span> são checados. 
 
+<br><br>
+Suponha que a Proc tenha sido criada precisando receber 2 parâmetros. Existe um método chamado <span>arity</span> para checar esse número. O que acontece caso seja passado apenas 1 ou 3 argumentos, ou seja, o número errado? No geral, <span>lambda</span> geraria um <span>ArgumentError</span> enquanto <span>proc</span> tentaria preencher da melhor forma possível:
+
+<br><br>
 <a href="http://andersonleiteblog.files.wordpress.com/2010/02/picture-62.png"><img src="http://andersonleiteblog.files.wordpress.com/2010/02/picture-62.png?w=300" alt="" title="Picture 6" width="300" height="132" class="aligncenter size-medium wp-image-554" /></a>
 
-<strong>Continua</strong>
-Próximo post - <a href="http://andersonleiteblog.wordpress.com/2010/02/20/metaprogramacao-definindo-classes/">Definindo Classes</a>
+<br><br>
+<b>Continua</b>
+Próximo post - <a href="/2010/02/20/metaprogramacao-definindo-classes.html">Definindo Classes</a>
