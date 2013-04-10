@@ -1,0 +1,79 @@
+--- 
+layout: post
+title: Blogando como Hacker
+tags: 
+- jekyll
+- blog
+status: publish
+type: post
+published: true
+image: jekyll
+---
+
+<strong>
+Muitos blogs hoje estão usando o Jekkyl ao invés do Wordpress, e muita gente que nem tinha Wordpress já começa pelo Jekyll.
+</strong>
+<br><br>
+
+Quando digo muita gente aqui, me refiro basicamente a programadores. O Wordpress com seus milhões de plugins não é mais bem visto devido a ser pesado, cheio de funcionalidades que ninguém usa, gera um resultado lento e não otimizado. O post <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">Blogging like a Hacker</a> do Tom Preston-Werner, apresenta uma forma bem legal de blogar, onde
+todo o suporte fica por conta do Github. Acho que ter um blog mais leve, bonito e simples só ajuda na vontade de escrever mais posts. Então, aqui vai a minha migração do Wordpress para o Jekyll.
+
+<br><br>
+<b>Jekyll</b><br>
+O <a href="http://github.com/mojombo/jekyll">Jekyll</a> é basicamente um gerador de páginas estáticas, que é tudo o que você precisa pra ter um blog. Alguns diretórios são compreendidos pelo Jekyll, como <span>_posts</span> e <span>_layouts</span>, que vai considerar seus templates e arquivos de posts para gerar o conteúdo estático. Ele usa ouma library pra renderizar templates chamada <a href="http://liquidmarkup.org/">Liquid</a>, que te ajuda com uma série de coisas no HTML, como por exemplo, fazer um loop nos seus posts.
+
+<br><br>
+No meu <a href="https://github.com/andersonleite/andersonleite.github.com">Github</a> você pode conferir como organizei meus arquivos. Inicialmente, tenho 4 diretórios importante: <span>_layouts, _layouts, _attachments, _posts, _plugins</span>. Esses diretórios são explicativos por si só, porém o diretório <span>_plugins</span> no meu caso serve para configurar o Bundler e permitir que eu utilize o Gemfile para gerenciar as depêndencias.
+
+<br><br>
+Outro arquivo importante é o <span>_config.yml</span>. No meu caso configurei o diretório de css, imagens, o tipo de compressão dos css e a opção para não gerar cache.
+
+<br><br>
+Outro ponto legal de usar Jekyll é fazer tudo pelo git. Você tem todo seu blog em um diretório e trabalha como um projeto normal, fazendo commit, push, etc, bem diferente do Wordpress. Aliás, por falar em Wordpress, o Jekyll tem diversas tasks para <a href="https://github.com/mojombo/jekyll/wiki/blog-migrations">Blog Migrations</a> que podem ser usadas por quem já tinha blog antes do Jekyll aparecer. Usei a task para Wordpress, que gerou todos os meus posts em HTML. Provavelmente eu migre tudo para Markdown em algum momento, mas por hora, resolveu meu problema. 
+
+<br><br>
+O que pode ser um pouco mais complicado são os comentários. Como Jekyll é estático, você tem que achar uma outra opção. Eu estou usando o <a href="http://www.http://disqus.com/">DISQUS</a>.
+
+<br><br>
+Para gerar o feed rss, estou usando esse <a href="https://github.com/snaptortoise/jekyll-rss-feeds">template</a>.
+
+<br><br>
+<b>Github pages</b><br>
+Quando estava reconstruindo o blog usando Jekyll achava que iria hospedar no Heroku. Mas depois conheci o <a href="http://pages.github.com/">Github Pages</a>. 
+Eu nunca tinha usado esse serviço do Github que hospeda conteúdo estático e achei a melhor opção. A cada push no repositório ele já detecta que tem alterações, refaz o conteúdo estático e faz o deploy. E como o Jekyll foi criado pelo próprio pessoal do Github, tem um FAQ bem completo pra tirar as dúvidas.
+
+<br><br>
+Uma coisa que fui entender depois é que ele gera o conteúno no chamado <span>safe mode</span> que faz com que os plugins não rodem lá, ou seja, você precisar deixar tudo preparado local. O comando que o jekyll roda lá é: <span>jekyll --pygments --no-lsi --safe</span> e você pode ler mais sobre <a href="https://help.github.com/articles/using-jekyll-with-pages">aqui</a>.
+
+Tem mais uma série de coisas pra fazer, como configurar um arquivo CNAME para apontar para a url do blog, que pode ser achado <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">aqui</a>.
+
+<br><br>
+<b>Blog Typography</b><br>
+O Jekyll te da toda a engine para blogar, mas não tem nenhum template bonito e preparado para leitura. Eu utilizei as dicas de um site chamado <a href="http://kaikkonendesign.fi/typography/">Interactive Guide to Blog Typografy</a> para chegar na configuração atual desse blog.
+
+<br><br>
+O que ele ensina são padrões de layout, medidas importantes, espaçamento entre o texto, hierarquia visual, títulos, fontes e coisas do tipo, vale a pena conferir.
+
+<br><br>
+<b>Responsive Web Design</b><br>
+Nesse blog usei <a href="http://sass-lang.com/">Sass</a>(SCSS), <a href="http://compass-style.org/">Compass</a> e <a href="http://susy.oddbird.net/">Susy</a>. No começo optei por fazer Responsive apenas utilizando media querys, mas depois de fazer alguns tentes com alguns framewors de grids responsive acabei gostando de como o Susy faz os cálculos por colunas. Pra isso configuro os <a href="https://github.com/andersonleite/andersonleite.github.com/blob/master/css/base.scss">breakpoints que julgo interessantes</a>, desenvolvo primeiro para mobile, e complemento para desktop para funcionar para qualquer dispositivo.
+
+<br><br>
+<img src="/images/responsive.png"></img>
+
+<br><br>
+<b>Otimizações e Design</b><br>
+Não sou um maníaco por otimizações, e muitas vezes prefiro algo bonito do que super rápido. Tentei usar o bom senso aqui. No início o design tinha alguns elementos que tornaram o site pesado, mas no Photoshop estava bonito. Usei o layout que criei no Photoshop como base, e fui fazendo escolhas de otimização. Um exemplo é o background, que optei por branco para facilitar a leitura e não carregar imagem. Porém um site branco tem tudo para ser feio se você não tomar cuidado. 
+
+<br><br>
+Fiz uma série de experiencias com imagens, cores, fotos, fotos, etc. Incrível como é difícil chegar na simplicidade e ter um bom design, por isso admiro os sites minimalistas que de fato são bonitos. Optei por deixar 6 imagens de destaque dos últimos posts, o que consome cerca de mais 30k. É uma escolha minha. Tratei essas imagens e otimizei-as  pra dar uma graça a mais pro blog.
+
+<br><br>
+As imagens geradas são um sprite, de uma forma bem legal que aprendi usando o Compass, você pode conferir como fiz no <a href="https://github.com/andersonleite/andersonleite.github.com/blob/master/css/sprites.scss">fonte no Github</a>. Outros ícones no site, como os ícones das redes sociais no bottom são css.
+
+<br><br>
+Duas coisas importantes que tentei foi manter nota maior que 90 no <a href="https://developers.google.com/speed/pagespeed">Google Page Speed</a> e A no <a href="https://addons.mozilla.org/en-us/firefox/addon/yslow/">YSLOW</a>. Tem coisas ainda pra otimizar, mas pro tempo que gastei no blog estou satisfeito. O resultado no Google page speed por exemplo é: The page Anderson Leite | Blog got an overall PageSpeed Score of <span>96 (out of 100)</span>.
+
+<br><br>
+<b>Próximos passos</b><br>
+Tem bastante coisa no blog que ainda pode ser otimizada, bastante coisa de responsive que ainda pode ser aplicada, como imagens e textos que se adaptam, não usar display none pra esconder as imagens no mobile, etc, e essa é uma coisa bem legal de blogar com Jekyll, você tem o controle e pode testar um monte de coisas pra ir melhorando o projeto.
