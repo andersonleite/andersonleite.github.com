@@ -1,6 +1,3 @@
-# no need to reload server
-auto: true 
-
 name: andersonleite.com.br
 description: anderson leite | blog
 url: http://www.andersonleite.com.br
