@@ -26,6 +26,7 @@ body{
     font-size: 51px;
   }
 
+
   .comment::before {
     position:absolute;  
     content: "";
@@ -37,17 +38,51 @@ body{
     border-left:0.4em solid $base_color;
   }
 
-  header{
+  section.company {
     text-align: center;
+
+     h1{
+      font-size: 48px;
+      font-weight: 900;
+      color: #2E3639;
+      line-height: 1.1em;
+    }
+
+    h2 {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        opacity: 0.7;
+        strong {
+          font-weight: bold;
+        }
+      }
+      p{
+        font-size: 1em;
+        line-height: 1.4em;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        text-align: center;
+        color: #3b3b3b;
+      }
+      p {
+        span{
+          color: $base_color;
+          cursor: pointer;
+        }
+      }  
+  } 
+
+  header {
     a{
       text-decoration: none;
-    }
+    } 
     h1{
       font-size: 48px;
       font-weight: 900;
       color: #2E3639;
       line-height: 1.1em;
       margin-bottom: 0.5em;
+      text-align: center;
       span{
         color: $base_color;
         cursor: pointer;
@@ -55,6 +90,10 @@ body{
       :hover{
         color: #D24054;
       }
+    }
+    h2 {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
     }
     p{
       font-size: 1.2em;
@@ -72,7 +111,7 @@ body{
         color: #D24054;
       }
     }
-  }
+  } 
 
   footer{
     clear: both;
@@ -182,6 +221,37 @@ li p:hover{
     //background-color: #375d81;
   }
 
+  section#about {
+  
+    width: 800px;
+    margin: 0 auto; 
+
+    div {
+      width: 400px;
+      height: 200px;
+      float: left;
+      margin-bottom: 100px;      
+      margin-top: 100px;      
+      text-align: center;
+
+      p{
+        color: $base_color;
+        font-size: 1.1em;
+        text-align: justify;
+        line-height: 1.1em;
+        strong{
+          font-weight: bold;
+        }
+        cite {
+          background-color: #d24054;
+          color: #fff;
+          font-weight: normal; 
+          opacity: 0.8;
+        }
+      }
+    } 
+  }
+ 
   ul{
     width: 610px;
     margin: 0 auto;
@@ -220,7 +290,7 @@ li p:hover{
     bottom: 0;  
   }
 
-  i{
+  i, mark{
     display: block;
     margin-bottom: 15px;
   }
