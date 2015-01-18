@@ -107,6 +107,9 @@ body{
         color: $base_color;
         cursor: pointer;
       }
+      b{
+        font-weight: bold;
+      }
       :hover{
         color: #D24054;
       }
