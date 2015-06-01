@@ -1,0 +1,111 @@
+--- 
+layout: post
+title: Melhores Android apps com RxAndroid
+tags: 
+- android
+status: publish
+type: post
+published: true
+image: rxandroid
+---
+
+<strong>
+Como melhorar suas aplicações Android com RxAndroid?
+</strong>
+<br><br>
+
+Uma das tecnologias que mais tem se falado entre os desenvolvedores Android é o RxJava.
+Utilizando do paradigma que é chamado de Functional Reactive Programming, O RxJava e sua implementação pra 
+Android, o RxAndroid, conseguem facilitar a vida do programador Android em uma série de pontos.
+<br><br>
+
+<b>Problemas</b>
+<br><br>
+
+Pra conseguir entender o que exatamente o RxAndroid ajuda tanto, precisamos ter alguns problemas.
+Dessa maneira podemos entender o que ele poderá fazer pra facilitar as coisas.
+<br><br>
+
+Se você já fez algum aplicativo comercial em Android, grandes são as chances de você ter precisado acessar alguma API ou 
+serviço externo e, depois de processar algumas informações, vou precisa atualizar a interface. 
+Essa tarefa, comum e ordinária na maioria das aplicações, é de grande complexidade para os programadores Android. Por quê?
+<br><br>
+
+<b>Tarefas que rodam em background</b>
+<br><br>
+
+Talvez aqui você possa dizer..."Não vejo nenhum problema em backgoud tasks. Utilizo a classe AsyncTask e tudo funciona muito bem.".
+Se sua resposta é essa, acredito que você tenha se acostumado a fazer as coisas dessa forma e nnao que realmente tenha atacado todos
+os problemas dessa abordagem.
+<br><br>
+
+Por exemplo, quando uma requisição para um web service é feita e durante esse processo, antes de atualizar a interface com o resultado, o 
+usuário gira o device? A Activity é destruida nesse momento e você precisa contornar uma série de problemas que isso causa, deixando
+muitas vezes alguns NullPointerExceptions para trás. 
+<br><br>
+
+Uma outra saída é utilizar um AsyncTaskLoader pra tentar contornar alguns dos problemas. Mesmo assim, ainda teremos complicações. 
+Como fica o tratamento de erros nesse caso? Nenhum dos 2 métodos sobrescritos, doInBackground() ou onPostExecute(), parecem ser
+ideais pora isso. Você vai ter que jogar aquele lindo try/catch lá no meio e se virar por lá. E assim, cada desenvolvedor cria sua própria forma de tratar as as exeções, complicando bastatne o código.
+<br><br>
+
+Poderia citar ainda problas relativos a multiplas chamadas a web services, que precisam ser orquestradas nesse meio tempo ou que
+precisam ser executadas em paralelo e esperar uma resposta de uma combinação de operações. Além diso, nem precisamos falar que numa situação 
+dessas os testes aqui ficam pra depois, quando der tempo, certo?
+<br><br>
+
+<b>RxAndroid | Basics</b>
+<br><br>
+
+Com um pouco de trabalho podemos resolver os problemas acima usando RxAndroid.
+A base para o paradigma de programação reativa são os Observables e os Subscribers.
+Por um momento parece muito com outras ferramentas de PubSub. Existe um Observable que emite itens e um Subscriber que os consome.
+<br><br>
+
+Existe um padrão na forma de emitir as mensagens. Um Observable emite quantos itens quiser e então finaliza, sinalizando se as operações
+foram finalizadas com sucesso ou se tivemos um erro. Para cada Subscriber que ele tem, um Observable chama o Subscriber.onNext(), quantas vezes forem necessárias, seguido por um Subscriber.onComplete() ou um Subscriber.onError().
+<br><br>
+
+
+<b>Code!</b>
+<br><br>
+
+Vamos começar a ter uma ideia de como tudo isso funciona.
+Primeiro, vamos começar pelo Observable.
+Ele vai emitir um simples "Hello World!" e completar a execução.
+<br><br>
+
+<center><img width="500px" src="/images/rx1.png"></center>
+<br><br>
+
+Agora vamos ver a implementação do Subscriber que vai consumir essa informação.
+Ele vai somente imprimir as informações emitidas pelo Observable.
+<br><br>
+
+<center><img width="500px" src="/images/rx2.png"></center>
+<br><br>
+
+Enfim, precisamos linkar os dois...precisamos "subscrever" um Subscriver ao Observable.
+<br><br>
+
+<center><img width="500px" src="/images/rx3.png"></center>
+<br><br>
+
+<b>Legal, mas...e ai?</b>
+<br><br>
+
+Nesse momento você pode deve estar achando que isso é um código interessante e diferente, mas o que isso de fato resolveu?
+Existem outros passos importante pra conseguirmos utilizar RxAndroid em aplicativos. Existem Operators e Mpas que precisam ser entendidos, 
+além da liguagem com lambdas do Java 8 que é a forma mais usada hoje pra esse tipo de código.
+<br><br>
+
+Pra chegar lá, mais post precisarão ser escritos. Se você se interessou pelo assunto não deixe de seguir pelos links abaixo: 
+<br><br>
+
+<a href="http://channel9.msdn.com/Blogs/Charles/Erik-Meijer-Rx-in-15-Minutes">Erik Meijer: Rx in 15 Minutes</a>
+<br><br>
+
+<a href="http://www.infoq.com/presentations/Netflix-API-rxjava-hystrix/">Functional Reactive Programming in the Netflix API</a>
+
+
+
