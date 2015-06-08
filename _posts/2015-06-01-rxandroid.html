@@ -15,7 +15,7 @@ Como melhorar suas aplicações Android com RxAndroid?
 <br><br>
 
 Uma das tecnologias que mais tem se falado entre os desenvolvedores Android é o RxJava.
-Utilizando do paradigma que é chamado de Functional Reactive Programming, O RxJava e sua implementação pra 
+Utilizando do paradigma que é chamado de Functional Reactive Programming, o RxJava e sua implementação pra 
 Android, o RxAndroid, conseguem facilitar a vida do programador Android em uma série de pontos.
 <br><br>
 
@@ -27,7 +27,7 @@ Dessa maneira podemos entender o que ele poderá fazer pra facilitar as coisas.
 <br><br>
 
 Se você já fez algum aplicativo comercial em Android, grandes são as chances de você ter precisado acessar alguma API ou 
-serviço externo e, depois de processar algumas informações, vou precisa atualizar a interface. 
+serviço externo e, depois de processar algumas informações, você precisa atualizar a interface. 
 Essa tarefa, comum e ordinária na maioria das aplicações, é de grande complexidade para os programadores Android. Por quê?
 <br><br>
 
@@ -35,21 +35,21 @@ Essa tarefa, comum e ordinária na maioria das aplicações, é de grande comple
 <br><br>
 
 Talvez aqui você possa dizer..."Não vejo nenhum problema em backgoud tasks. Utilizo a classe AsyncTask e tudo funciona muito bem.".
-Se sua resposta é essa, acredito que você tenha se acostumado a fazer as coisas dessa forma e nnao que realmente tenha atacado todos
+Se sua resposta é essa, acredito que você tenha se acostumado a fazer as coisas dessa forma e não que realmente tenha atacado todos
 os problemas dessa abordagem.
 <br><br>
 
 Por exemplo, quando uma requisição para um web service é feita e durante esse processo, antes de atualizar a interface com o resultado, o 
 usuário gira o device? A Activity é destruida nesse momento e você precisa contornar uma série de problemas que isso causa, deixando
-muitas vezes alguns NullPointerExceptions para trás. 
+muitas vezes alguns <span>NullPointerExceptions</span> para trás. 
 <br><br>
 
 Uma outra saída é utilizar um AsyncTaskLoader pra tentar contornar alguns dos problemas. Mesmo assim, ainda teremos complicações. 
 Como fica o tratamento de erros nesse caso? Nenhum dos 2 métodos sobrescritos, doInBackground() ou onPostExecute(), parecem ser
-ideais pora isso. Você vai ter que jogar aquele lindo try/catch lá no meio e se virar por lá. E assim, cada desenvolvedor cria sua própria forma de tratar as as exeções, complicando bastatne o código.
+ideais pora isso. Você vai ter que jogar aquele lindo try/catch lá no meio e se virar por lá. E assim, cada desenvolvedor cria sua própria forma de tratar as as exeções, complicando bastante o código.
 <br><br>
 
-Poderia citar ainda problas relativos a multiplas chamadas a web services, que precisam ser orquestradas nesse meio tempo ou que
+Poderia citar ainda problemas relativos a multiplas chamadas a web services, que precisam ser orquestradas nesse meio tempo ou que
 precisam ser executadas em paralelo e esperar uma resposta de uma combinação de operações. Além diso, nem precisamos falar que numa situação 
 dessas os testes aqui ficam pra depois, quando der tempo, certo?
 <br><br>
@@ -95,7 +95,7 @@ Enfim, precisamos linkar os dois...precisamos "subscrever" um Subscriver ao Obse
 <br><br>
 
 Nesse momento você pode deve estar achando que isso é um código interessante e diferente, mas o que isso de fato resolveu?
-Existem outros passos importante pra conseguirmos utilizar RxAndroid em aplicativos. Existem Operators e Mpas que precisam ser entendidos, 
+Existem outros passos importante pra conseguirmos utilizar RxAndroid em aplicativos. Existem Operators e Maps que precisam ser entendidos, 
 além da liguagem com lambdas do Java 8 que é a forma mais usada hoje pra esse tipo de código.
 <br><br>
 
