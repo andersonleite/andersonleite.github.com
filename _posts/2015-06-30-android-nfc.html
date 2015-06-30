@@ -1,0 +1,85 @@
+--- 
+layout: post
+title: Getting started with NFC in Android
+tags: 
+- android
+status: publish
+type: post
+published: true
+image: nfc
+---
+
+<strong>
+Let's develop a simple Android and NFC interaction.</strong>
+<br><br>
+The android.nfc package allows applications to read NDEF message in NFC tag. Near Field Communication (NFC) is a set of short-range wireless technologies, typically requiring a distance of 4cm or less to initiate a connection. In this guide we're going to implement a simple interaction. To to that,
+you will need and Android device with NFC support and a NFC tag. 
+<br><br>
+
+The ideia of this tutorial will be simple. Aproach any NFC tag to you your mobile device to hide the red circle in the app. Aproach it again to make the circle visible.
+<br><br>
+
+<center><img width="300px" src="/images/nfcball.gif"></center>
+<br><br>
+
+<b>About NFC</b>
+<br><br>
+
+<span>NFC</span> is used today mostly to payments. From bus cards payments to the new Apple Pay or Google Wallet,
+interacting with NFC <a href="http://www.nfcworld.com/2015/01/14/333500/deloitte-mobile-payment-volumes-increase-1000-2015/">will be even more commun in the future</a>.
+<br><br>
+
+Our app will be pretty simple. It will hide/show the red circle ball when NFC is detected.
+I'll not cover how to start your app, but everything you'll is to create a normal project in Android Studio using a Blank Activity. 
+<br><br>
+
+To explain the process to detect NFC, I will take a 3-step approach:
+
+<ul>
+<li>&#10097; NFC Access</li>
+<li>&#10097; Activate NFC</li>
+<li>&#10097; Execute any task when NFC is detected</li>
+</ul>
+<br><br>
+
+<b>NFC Access</b>
+<br><br>
+
+To acceess the NFC (normally there is only one in the Android device) Android provides a Helper to get the default NFC Adapter. Is a static method from <span>NfcAdapter</span>. Create the variable as a member class as we'ra going to use it in other methods.
+<br><br>
+
+The next step will be saving a refenrence of PendingIntent. As the documentation says, "the returned object can be handed to other applications so that they can perform the action you described on your behalf at a later time.". That means we are going to need this intent in the next step.
+<br><br>
+
+{% gist 86c0a956867fee6e44c1 %}
+<br><br>
+
+<b>Activate NFC</b>
+<br><br>
+
+Now we are going to give the current active application priority for reading scanned tags.
+On the <span>onResume()</span> method, we'll reference an intent for <a href="">NfcAdapter.ACTION_TAG_DISCOVERED</a>.
+As the name says, this Intent means to start an activity when a tag is discovered. In other words, we will say to the NfcAdapter (we got on the last method) that this Activity is interested when a NFC approach is detected.
+<br><br>
+
+{% gist bcb93a3d5c6628440760 %}
+<br><br>
+
+<b>Execute any task when NFC is detected</b>
+<br><br>
+
+From here on, it's just Android simple development. We'll use the <a href="http://developer.android.com/reference/android/app/Activity.html">onNewIntent()</a> method from the Activity's lifecycle.
+The only thing is to verify if the intent is that one we're looking for, since Android will call this for any intent.
+
+<br><br>
+
+{% gist 5eac5ca9cbbd51f9bb97 %}
+<br><br>
+
+<b>That's it!</b>
+<br><br>
+
+Now you can put any NFC close to the device and hide/show the red circle.
+You can see the gist for the whole Activity <a href="https://gist.github.com/andersonleite/2215cac73bf6910414ba">here</a>.
+
+
