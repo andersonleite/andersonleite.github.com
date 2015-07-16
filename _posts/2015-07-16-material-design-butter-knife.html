@@ -1,0 +1,74 @@
+--- 
+layout: post
+title: Material Design QuickTip - Floating Action Button and Snackbar
+tags: 
+- android
+status: publish
+type: post
+published: true
+image: snack
+---
+
+<strong>Let's explore some Material Design UI components and use Butter Knife to access this components easily</strong>
+<br><br>
+
+Some weeks ago I was having a conversation with some of designers at <a href="http://rga.com/">R/GA</a>. In this talk we discussed about an specific topic in Material Design related to making all the app becoming almost visualy equals between them.
+<br><br>
+
+My friend Fabricio Teixeira wrote a <a href="http://arquiteturadeinformacao.com/design-de-interacao/os-apps-ficam-todos-iguais-usando-material-design/">very good post about that</a>, covering her thoughts and comparing apps. In that time, Google had not yet released any supporting library to help developers to develop apps using Material Design.
+<br><br>
+
+But after Google I/O 2015 we can now use <a href="https://events.google.com/io2015/schedule?sid=e958a197-b6d4-e411-b87f-00155d5066d7#day1/e958a197-b6d4-e411-b87f-00155d5066d7">Android Design Support Library</a> to bring material design to life in a easier way. 
+<br><br>
+
+In this article we'll see how to implement two of these UI components: <span>Floating Action Button and Snackbar</span>.
+<br><br>
+
+<center><img width="300px" src="/images/snack.gif"></center>
+<br><br>
+
+<b>Setting Up Dependencies</b>
+<br><br>
+
+We are goig to use <a href="https://gradle.org/">Gradle</a> to include the Android Design Support Library. Also, we'll use <a href="http://jakewharton.github.io/butterknife/">Butter Knife</a> to easily connect the views and logic. 
+<br><br>
+
+{% gist 09e760ae46659850a0ea %}
+
+<b>UI components</b>
+<br><br>
+
+After gradle sync we'll have access to many UI Material Design components. In order to have the Floating Action Button and the Snackbar, we'll have the following layout structure.
+<br><br>
+
+{% gist a87dbacb0449e280c30d %}
+
+Note that we don't need to make any reference to the Snackbar in the layout file. Snackbar works like the old Toast component and will be activated from our logic layer. The Floating Action Button has many interesting properties, but whats really important to notice here is that it's inside a <span>CoordinatorLayout</span>.
+<br><br>
+
+<a href="https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> may be used to implement a variety of interactions and additional layout modifications ranging from sliding drawers and panels to swipe-dismissable elements and buttons that stick to other elements as they move and animate.
+<br><br>
+
+In this example it's important to move the Floating Action Button up when the Snackbar appears.
+<br><br>
+
+<b>Activity</b>
+<br><br>
+
+Now we need some logic for our layout. We will add some behavior for the FAB click. When clicked, we'll activate Snackbar. Take a look at three important methods calls: <span>make, setAction and show</span>.
+<br><br>
+
+Another important step here is to get references to the UI view components using <span>Butter Knife</span>. Using just a simple annotation in the begging of the file we wi reach the components we need. Besides that, Butter Knife also helps us with the onClick() mapping to the UI button and the logic.
+<br><br>
+
+{% gist b1f88a6dc3768298c1f6 %}
+
+<b>The final screen</b>
+<br><br>
+
+Not so difficult, yep? For more UI components visit the <a href="http://android-developers.blogspot.com.br/2015/05/android-design-support-library.html">official Android Design Support Library website</a>.
+<br><br>
+
+<center><img width="300px" src="/images/snack.gif"></center>
+
+Follow me on Twitter! <a href="http://www.twitter.com/anderson_leite" target="_blank">@anderson_leite</a>
