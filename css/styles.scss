@@ -141,9 +141,7 @@ body{
     position: relative;
 
     p{
-      text-align: left;
-      padding: 20px;
-      float: left;
+      padding-top: 20px;
       color: #656565;
       font-size: 11px;
 
@@ -358,12 +356,6 @@ li p:hover{
     margin-top: 20px;
   }
 
-  body footer{
-    p{
-      text-align: center;
-      width: 100%;
-    }
-  }
 
   article{
      width: 500px;
