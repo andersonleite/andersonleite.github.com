@@ -3,8 +3,14 @@ layout: default
 ---
 
 <header>
+	<nav>
+		<a href="/"><h1>Home</h1></a>
+	</nav>
+</header>
+
+<header>
 	<h1 class="article">{{page.title}}</h1>
-	<p>{{ page.date | date: "%d %B %Y" }}</p>
+	<p class="article">{{ page.date | date: "%d %B %Y" }}</p>
 </header>
 
 <article>
@@ -26,5 +32,4 @@ layout: default
 	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-</article>	
-
+</article>

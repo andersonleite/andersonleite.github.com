@@ -1,33 +1,33 @@
-// Sprites Home
-$icons: sprite-map("posts/*.png");
-
-// Sprites About
-$projects: sprite-map("about/*.png");
-
-
-i{
-  background: $icons;
-  display: inline-block;
-  border: 1px solid whitesmoke;
-}
-
-mark{
-  background: $projects;
-  display: inline-block;
-  border: 1px solid whitesmoke;
-}
-
-@each $i in sprite_names($icons){
-  .icn-#{$i}{
-    background-position: sprite-position($icons, $i);
-    @include sprite-dimensions($icons, $i);   
-  }
-}
-
-@each $i in sprite_names($projects){
-  .icn-#{$i}{
-    background-position: sprite-position($projects, $i);
-    @include sprite-dimensions($projects, $i);   
-  }
-}
-
+// // Sprites Home
+// $icons: sprite-map("posts/*.png");
+//
+// // Sprites About
+// $projects: sprite-map("about/*.png");
+//
+//
+// i{
+//   background: $icons;
+//   display: inline-block;
+//   border: 1px solid whitesmoke;
+// }
+//
+// mark{
+//   background: $projects;
+//   display: inline-block;
+//   border: 1px solid whitesmoke;
+// }
+//
+// @each $i in sprite_names($icons){
+//   .icn-#{$i}{
+//     background-position: sprite-position($icons, $i);
+//     @include sprite-dimensions($icons, $i);
+//   }
+// }
+//
+// @each $i in sprite_names($projects){
+//   .icn-#{$i}{
+//     background-position: sprite-position($projects, $i);
+//     @include sprite-dimensions($projects, $i);
+//   }
+// }
+//

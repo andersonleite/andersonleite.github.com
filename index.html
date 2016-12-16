@@ -2,30 +2,27 @@
 layout: default
 ---
 
-<!-- <header data-top="opacity: 1" data--100-top="opacity: 0"> -->
-<!-- <a href="about.html"> -->
 <header>
-  <h1>Hey ya!<br> My name is <span>Anderson Leite</span><br> and this is my blog. </h1>
-  
-  <p>I work as a <b>Software Engineer</b> at <span>R/GA</span>.<br>
-  I have a degree in <b>Software Engineering</b> at <span>E.E.Mauá</span> and <b>MBA in Digital Marketing</b> at <span>ESPM</span>.</p>
-  
-</header> 
+  <nav>
+    <h1>Hi!</h1>
+  </nav>
 
-<ul id="nav">
-{% for post in site.posts limit:6 %}
-  <li class="featured">
-    <a href="{{ post.url }}">
-      <i class="icn-{{ post.image }}"></i>  
-      <p>{{ post.title }}</p>
-      <aside>{{ post.date | date: "%d %B %Y" }}</aside>
-    </a>
-  </li>
-{% endfor %}
-</ul>
+  <p>My name is <span>Anderson Leite</span> and I'm a Full Stack Developer with experience in Javascript, Ruby and Java. I like to build web applications from HTML/CSS to backend code. I also play with Android.</p>
+</header>
+
+<div id="contact">
+	<p>Work/Contact</p>
+	<p>I'm located in San Francisco. Working for <a href="https://www.rga.com/">R/GA</a> at Google.<br>
+	You can see the last work I've been envolved with for <a href="https://web.nike.com/vemjunto/index.html#/" target="_blank">Nike</a>, <a href="https://www.timbeta.com.br/timbeta/home" target="_blank">Tim</a> and <a href="https://www.google.com/nonprofits/" target="_blank">Google</a>.</p>
+
+	<p><a href="https://twitter.com/anderson_leite" target="_blank">Twitter</a><br>
+	<a href="https://www.linkedin.com/in/leiteanderson" target="_blank">LinkedIn</a><br>
+  <a href="mailto:andersonlfl@gmail.com">Email</a><br>
+	<a href="https://www.facebook.com/me.andersonleite" target="_blank">Facebook</a></p>
+</div>
 
 <ul>
-{% for post in site.posts offset:6 %}
+{% for post in site.posts %}
   <li>
     <a href="{{ post.url }}">
       <p>{{ post.title }}</p>

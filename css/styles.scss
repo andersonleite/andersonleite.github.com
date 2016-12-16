@@ -4,14 +4,19 @@
 
 @import "base";
 @import "sprites";
-@import "social";   
+@import "social";
 
-$base_color: #409F89;
-$contrast_color: #D24054;
+$base_color: #B2B16B;
+$contrast_color: #B2B16B;
 
 body{
   //background: #474747 url(/images/bg.png);
-  font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
+  // font-family: 'Muli', sans-serif;
+  // font-family: 'Oswald', sans-serif;
+  // font-family: 'Oxygen', sans-serif;
+  font-family: 'Hind', sans-serif;
+  font-weight: 400;
+  background-color: #253239;
 
   .comment {
     margin: 0 auto;
@@ -27,7 +32,7 @@ body{
   }
 
   .comment::before {
-    position:absolute;  
+    position:absolute;
     content: "";
     bottom: -0.3em;
     right: 0.4em;
@@ -38,12 +43,10 @@ body{
   }
 
   section.company {
-    text-align: center;
 
      h1{
-      font-size: 48px;
-      font-weight: 900;
-      color: #2E3639;
+      font-size: 22px;
+      color: #edeeeb;
       line-height: 1.1em;
     }
 
@@ -68,26 +71,35 @@ body{
           color: $base_color;
           cursor: pointer;
         }
-      }  
-  } 
+      }
+  }
 
   header {
     a{
       text-decoration: none;
-    } 
-    h1{
-      font-size: 48px;
-      font-weight: 900;
-      color: #2E3639;
+    }
+    h1 {
+      font-size: 18.5px;
+      color: #edeeeb;
       line-height: 1.1em;
-      margin-bottom: 0.5em;
-      text-align: center;
+      padding-bottom: 30px;
+      cursor: pointer;
       span{
-        color: $base_color;
+        color: #B2B16B;
         cursor: pointer;
+        padding-left: 20px;
+        padding-right: 20px;
       }
-      :hover{
-        color: #D24054;
+      &:hover{
+        // color: #B2B16B;
+        // transition: all 200ms ease-out;
+      }
+      &.article{
+        font-size: 30px;
+        color: #fff;
+        line-height: 40px;
+        font-weight: 600;
+        padding-bottom: 0px;
       }
     }
     h2 {
@@ -95,12 +107,11 @@ body{
       margin-bottom: 0.5em;
     }
     p{
-      font-size: 1.2em;
-      line-height: 1.4em;
+      font-size: 30px;
+      line-height: 40px;
       margin-bottom: 1.5em;
-      text-align: left;
-      color: #2E3639;
-      opacity: 0.7;
+      color: #edeeeb;
+      font-weight: 600;
     }
     p {
       span{
@@ -110,11 +121,16 @@ body{
       b{
         font-weight: bold;
       }
-      :hover{
-        color: #D24054;
+      &:hover{
+        // color: #B2B16B;
+        // transition: all 200ms ease-out;
+      }
+      &.article {
+        color: #656565;
+        font-size: 1em;
       }
     }
-  } 
+  }
 
   footer{
     clear: both;
@@ -147,16 +163,16 @@ body{
   height: 10px;
   background-color: green;
   @include background-image(linear-gradient(left, $base_color, $contrast_color));
-  float: none;  
-  top: 0; 
+  float: none;
+  top: 0;
 }
 
 .container {
   @include container;
   overflow: hidden;
 
-  // background-color: #183152; 
-} 
+  // background-color: #183152;
+}
 
 .main{
   @include span-columns($total-columns);
@@ -173,19 +189,18 @@ ul{
 }
 
 li{
-  // 
-  margin-top: 10px;
-  border-top: 1px solid #656565;
-  border-color: rgba(0,0,0,0.075);
-  margin-bottom: 10px;
-  padding: 12px;
-  // 
-  margin-bottom: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid #B2B16B;
+  text-transform: uppercase;
   p{
     //
-    color: $base_color;
-    font-weight: 300;
-    font-size: 1.875rem;
+    color: #fff;
+    font-size: 16px;
+    line-height: 27px;
+    float: left;
+    font-weight: lighter;
+    color: #edeeeb;
+    padding-right: 10px;
     //
   }
 
@@ -205,18 +220,54 @@ li{
 }
 
 li p:hover{
-    color: $contrast_color;
+  color: #B2B16B;
+  transition: all 200ms ease-out;
 }
 
-// || ====== || 
+#small-copy {
+  color: #edeeeb;
+  font-size: 16px;
+  line-height: 27px;
+  margin: 0 0 27px;
+  font-weight: 300;
+}
+
+#contact {
+  padding-bottom: 40px;
+  color: #edeeeb;
+
+  p {
+    &:first-child {
+      font-weight: 400;
+    }
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 22px;
+    margin: 0 0 12px;
+    letter-spacing: .003em;
+    transition: all 200ms ease-out;
+    a {
+      color: #edeeeb;
+      outline: 0;
+      text-decoration: none;
+      &:hover {
+        color: #B2B16B;
+        transition: all 200ms ease-out;
+      }
+    }
+  }
+}
+
+// || ====== ||
 // || TABLET ||
 // || ====== ||
 @include at-breakpoint($medium-columns) {
 
   body header{
     margin-bottom: 60px;
+    margin-top: 60px;
     p{
-      text-align: center;
+      // text-align: center;
     }
   }
 
@@ -225,16 +276,16 @@ li p:hover{
   }
 
   section#about {
-  
+
     width: 800px;
-    margin: 0 auto; 
+    margin: 0 auto;
 
     div {
       width: 400px;
       height: 200px;
       float: left;
-      margin-bottom: 100px;      
-      margin-top: 100px;      
+      margin-bottom: 100px;
+      margin-top: 100px;
       text-align: center;
 
       p{
@@ -248,18 +299,18 @@ li p:hover{
         cite {
           background-color: #355e97;
           color: #fff;
-          font-weight: normal; 
+          font-weight: normal;
           opacity: 0.8;
         }
       }
-    } 
-  } 
- 
+    }
+  }
+
   ul{
     width: 610px;
     margin: 0 auto;
   }
-    
+
   li.featured{
     width: 273px;
     height: 176px;
@@ -274,7 +325,7 @@ li p:hover{
       font-weight: bold;
     }
   }
-  
+
   #nav li:hover a p{
     color: #D24054;
   }
@@ -290,7 +341,7 @@ li p:hover{
     height: 100%;
     position: fixed;
     right: auto;
-    bottom: 0;  
+    bottom: 0;
   }
 
   i, mark{
@@ -333,32 +384,32 @@ li p:hover{
   .container {
     //background-color: #ABC8E2;
   }
-  
+
   $main : 12;
 
   ul{
     width: columns($main + 1);
   }
 
-} 
+}
 
 // || ==== ||
 // || POST ||
 // || ==== ||
 article{
+  color: #edeeeb;
   text-align: left;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 50px;
   line-height: 1.5;
   a{
-    color: #507346;
+    color: $base_color;
   }
   strong{
-    color: #507346;
-    font-weight: 300;
-    font-size: 1.875rem;
-    line-height: 1.1;
+    color: #edeeeb;
+    font-weight: 600;
+    font-size: 1em;
   }
   b{
     font-weight: bold;
@@ -366,7 +417,7 @@ article{
   }
   span{
     font-weight: bold;
-    color: #507346;
+    color: $base_color;
   }
 }
 
