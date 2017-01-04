@@ -385,21 +385,33 @@ li p:hover{
 
 }
 
-// || ==== ||
-// || POST ||
-// || ==== ||
+// POST
+
+.post {
+  background-color: #ffffff;
+}
+body.post header h1,
+body.post header h1.article {
+  color: #000000;
+}
+
+body.post header p.article {
+  text-align: center;
+  font-weight: lighter;
+}
+
 article{
-  color: #edeeeb;
+  color: #555555;
   text-align: left;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 50px;
   line-height: 1.5;
   a{
-    color: $base_color;
+    color: palevioletred;
   }
   strong{
-    color: #edeeeb;
+    color: #555555;
     font-weight: 600;
     font-size: 1em;
   }
@@ -409,7 +421,7 @@ article{
   }
   span{
     font-weight: bold;
-    color: $base_color;
+    color: palevioletred;
   }
 }
 
