@@ -513,8 +513,10 @@ a {
   }
 
   ul {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: lighter;
+    text-transform: uppercase;
+
     li {
       display: inline;
       padding-left: 10px;
