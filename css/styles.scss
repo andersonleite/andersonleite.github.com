@@ -420,6 +420,8 @@
 
 // new style
 @import "compass/reset";
+@import "colors";
+@import "cursor";
 
 @font-face {
   font-family: 'Metropolis';
@@ -452,10 +454,14 @@ body {
 }
 // =======
 
-$base_red: #FE3B55;
-$base_white: #FFFFFF;
-$base_grey: #F2F2F2;
-$base_black: #2F2F2F;
+body {
+  cursor: url('https://s.electerious.com/images/codepen/cursor.svg') 3 3, auto;
+}
+
+body:not(body:hover) .cursor::after {
+  opacity: 0;
+  transform: scale(0);
+}
 
 body {
   overflow: hidden;
