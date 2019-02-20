@@ -482,22 +482,11 @@ a {
   &.underline {
     display: inline-block;
     text-decoration: none;
-    padding-bottom:2px;
     line-height: 20px;
+    padding: 7px;
+    border-radius: 50px;
   }
 
-  &.underline::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: $base_red;
-    transition: width 0.3s
-  }
-
-  &.underline:hover::after {
-    width: 100%;
-  }
 }
 
 .hello {

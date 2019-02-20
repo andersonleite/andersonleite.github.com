@@ -18,8 +18,8 @@ document.querySelectorAll('.cursor').forEach((cursor) => {
     const defaultState = {
       x: e.clientX,
       y: e.clientY,
-      width: 22,
-      height: 22,
+      width: 20,
+      height: 20,
       radius: '100px'
     }
 
@@ -47,4 +47,10 @@ document.querySelectorAll('.cursor').forEach((cursor) => {
     const state = createState(e)
     updateProperties(cursor, state)
   })
+
+  document.querySelectorAll('a, button').forEach((elem) => {
+    elem.addEventListener('mouseenter', () => onElement = elem)
+    elem.addEventListener('mouseleave', () => onElement = undefined)
+  })
+
 })
