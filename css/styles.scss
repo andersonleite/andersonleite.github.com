@@ -489,6 +489,42 @@ a {
 
 }
 
+#posts {
+  text-align: end;
+  height: 80%;
+  overflow: auto;
+  margin: 40px;
+  display: none;
+
+  &.selected {
+    display: block;
+  }
+
+  li {
+    margin-bottom: 10px;
+    display: inline;
+
+    a {
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+    }
+  }
+
+  aside {
+    font-size: 11px;
+    line-height: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+.post-container {
+  width: 800px;
+  margin: 0 auto;
+  overflow: scroll;
+  height: 100%;
+}
+
 .hello {
   text-align: end;
   bottom: 0;

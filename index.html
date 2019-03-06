@@ -2,16 +2,18 @@
 layout: default
 ---
 
-<!--<ul>-->
-  <!--{% for post in site.posts %}-->
-  <!--<li>-->
-    <!--<a href="{{ post.url }}">-->
-      <!--<p>{{ post.title }}</p>-->
-      <!--<aside>{{ post.date | date: "%d %B %Y" }}</aside>-->
-    <!--</a>-->
-  <!--</li>-->
-  <!--{% endfor %}-->
-<!--</ul>-->
+<div id="posts">
+  <ul>
+    {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">
+        <p>{{ post.title }}</p>
+      </a>
+      <aside>{{ post.date | date: "%d %B %Y" }}</aside>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 
 <canvas id="stars"></canvas>
 
@@ -19,7 +21,7 @@ layout: default
   <p>Hi! My name is <span>Anderson Leite</span> and I'm a Web Developer</p>
   <ul>
     <li><a class="underline" href="#">About</a></li>
-    <li><a class="underline" href="#">Posts</a></li>
+    <li><a class="underline" href="#" onclick="setPosts()" id="post">Posts</a></li>
     <li><a class="underline" href="https://twitter.com/anderson_leite" target="_blank">Twitter</a></li>
     <li><a class="underline" href="https://www.linkedin.com/in/leiteanderson/" target="_blank">Linkedin</a></li>
     <li><a class="underline" href="https://github.com/andersonleite" target="_blank">Github</a></li>
