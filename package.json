@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/andersonleite/andersonleite.github.com/issues"
   },
-  "homepage": "https://github.com/andersonleite/andersonleite.github.com#readme"
+  "homepage": "https://github.com/andersonleite/andersonleite.github.com#readme",
+  "dependencies": {
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
 }
