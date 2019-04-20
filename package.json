@@ -1,0 +1,22 @@
+{
+  "name": "andersonleite",
+  "version": "1.0.0",
+  "description": "Anderson Leite's website",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonleite/andersonleite.github.com.git"
+  },
+  "author": "Anderson Leite",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andersonleite/andersonleite.github.com/issues"
+  },
+  "homepage": "https://github.com/andersonleite/andersonleite.github.com#readme"
+}
