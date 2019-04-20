@@ -2,3 +2,4 @@
 _site/
 Gemfile.lock
 .rvmrc
+node_modules/
