@@ -1,9 +1,10 @@
-import Header from '../components/Header'
+import Layout from "../components/Layout";
 
 const Index = () => (
   <div>
-    <Header />
-    <p>Anderson Leite</p>
+    <Layout>
+      <p>Anderson Leite</p>
+    </Layout>
   </div>
 )
 
