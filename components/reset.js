@@ -18,6 +18,9 @@ const reset = `
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+  }
+  ul, nav {
+    list-style: none;
   }`
 
 export default reset
