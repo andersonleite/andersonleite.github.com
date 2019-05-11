@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next -p 7777",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
     "now-build": "next build"
