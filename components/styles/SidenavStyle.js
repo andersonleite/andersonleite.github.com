@@ -10,7 +10,8 @@ const SidenavStyle = styled.div`
   left: 0;
   background-color: ${theme.grey_dark};
   overflow-x: hidden;
-  padding-top: 20px;
+  padding: 70px 50px;
+  
 `
 
 export default SidenavStyle
