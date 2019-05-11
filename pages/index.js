@@ -30,15 +30,14 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
+    color: ${theme.green};
   }  
 `;
 
 const Index = () => (
   <div>
     <GlobalStyle />
-    <Layout>
-
-    </Layout>
+    <Layout />
   </div>
 )
 
