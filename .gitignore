@@ -4,3 +4,4 @@ Gemfile.lock
 .rvmrc
 node_modules/
 .next/*
+.next/static/*
