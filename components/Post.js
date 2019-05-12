@@ -1,18 +1,22 @@
 import PostStyle from "./styles/PostStyle";
+import React from 'react'
+import Gist from "./Gist";
+
 
 const Post = () => (
-
   <PostStyle>
     <h2>UI development with Cycle | Refactoring the code (part 4)</h2>
-    <p><small>03 january 2017</small></p>
+    <p>
+      <small>03 january 2017</small>
+    </p>
 
     <h3>Cycle.js: Refactor (part 4)</h3>
 
     <p>
       This is the 4th part of a blog post series about RxJS and
-        Cycle.js. <a href="/2017/01/03/ui-rx-cycle-part-I.html">Understanding RxJS (part 1)
-      </a>, <a href="/2017/01/03/ui-rx-cycle-part-II.html">Meet Cycle.js (part 2)</a> and <a
-        href="/2017/01/03/ui-rx-cycle-part-I.html">Cycle UI with RxJS and Cycle.js (part 3)</a>.
+      Cycle.js. <a href="/2017/01/03/ui-rx-cycle-part-I.html">Understanding RxJS (part 1)
+    </a>, <a href="/2017/01/03/ui-rx-cycle-part-II.html">Meet Cycle.js (part 2)</a> and <a
+      href="/2017/01/03/ui-rx-cycle-part-I.html">Cycle UI with RxJS and Cycle.js (part 3)</a>.
     </p>
 
     <h3>About this refactor</h3>
@@ -36,7 +40,8 @@ const Post = () => (
       the html helper elements (div, h1, p, etc) or the h function is basically a personal choice.
     </p>
 
-    <script src="https://gist.github.com/andersonleite/238778d09fe51984df42e499f36b8830.js"></script>
+    <Gist id='238778d09fe51984df42e499f36b8830'/>
+
 
     <h3>The Diff</h3>
 
@@ -46,7 +51,7 @@ const Post = () => (
     </p>
 
     <a href="https://www.diffchecker.com/eBMrYCJC" target="blank">
-      <img width="300px" src="../static/images/diff.png" />
+      <img width="300px" src="../static/images/diff.png"/>
     </a>
 
     <p>

@@ -26,6 +26,10 @@ const PostStyle = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
   }
+  iframe {
+    position: relative;
+    left: -10px;
+  }
 `
 
 export default PostStyle
