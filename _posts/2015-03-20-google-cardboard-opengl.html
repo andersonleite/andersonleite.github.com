@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: Google Cardboard
-tags: 
+tags:
 - cardboard
 status: publish
 type: post
@@ -12,63 +12,63 @@ image: cardboard
 <strong>
 Google Cardboard e OpenGL: Onde, como e quanto?
 </strong>
-<br><br>
+<br /><br />
 
 
 Chegou enfim o Google Cardboard que encomendei há alguns meses. Se você nunca viu um, entre
 agora no site oficial do <a href="https://www.google.com/get/cardboard/">Google Cardboard</a>
-pra ter uma ideia do que se trata e saber mais detalhes desse projeto do Google. Já existem diversos aplicativos 
+pra ter uma ideia do que se trata e saber mais detalhes desse projeto do Google. Já existem diversos aplicativos
 que usam Virtual Reality na PLay Store.
-<br><br>
+<br /><br />
 
 <center><img width="400px" src="http://lcdn.imcardboard.com/8012FC6/imcardboard/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/l/black_2-2.jpg"></center>
-<br><br>
+<br /><br />
 
 <b>Google Cardboard</b>
-<br><br>
+<br /><br />
 
 Antes de tudo, você não precisa necessariamente comprar um óculos desse. O material principal dele é
 simples: papelão. Além disso duas lentes, um imã e uma tag NFC. Da pra montar tudo em casa. No próprio site você encontra todo o procedimento pra montar um em casa.
-<br><br>
+<br /><br />
 
 <center><img width="400px" src="https://www.google.com/get/cardboard/images/buildit-cardboard-parts.jpg"></center>
-<br><br>
+<br /><br />
 
-Por questões diversas eu preferi comprar um. Comprei o modelo acima na <a href="http://www.imcardboard.com/googlecardboard-vr-with-nfc-tag-black.html">I AM CARDBOARD</a>. demorou pra chegar, mas valeu a pena. Ele vem todo certinho, com NFC já pronto e o botão do lado funcionando certinho. 
-<br><br>
+Por questões diversas eu preferi comprar um. Comprei o modelo acima na <a href="http://www.imcardboard.com/googlecardboard-vr-with-nfc-tag-black.html">I AM CARDBOARD</a>. demorou pra chegar, mas valeu a pena. Ele vem todo certinho, com NFC já pronto e o botão do lado funcionando certinho.
+<br /><br />
 
 <b>Chair in a Room</b>
-<br><br>
+<br /><br />
 
-O aplicativo que me despertou o interesse no Cardboar foi o <a href="https://play.google.com/store/apps/details?id=com.RyanBousfield.AChairInARoom&hl=en">Chair in a Room</a>. 
-<br><br>
+O aplicativo que me despertou o interesse no Cardboar foi o <a href="https://play.google.com/store/apps/details?id=com.RyanBousfield.AChairInARoom&hl=en">Chair in a Room</a>.
+<br /><br />
 
 <center><img width="400px" src="https://lh4.ggpht.com/9KXYgQsFI__2gfG7O_RpOc0DNZJF65U4NHLohKwHC4Ph0d6pzFiOzzzryFTDj593TngW=h900"></center>
-<br><br>
+<br /><br />
 
 Não deixe de entrar no site do <a href="http://achairinaroom.com/">Chair in a Room</a> pra conhecer mais sobre o projeto.
-<br><br>
+<br /><br />
 
 <b>Google Play </b>
-<br><br>
+<br /><br />
 
 Já existem vários aplicativos feitos pra VR no Google Carboard que podem ser baixados na <a href="https://play.google.com/store/apps/collection/promotion_3001011_cardboard_featured_apps?hl=en">Play Store</a> que valem ser experimentados. umas das coisas que eu nnao imaginava é que é possível interagir com cenários na maioria dos aplicativos. Usando o botão do lado Cardboard vocie pode dar tiros, abrir portas, etc.
-<br><br>
+<br /><br />
 
 <b>Programando para Virtual Reality</b>
-<br><br>
+<br /><br />
 
 Fiquei curioso de como os aplicativos funcionam e encontrei um <a href="https://developers.google.com/cardboard/android/get-started">projeto sample</a> do próprio Google. O código fonte <a href="https://github.com/googlesamples/cardboard-java">hospedado no github</a> é uma ótima forma de ter um primeiro contato com a programação para esses dispositivos.
-<br><br>
+<br /><br />
 
 Muito se assemelha da programação para Android tradicional. Activities, XML, etc. Existe uma interface <span>CardboardView.StereoRenderer</span> que é a base para começar. Ela tem dois métodos a serem implemntados chamados <span>onNewFrame()</span> e <span>onDrawEye()</span>. É por eles que começa a integração
-<br><br>
+<br /><br />
 
 <center><img src="/images/code_cardboard.jpg"></img></center>
-<br><br>
+<br /><br />
 
 O código não é trivial, até porque requer um bom conhecimento de OpenGL, porém é um ótimo ponto de partida.
-O aplicativo demo mostra como criar um ambiente 3D que aleatóriamente colaca um cubo em alguma coordenada. 
+O aplicativo demo mostra como criar um ambiente 3D que aleatóriamente colaca um cubo em alguma coordenada.
 Com o botão do Google Carboard é possível interagir e "capturar" os cubos.
-<br><br>
+<br /><br />
 <center><img src="https://developers.google.com/cardboard/android/images/cube1.png"></img></center>

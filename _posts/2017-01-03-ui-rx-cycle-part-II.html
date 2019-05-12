@@ -12,61 +12,61 @@ published: true
 
 <strong>This is the second part of 3 blog posts on how to develop User Interfaces
 using RxJS and Cycle.js.</strong>
-<br><br>
+<br /><br />
 
 This is the 2rd part of a blog post series about RxJS and Cycle.js.
 <a href="/2017/01/03/ui-rx-cycle-part-II.html">Understanding RxJS (part 1)</a>
-<br><br>
+<br /><br />
 
 Let's continue to build our UI, that consumes an public API from Brewdog's beer.
-<br><br>
+<br /><br />
 
 <center><a href="https://hidden-waters-53375.herokuapp.com"><img width="300px" src="/images/brewdog.png"></a></center>
-<br><br>
+<br /><br />
 
 <b>Cycle.js in general</b>
-<br><br>
+<br /><br />
 
 I'm definitely not the best one to describe <span>Cycle.js</span>, but I can give you an overview and point you some resources to learn more
 about the framework. First, I saw some comparisons between RxJS and Cycle. In my understanding, you should compare Cycle.js with
 React or Angular.
-<br><br>
+<br /><br />
 
 Cycle.js will provide you a base scaffold on how to handle the interactions between your UI components and the logic
 or effects that they should run.
-<br><br>
+<br /><br />
 
 <center><img width="200px" src="https://productpains.com/images/4a8f82ecbf176d326dab2079ff7f52a6.png"></center>
-<br><br>
+<br /><br />
 
 
 <b>The main function and the drivers</b>
-<br><br>
+<br /><br />
 
 Before we jump to our beer catalogue app, let's explore a simple implementation of Cycle.app.
-<br><br>
+<br /><br />
 
 The idea is to integrate whatever inputs your application has with expected effects/outputs.
 In the middle of that, you will have Observers generating streams, as we saw in the the previous post.
-<br><br>
+<br /><br />
 
 Cycle.js will use a simple template language...(in fact it's only javascript, an internal implementation of hyperscript as
 I could understand so far) to let you write the view of your UI components.
-<br><br>
+<br /><br />
 
 Take a look at a simple example of a Cycle.js application. We will use this structure to improve the Brewdog's catalogue.
-<br><br>
+<br /><br />
 
-<br><br>
+<br /><br />
 {% gist 300b51a3abdd67733ec99e443261d087 %}
-<br><br>
+<br /><br />
 
 Cycle.run comes from the framework and expect a main function and drivers.
 The best way to learn this part in deep is to watch the <a href="https://egghead.io/courses/cycle-js-fundamentals">Cycle.js course on egghead.io</a>.
-<br><br>
+<br /><br />
 
 Now that we have an idea on how Cycle.js works and also played a little with RxJS, let's merge them together.
-<br><br>
+<br /><br />
 
 <a href="/2017/01/03/ui-rx-cycle-part-III.html">Next: Creating the UI with RxJS and Cycle.js (part 3)</a>
-<br><br>
+<br /><br />
