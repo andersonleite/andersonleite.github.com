@@ -17,15 +17,15 @@ const Post = () => (
 
     <h3>About this refactor</h3>
     <p>After I wrote this code using Cycle.JS and the blog posts, I received some cool
-      feedback from <a href="https://twitter.com/chadrien">Hadrien de Cuzey</a> on how to improve it.</p>
-
-    <p>I will share here and comment what I learned after that.</p>
-    <p>If you wanna see it live, go to this <a href="https://jsbin.com/feqapa/edit?js,output">JSBin</a>.</p>
+      feedback from <a href="https://twitter.com/chadrien">Hadrien de Cuzey</a> on how to improve it.
+      I will share here and comment what I learned after that.
+      If you wanna see it live, go to this <a href="https://jsbin.com/feqapa/edit?js,output">JSBin</a>.
+    </p>
 
     <p>Now, let's see the implementation.</p>
 
     <h3>The new code</h3>
-    Looke below to the new code we have. In the top of the file we can see the first big difference:
+    Look below to the new code we have. In the top of the file we can see the first big difference:
     <span>CycleHTTPDriver</span>. This was for me the most important learning here. We can
     consider the HTTP requests as Observables and use the default code on <span>Cycle.js</span> to make
     the requests.
