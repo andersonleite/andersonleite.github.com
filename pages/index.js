@@ -7,10 +7,15 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   ${reset}
   @font-face {
-    //font-family: 'radnika_next';
-    //src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
+    font-family: 'circular_std';
+    src: url('/static/fonts/CircularStd-Book.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+  }
+  @font-face {
+    font-family: 'circular_std-bold';
+    src: url('/static/fonts/CircularStd-Bold.woff2') format('woff2');
+    font-weight: bold;
   }
   html {
     box-sizing: border-box;
@@ -26,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
-    //font-family: 'radnika_next';
+    font-family: 'circular_std';
   }
   a {
     text-decoration: none;

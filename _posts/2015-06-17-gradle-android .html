@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: Dica rápida de Gradle
-tags: 
+tags:
 - android
 status: publish
 type: post
@@ -11,71 +11,71 @@ image: gradle
 
 <strong>
 Entendendo um pouco da ferramenta de automação default usada no Android Studio</strong>
-<br><br>
+<br /><br />
 
 O <a href="https://docs.gradle.org/current/release-notes">Gradle</a> é utilizado a quase todo momento em um projeto Android. O Android Studio já inicializa os projetos usando essa ferramenta de automação de buils. Atualmente ela é altamente sugerida em projetos Android.
-<br><br>
+<br /><br />
 
 <b>Syntax e linguagem</b>
-<br><br>
+<br /><br />
 
-O arquivo <span>build.gradle</span> contém diversas instruções para compilar um projeto Android. É lá que colocamos 
-as dependencias do projeto, como bibliotecas de terceiros. 
-<br><br>
+O arquivo <span>build.gradle</span> contém diversas instruções para compilar um projeto Android. É lá que colocamos
+as dependencias do projeto, como bibliotecas de terceiros.
+<br /><br />
 
 A linguagem utilizada pelo Gradle é o <a href="http://www.groovy-lang.org/">Groovy</a>. Groovy é uma linguagem muito baseada em <a href="http://www.groovy-lang.org/closures.html">closures</a>, que basicamente são blocos de código com parâmetros e retornos que são associados normalmente a alguma variável. É algo semelhante a interface <a href="http://developer.android.com/reference/java/util/concurrent/Future.html">Future</a> por exemplo.
-<br><br>
+<br /><br />
 
 {% gist 79cca974309e27fe2c07 %}
-<br><br>
+<br /><br />
 
 No exemplo acima a variável <span>myVar</span> recebe um closure. Esse closure por sua vez recebe 2 parametros, uma String e um int. Os tipos poderiam ser omitidos. Em seguida o closure é chamado e temos o output.
-<br><br>
+<br /><br />
 
 <b>Gradle scripts</b>
-<br><br>
+<br /><br />
 
 Você pode rodar manualmente as tarefas do build.gradle pelo terminal ou mesmo criar novas tasks.
 Por exemplo, no seu build.gradle adicione a tarefa abaixo:
-<br><br>
+<br /><br />
 
 {% gist b90462423c4ba40f896d %}
 
-<br><br>
+<br /><br />
 
 E pelo terminal, acesse a raiz do projeto e execute <span>gradle tasks</span>. Se você nunca rodou o gradle por fora
 do Android Studio você precisará adicioná-lo antes ao seu classpath. O download do Gradle pode ser feito no <a href="http://gradle.org/downloads/
 ">própio site</a>.
-<br><br>
+<br /><br />
 
-Ao rodar o comando <span>gradle tasks</span> você verá apenas o print "Configuration stage". Isso porque todas as tasks do Gradle serão configuradas, mesmo que não executadas. Essa é a etapa chamada <span>Configuration stage</span>. Para rodar efetivamente sua task, execute <span>gradle myTask</span>. Agora o build irá rodar a sua task, dando o print em "Execution stage". 
-<br><br>
+Ao rodar o comando <span>gradle tasks</span> você verá apenas o print "Configuration stage". Isso porque todas as tasks do Gradle serão configuradas, mesmo que não executadas. Essa é a etapa chamada <span>Configuration stage</span>. Para rodar efetivamente sua task, execute <span>gradle myTask</span>. Agora o build irá rodar a sua task, dando o print em "Execution stage".
+<br /><br />
 
 <b>build.gradle</b>
-<br><br>
+<br /><br />
 
 Agora podemos olhar o build.gradle e entender um pouco mais do que acontece ali.
-<br><br>
+<br /><br />
 
 {% gist 1e780400335d47518648 %}
 
-<br><br>
+<br /><br />
 
 Repare que temos uma chamada a um script chamado <span>Buildscript</span> que recebe um closure. Assim como temos um script chamado <span>allprojects</span>, que tabém recebe closures com seus parâmetros.
-<br><br>
+<br /><br />
 
-Essas chamadas pré-definidas vem da interface <a href="https://docs.gradle.org/current/dsl/org.gradle.api.Project.html">Project</a> do Gradle. É 
+Essas chamadas pré-definidas vem da interface <a href="https://docs.gradle.org/current/dsl/org.gradle.api.Project.html">Project</a> do Gradle. É
 através dela que temos acesso as features do Gradle.
-<br><br>
+<br /><br />
 
 <b>Continuando...</b>
-<br><br>
+<br /><br />
 
 Dois links interessantes para continuar seus estudos com Gradle:
-<br><br>
+<br /><br />
 
 <a href="http://trickyandroid.com/gradle-tip-1-tasks/">Gradle Tips #1</a> - Séria de posts recentes.
-<br><br>
+<br /><br />
 
 <a href="https://www.udacity.com/course/gradle-for-android-and-java--ud867">Gradle for Android e Java</a> - Curso da Udacity sobre Gradle
-<br><br>
+<br /><br />

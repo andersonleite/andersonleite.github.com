@@ -11,54 +11,54 @@ published: true
 ---
 
 <strong>Cycle.js: Refactor (part 4)</strong>
-<br><br>
+<br /><br />
 
 This is the 4th part of a blog post series about RxJS and Cycle.js.
 <a href="/2017/01/03/ui-rx-cycle-part-I.html">Understanding RxJS (part 1)</a>,
 <a href="/2017/01/03/ui-rx-cycle-part-II.html">Meet Cycle.js (part 2)</a> and
 <a href="/2017/01/03/ui-rx-cycle-part-I.html">Cycle UI with RxJS and Cycle.js (part 3)</a>
-<br><br>
+<br /><br />
 
 <b>About this refactor</b>
-<br><br>
+<br /><br />
 
 After I wrote this code using Cycle.JS and the blog posts, I received some cool
 feedback from <a href="https://twitter.com/chadrien">Hadrien de Cuzey</a> on how to improve it.
-<br><br>
+<br /><br />
 
 I will share here and comment what I learned after that.
-<br><br>
+<br /><br />
 
 If you wanna see it live, go to this <a href="https://jsbin.com/feqapa/edit?js,output">JSBin</a>.
 
 Now, let's see the implementation.
-<br><br>
+<br /><br />
 
 <b>The new code</b>
-<br><br>
+<br /><br />
 
 Looke below to the new code we have. In the top of the file we can see the first big difference:
 <span>CycleHTTPDriver</span>. This was for me the most important learning here. We can
 consider the HTTP requests as Observables and use the default code on <span>Cycle.js</span> to make
 the requests.
-<br><br>
+<br /><br />
 
 The other interesting point here is the use of <span>hyperscript</span> on view function.
 I've been exploring to see what's the best solution/good practice, but I fount that using
 the html helper elements (div, h1, p, etc) or the h function is basically a personal choice.
-<br><br>
+<br /><br />
 
 {% gist 238778d09fe51984df42e499f36b8830 %}
 
 <b>The Diff</b>
-<br><br>
+<br /><br />
 
 In order to better understand the differece on the suggestions I created an online diff
 file. You can check it clicking on the image below.
-<br><br>
+<br /><br />
 
-<br><br>
+<br /><br />
 <center><a href="https://www.diffchecker.com/eBMrYCJC" target="blank"><img width="300px" src="/images/diff.png"></a></center>
-<br><br>
+<br /><br />
 
 Thanks again to <a href="https://twitter.com/chadrien">Hadrien de Cuzey</a> for the feedback and help here!
