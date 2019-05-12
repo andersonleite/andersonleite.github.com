@@ -2,7 +2,7 @@ import ThemeSwitchStyle from "./styles/ThemeSwitchStyle";
 
 const ThemeSwitch = () => (
   <ThemeSwitchStyle>
-    <p>light<span> - </span>dark</p>
+    <p>light<div className="line"></div> <span>dark</span></p>
   </ThemeSwitchStyle>
 )
 
