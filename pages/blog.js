@@ -1,5 +1,7 @@
 import Layout from '../components/Layout.js'
 import Link from 'next/link'
+import PostStyle from "../components/styles/PostStyle";
+import React from "react";
 
 const PostLink = props => (
   <li>
@@ -12,12 +14,26 @@ const PostLink = props => (
 export default function Blog() {
   return (
     <Layout>
-      <h1>My Blog</h1>
-      <ul>
-        <PostLink id="post01" title="Post 01" />
-        <PostLink id="post02" title="Post 02" />
-        <PostLink id="post03" title="Post 03" />
-      </ul>
+      <PostStyle>
+        <ul>
+          <li>
+            <h2>UI development with Cycle | Refactoring the code (part 4)</h2>
+            <p><small>03 january 2017</small></p>
+          </li>
+          <li>
+            <h2>UI development with Cycle | Refactoring the code (part 4)</h2>
+            <p><small>03 january 2017</small></p>
+          </li>
+          <li>
+            <h2>UI development with Cycle | Refactoring the code (part 4)</h2>
+            <p><small>03 january 2017</small></p>
+          </li>
+          <li>
+            <h2>UI development with Cycle | Refactoring the code (part 4)</h2>
+            <p><small>03 january 2017</small></p>
+          </li>
+        </ul>
+      </PostStyle>
     </Layout>
   )
 }
