@@ -6,7 +6,7 @@ import React from "react";
 const PostLink = props => (
   <li>
     <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
-      <a>{props.title}</a>
+      <h2>{props.title}</h2>
     </Link>
   </li>
 )
@@ -16,22 +16,9 @@ export default function Blog() {
     <Layout>
       <PostStyle>
         <ul>
-          <li>
-            <h2>UI development with Cycle | Refactoring the code (part 4)</h2>
-            <p><small>03 january 2017</small></p>
-          </li>
-          <li>
-            <h2>UI development with Cycle | Refactoring the code (part 4)</h2>
-            <p><small>03 january 2017</small></p>
-          </li>
-          <li>
-            <h2>UI development with Cycle | Refactoring the code (part 4)</h2>
-            <p><small>03 january 2017</small></p>
-          </li>
-          <li>
-            <h2>UI development with Cycle | Refactoring the code (part 4)</h2>
-            <p><small>03 january 2017</small></p>
-          </li>
+          <PostLink id="2017-01-03-ui-rx-cycle-part-IV" title="UI development with Cycle | Refactoring the code (part 4)" />
+          <PostLink id="2017-01-03-ui-rx-cycle-part-IV" title="UI development with Cycle | Refactoring the code (part 4)" />
+          <PostLink id="2017-01-03-ui-rx-cycle-part-IV" title="UI development with Cycle | Refactoring the code (part 4)" />
         </ul>
       </PostStyle>
     </Layout>

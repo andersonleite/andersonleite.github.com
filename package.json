@@ -24,9 +24,16 @@
   "homepage": "https://github.com/andersonleite/andersonleite.github.com#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "graphql": "^14.3.0",
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.2.0"
+  },
+  "devDependencies": {
+    "apollo-boost": "^0.3.1",
+    "apollo-client": "^2.5.1",
+    "next-with-apollo": "^3.4.0",
+    "react-apollo": "^2.5.5"
   }
 }
