@@ -1,5 +1,9 @@
+
 npm run dev
 http://localhost:7777
+
+deploy:
+now
 
 OLD
 ================
