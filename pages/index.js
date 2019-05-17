@@ -1,12 +1,11 @@
 import Layout from "../components/Layout";
-import Post from "../components/Post";
+import React from "react";
+import PostItem from "../components/Post";
 
 const Index = () => (
-  <div>
-    <Layout >
-      <Post />
-    </Layout>
-  </div>
+  <Layout>
+    <PostItem />
+  </Layout>
 )
 
 export default Index
