@@ -1,11 +1,11 @@
-import { withRouter } from 'next/router'
 import Layout from '../components/Layout.js'
+import React from "react";
+import PostItem from "../components/Post";
 
-const Page = withRouter(props => (
+const Post = props => (
   <Layout>
-    <h1>{props.router.query.title}</h1>
-    <p>This is the blog post content.</p>
+    <PostItem id={props.query.id} />
   </Layout>
-))
+)
 
-export default Page
+export default Post;
