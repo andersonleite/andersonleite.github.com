@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next -p 7777",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "next start",
     "now-build": "next build"
   },
   "repository": {
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/andersonleite/andersonleite.github.com#readme",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.0",
     "graphql": "^14.3.0",
     "next": "^8.1.0",
     "react": "^16.8.6",
