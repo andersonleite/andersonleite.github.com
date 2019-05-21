@@ -18,7 +18,7 @@ const SINGLE_POST_QUERY = gql`
 class PostItem extends Component {
   render() {
 
-    // cjvr7uy87motk0b356mk5ktzx
+    // const id = this.props.id !== undefined ? this.props.id : 'cjvr7uy87motk0b356mk5ktzx';
     const id = this.props.id !== undefined ? this.props.id : 'cjvu2u1o0000e0723t065mew0';
 
     return (
@@ -26,8 +26,10 @@ class PostItem extends Component {
         query={SINGLE_POST_QUERY}
         variables={{id}}>
         {({data}) => {
+          if (data.post === undefined) {
+            return <p>loading...</p>
+          }
           return (
-
             <PostStyle>
               <div dangerouslySetInnerHTML={{ __html: data.post.content }} ></div>
             </PostStyle>
