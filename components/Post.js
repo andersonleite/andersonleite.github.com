@@ -34,13 +34,13 @@ class PostItem extends Component {
               <div dangerouslySetInnerHTML={{ __html: data.post.content }} ></div>
             </PostStyle>
 
-        )
+          )
         }}
-        </Query>
-        )
-        }
+      </Query>
+    )
+  }
 
 
-        }
-        export default PostItem
+}
+export default PostItem
 

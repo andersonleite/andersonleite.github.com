@@ -16,10 +16,10 @@ image: closure2
 <strong>A função hello criada anteriormente é pura. Isto significa que ela não tem nenhum efeito colateral. Esse tipo de função é relativamente fácil de escrever, testar e entender além de ser
 recomendada pra diversas necessidades.</strong>
 
-<br /><br />
+
 Porém muitos programas possuem <span>estado compartilhado</span> e precisam de funções não puras como essa para manter esse estado compartilhado.
 
-<br /><br />
+
 <b>Melhorando a função hello</b><br />
 
 Nossa função agora manterá um registro de todas as chamadas que forem feitas a ela. Para isso, usaremos um "<span>set</span>" do <span>Clojure</span>.
@@ -52,12 +52,12 @@ Usamos <strong>def</strong> para criar referências e associá-las a nossa funç
 </code>
 
 
-<br /><br />
+
 <b>E onde está esse controle de estados tão forte em Closure ?</b><br />
 
 <a href="http://andersonleiteblog.files.wordpress.com/2010/09/sharing-300x273.gif"><img src="http://andersonleiteblog.files.wordpress.com/2010/09/sharing-300x273.gif" alt="" title="sharing-300x273" width="300" height="273" class="alignnone size-full wp-image-631" /></a>
 
-<br /><br />
+
 O que acontece se tentarmos <span>alterar</span> essa referência que criamos ?
 Vamos tentar fazer isso usando "<span>alter</span>". Usando "<span>alter</span>" podemos tentar alterar nossa referência, inclusive passando argumentos se necessário. Vamos tentar alterar "visitor" para "visitors".
 <code>
@@ -66,11 +66,11 @@ Vamos tentar fazer isso usando "<span>alter</span>". Usando "<span>alter</span>"
 java.lang.IllegalStateException: No transaction running
 </code>
 
-<br /><br />
+
 Como vemos acima, <span>clojure</span> protege as referências. Podemos alterá-las mas precisamos de "<span>transactions</span>", deixando para o <span>Clojure</span> o trabalho pesado de lidar com concorrêcia entre múltiplas chamadas a nossa função.
 
 
-<br /><br />
+
 E como crio essa <span>transaction</span> ?
 Para criar uma <span>transaction</span> usamos <span>dosync</span>.
 

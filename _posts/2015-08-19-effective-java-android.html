@@ -11,79 +11,79 @@ image: effectivejava
 
 <strong>Effective Java is a great book for Java developers and even for Android
 applications all the topics still are up-to-date and valid to improve code.</strong>
-<br /><br />
+
 
 Actually I'm <a href="https://gist.github.com/andersonleite/03583bbbea7c7eb6a2f4">reading again the excelent Effective Java </a> book from Joshua Bloch. This book was very important for my Java learning
 in the past, with lots of good pratices to follow. Actually I'm reading it again with Android in mind.
 Since the book is about the Java Language, almost everything keeps up-to-date. But the interesting part is <span>how to apply ideas or how they are actually already applied</span> in Android development.
-<br /><br />
+
 
 <b>Effective Java</b>
-<br /><br />
+
 
 The first topics covered in the book are related to object creation. I want to explore the first topic of the book, <span>static factory methods</span> both on Android components already defined as using the concept with our own code.
-<br /><br />
+
 
 <center><img  src="http://ecx.images-amazon.com/images/I/51poMjBx7PL._SY344_BO1,204,203,200_.jpg"></center>
-<br /><br />
+
 
 <b>Static Factory Methods</b>
-<br /><br />
+
 
 In order to create a new object, we usually use the class constructor to receive a new instance of that class. This is the default behavior of object creation in Java. You can receive paramenters and do something inside the constructor to create the object with some pre-defined values.
-<br /><br />
+
 
 This works pretty well. However, we have another way to instanciate new objects with a different idea in mind. We could create objects with a <span>method</span> responsible for that, so we could <span>give it a more meaningful name</span>. Also, we could manage if the object being created <span>really needs to be a new instance</span>. Or return an <span>instance different from that class</span>, even if this sounds weird in the first place.
-<br /><br />
+
 
 <b>Android Toast</b>
-<br /><br />
+
 
 Some Android componets use this exactly behavior. Toast messages (that will be soon replaced by <a href="http://andersonleite.com.br/2015/07/16/material-design-butter-knife.html">Snackbar</a>) are good examples.
-<br /><br />
+
 
 When you call a Tost component you don't need to instanciate directly. What you do is a call to a <span>static factory method</span>, the makeText method. You will pass some parameters so android can fabricate the Toas message in a good way.
-<br /><br />
+
 
 {% gist 59fb7be4a0689d2d5b47 %}
 
 You can see more implementation details <a href="http://androidxref.com/5.1.1_r6/xref/frameworks/base/core/java/android/widget/Toast.java#283">here</a>.
-<br /><br />
+
 
 <b>Creating Fragments with static factory methods</b>
-<br /><br />
+
 
 We will first learn Android you understand that an Activity is a core part of the framework. Soon, you realize that using <span>Fragments</span> is also a good pratice, cause you can reuse the behavior and decouple code. So, to create a Fragment passing a text for example, you should do something like this.
-<br /><br />
+
 
 {% gist f8d5eea7eb1a37a9bac5 %}
-<br /><br />
+
 
 There is nothing really wrong with this code, but we could do it better. Using a <span>static factory method</span> we can provide three critical improvements here.
-<br /><br />
+
 
 First, a static factory method inside <span>TextFragment</span> can reduces code by subsequently increasing code readability.
-<br /><br />
+
 
 Second, a static factory method can ensures the same key is used to add parameters to the Bundle. Having multiple parameters would only increases the potential to accidentally mix up keys and their accompanying parameters, and it will be Activity's responsabilite to correclty manage this.
-<br /><br />
+
 
 Finally, the static factory method helps prevent mundane code errors such as forgetting to call setArguments(). In this respect, reusing the same code to instantiate a Fragment may significantly reduce the time it takes to debug such issues.
-<br /><br />
+
 
 {% gist d4d229b3924f002c106f %}
 
 With the static factory method in place, we can now initialize the TextFragment with the following code:
-<br /><br />
+
 
 {% gist 0fa94edecf742b6a38f0 %}
 
 <b>Conclusion</b>
-<br /><br />
+
 
 Using a <span>static factory method</span> can bring some advantages to the design of your code.
 Below we have listed some Advantages and Disadvantages of this approach:
-<br /><br />
+
 
 <span>Advantages</span>
 <ul>
@@ -91,10 +91,10 @@ Below we have listed some Advantages and Disadvantages of this approach:
 	<li>You are not required to create a “new” object each time they are invoked</li>
 	<li>You can even return an object that’s a subtype of the return type (unlike constructors which only return class type)</li>
 </ul>
-<br /><br />
+
 
 <span>Disadvantages</span>
-<br /><br />
+
 <ul>
 	<li>Classes without public or protected constructors cannot be subclassed</li>
 	<li>Static factory methods are not readily distinguishable from other static methods</li>

@@ -10,59 +10,59 @@ image: animation
 ---
 
 <strong>Android animations</strong>
-<br /><br />
+
 
 Android comes with built-in support for animations in the core of the platform. There is a class called <span>Animation.AnimationListener</span> wich provides tons of helpers to animate many aspects of an Androi app.
-<br /><br />
+
 
 Let's take a look at it. We are going to use animations configurated both in XML and programmatically. For the first animation we'll fall down a TextView using XLM. After that we will fade in and out the text.
-<br /><br />
+
 
 <center><img width="300px" src="/images/fall_down
 .gif"></center>
-<br /><br />
+
 
 <b>Animation</b>
-<br /><br />
+
 
 In the resources we can defina a new folder called <span>anim</span>. All of our animations XML will be in this place. For the first one the idea is simple: Move the TextView from a Y position to another Y position on 4 seconds. Take a look at the file below to see this configuration.
-<br /><br />
+
 
 {% gist 0e3f97c19c01a48460c9 %}
 
 Now that we have the idea of the animation, we nee to link it to our TextView. To do that, we need to add some code to the Activity. In the code below, we define the animation XML we'll use, set an animation listener (will be useful, for example, to do some code after animation stops) and start the animation.
-<br /><br />
+
 
 {% gist e9355cbc61f8aee377dc %}
 
 Next step is to configure this Activity as an Activity which knows about animations. This is possible implementing the <span>Animation.AnimationListener</span> and overriding 3 methods like in the code below.
-<br /><br />
+
 
 {% gist d62a7679bf0c9721c4a9 %}
 
-<br /><br />
+
 
 <b>Programmatically animations</b>
-<br /><br />
+
 
 Now we have configured a simple animation using XML, let's add a second one programmatically.
 The idea now is to fade in/out the TextView, right after fall down animation ends.
-<br /><br />
+
 
 To do that, we can start a nem animation in the <span>onAnimationEnd</span> method we previously created. We will define <span>AlphaAnimation</span>, offset and duration.
-<br /><br />
+
 
 {% gist 999f3526967f47867844 %}
 
 <b>To infinity and Beyond</b>
-<br /><br />
+
 
 After understanding the basics, you can go a little deeper in animations for Android. Below we have 2 interesting links about this subject.
-<br /><br />
+
 
 Displaying Card Flip Animations<br />
 http://developer.android.com/training/animation/cardflip.html
-<br /><br />
+
 
 <center>
 	<video class="play-on-hover" autoplay="">
@@ -71,12 +71,12 @@ http://developer.android.com/training/animation/cardflip.html
 		<source src="http://developer.android.com/training/animation/anim_card_flip.ogv" type="video/ogg">
 	</video>
 </center>
-<br /><br />
 
 
-<br /><br />
+
+
 
 Pluralsight - Android Animations Course<br />
 <a href="http://www.pluralsight.com/courses/android-animations">www.pluralsight.com/courses/android-animations</a>
 
-<br /><br />
+

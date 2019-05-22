@@ -31,10 +31,8 @@ export default class Posts extends Component {
     return (
       <div>
         <Query query={ALL_POSTS_QUERY}>
-          {({data}) => {
-            if (data.posts === undefined) {
-              return <p>loading...</p>
-            }
+          {({loading, data}) => {
+            if (loading) return null;
             return <ul>
               {data.posts.map(post =>
                 <PostLink id={post.id} title={post.title} />
