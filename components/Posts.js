@@ -19,7 +19,7 @@ const PostLink = props => (
   <li>
     <h2>
       <Link href={`/post?id=${props.id}`}>
-        {props.title}
+        <a>{props.title}</a>
       </Link>
     </h2>
     <p><small>03 January 2017</small></p>
@@ -35,7 +35,7 @@ export default class Posts extends Component {
             if (loading) return null;
             return <ul>
               {data.posts.map(post =>
-                <PostLink id={post.id} title={post.title} />
+                <PostLink id={post.id} title={post.title} key={post.id} />
               )}
               </ul>
           }}
