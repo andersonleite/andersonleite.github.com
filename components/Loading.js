@@ -5,9 +5,9 @@ const Loading = () => {
   const [isLoading, setIsLoading] = useState(true);
   let timeoutRef = useRef();
 
-  timeoutRef.current = setTimeout(() => {
-    setIsLoading(false);
-  }, 2000);
+  // timeoutRef.current = setTimeout(() => {
+  //   setIsLoading(false);
+  // }, 2000);
 
   return (
     <>
