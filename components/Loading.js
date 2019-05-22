@@ -7,7 +7,7 @@ const Loading = () => {
 
   timeoutRef.current = setTimeout(() => {
     setIsLoading(false);
-  }, 3000);
+  }, 2000);
 
   return (
     <>

@@ -11,6 +11,7 @@ const LoadingStyle = styled.nav`
     transform:translate(-50%,-50%);
     background: #343334;
     z-index: 2;
+    //animation: bg 3s ease-out;
   }
   .blob-1,.blob-2{
     width:70px;
@@ -40,6 +41,10 @@ const LoadingStyle = styled.nav`
     0%{left:80%;}
     50%{left:50%;}
     100%{left:80%;}
+  }
+  @keyframes bg{
+    //80% {opacity: 1}
+    //100% {opacity: 0}
   }
 `
 
