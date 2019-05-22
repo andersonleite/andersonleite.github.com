@@ -11,49 +11,49 @@ image: retrofit
 
 <strong>
 Melhorando as requisições assíncronas com RxAndroid e Retrofit</strong>
-<br /><br />
+
 
 Continuando o <a href="/2015/06/01/rxandroid.html">post anterior</a>, em diversos momentos do desenvolvimento de um
 app Android, nos deparamos com uma requisição a um sistema externo que precisa atualizar alguma
 informação na UI. Nesse post vamos ver como fazer uma requisição externa a uma API
 que devolve um conteúdo em JSON.
 
-<br /><br />
+
 
 
 <b>Retrofit</b>
-<br /><br />
+
 
 <span>Retrofit</span> é uma lib que, entre outras funções, facilita a conversão do retorno em JSON para models comuns
 da aplicação. O framework é bem flexível para diversos tipos de URL, seja seguindo o padrão REST com
 a annotation @Path ou mesmo com query parameters usando o @Query.
-<br /><br />
+
 
 A ideia principal é criar uma interface responsável por dizer ao Retrofit onde buscar a informação.
 Além disso, mapear os seus models para que o Retrofit entrege objetos populados no retorno da chamada.
-<br /><br />
+
 
 {% gist 0a3301249bee1fca19ec %}
-<br /><br />
+
 
 <b>Integração com RxAndroid</b>
-<br /><br />
+
 
 Primeiro, recapitulando. Por que queremos integrar essas duas coisas, <span>RxAndroid</span> e <span>Retrofit</span>? O RxAndroi fornece Observables e Subscrebers. O Retrofit faz chamadas para alguma API.
-<br /><br />
+
 
 A ideia é utilizar o RxAndroid como o compontende que faz a chamada do Retrofit. Um Subscriber será acionado assim que a requisição acabar. O interessante dessa abordagem é que se utilizada de forma desacoplada da Activity principal, é possível reter o comportamento que está sendo implementado para ser utilizado mesmo quando a Activity principal for destruída, evitando NullPointerExceptions, mudanças drasticas na interface, etc.
-<br /><br />
+
 
 Para integrar essas duas libs configuramos o retorno que tínhamos antes como objetos normais do nosso nomínio para lista de Observables do RxJava. Após o retorno da chamada a API, o próximo RxJava irá direcionar para o método onNext(), e ai você pode manipular o resultado como precisar.
-<br /><br />
+
 
 {% gist 153670d8fdef09ceae30 %}
-<br /><br />
+
 
 
 <b>Exemplos de implementação</b>
-<br /><br />
+
 
 Vale acessar o <a href="http://square.github.io/retrofit/">site do Retrofit</a> e analisar os exemplos de
 chamadas a API's. Existem outras libs para requests HTTP a API's, como o <a href="https://developer.android.com/training/volley/simple.html">Volley</a>. Em breve mais posts sobre o assunto.

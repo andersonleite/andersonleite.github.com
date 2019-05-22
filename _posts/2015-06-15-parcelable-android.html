@@ -12,68 +12,68 @@ image: parcelable
 <strong>
 Como e por qual razão utilizar essa interface do Android SDK
 </strong>
-<br /><br />
+
 
 Antes de definir o que é essa interface, vamos olhar o que diz a documentação do Android:
-<br /><br />
+
 
 <span>Interface</span> for classes whose instances can be written to and restored from a <cite>Parcel</cite>. Classes implementing the Parcelable interface must also have a static field called <span>CREATOR</span>, which is an object implementing the <span>Parcelable</span>.Creator interface.
-<br /><br />
+
 
 
 <b>Sobre o Parcelable</b>
-<br /><br />
+
 
 
 A partir da documentação é possível concluir que essa interface é utilizada para escrita e leitura de algo chamado Parcel. Além disso, para utilizar essa interface, sua classe precisa de um campo chamado CREATOR. Enfim, nada muito convidativo a utilizar no caso de você não saber o que é isso.
-<br /><br />
+
 
 
 <b>Quando usar?</b>
-<br /><br />
+
 
 
 Em diversas situações em um aplicativo Android é necessário passar objetos entre Activitys. Quando a informação que precisa ser passada é do tipo String, Integer ou mesmo tipos primitivos utilizar uma Intent para essa operação é bem fácil e simples. Basta colocar a informação na forma de par chave-valor e enviar pra outra Activity. Porém, se você quiser passar um model seu entre Activities, esse objeto precisa implementar Parcelable.
-<br /><br />
+
 
 Resumindo, quando objetos complexos do seu domínio precisam trafegar entre telas de sua app, Parcelable pode ser uma boa opção.
-<br /><br />
+
 
 
 
 <b>Exemplo de implementação</b>
-<br /><br />
+
 
 
 Como dito na documentação, ao implementar Parcelable sua classe terá de implementar alguns métodos e ter o campo CREATOR.
 No exemplo abaixo, uma simples classe chamada House, com dois atributos (rooms e color) recebeu uma implementação Parcelable.
-<br /><br />
+
 
 {% gist 8697f59fdcff8caf4fbc %}
-<br /><br />
+
 
 <b>Parcelable VS Serializable</b>
-<br /><br />
+
 
 Pra quem já trabalhou com Java em outras plataformas diferentes do mobile a comparação com a Interface Serializable é inevitável.
 Ambos ajudam a trafegar objetos, são interfaces e considerados marcações.
-<br /><br />
+
 
 Durante o desenvolvimento de aplicativos Android é possível optar por ambas as soluções, Parcelable ou Serializable, para trafegas objetos pelas
 Activitys. A grande diferença é que a solução com Parcelable é por volta de 2x mais rápida que a Serializable.
-<br /><br />
+
 
 Em resumo, Parcelable é mais rápido que Serializable. Além de ser uma implementação bem documentada no Android SDK.
-<br /><br />
+
 
 <b>Conclusão</b>
-<br /><br />
+
 
 Pra facilitar a criação de uma classe Parcelable e não ter que escrever todo aquele código mais complexo, existem <a href="http://www.parcelabler.com/">ferramentas como o Parcelabler</a>. Tente criar a classe House acima pra ver o resultado.
-<br /><br />
+
 
 Você pode ver mais informações sobre a interface Parcelable <a href="http://www.3pillarglobal.com/insights/parcelable-vs-java-serialization-in-android-app-development">nesse post</a>, com gráficos e implementação comparando as duas abordagens.
-<br /><br />
+
 
 <center><img width="400px" src="http://www.3pillarglobal.com/sites/default/files/parcelable.JPG"></center>
 
