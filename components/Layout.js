@@ -6,6 +6,7 @@ import Info from "./Info";
 import ThemeSwitch from "./ThemeSwitch";
 import theme from "../components/colors"
 import reset from "../components/reset"
+import { PageTransition } from 'next-page-transitions'
 
 import { createGlobalStyle } from 'styled-components'
 
@@ -49,6 +50,22 @@ const Layout = props => (
       }
     `}
     </style>
+    <style jsx global>{`
+          .page-transition-enter {
+            opacity: 0;
+          }
+          .page-transition-enter-active {
+            opacity: 1;
+            transition: opacity 2s ease-out 2s;
+          }
+          .page-transition-exit {
+            opacity: 1;
+          }
+          .page-transition-exit-active {
+            opacity: 0;
+            transition: opacity 2s ease-out 2s;
+          }
+        `}</style>
     <GlobalStyle />
     <SidenavStyle>
       <Intro />
@@ -56,9 +73,12 @@ const Layout = props => (
       <Info />
       <ThemeSwitch />
     </SidenavStyle>
-    <MainStyle>
+    <PageTransition timeout={300} classNames="page-transition">
+
+    <MainStyle key="al">
       {props.children}
     </MainStyle>
+    </PageTransition>
   </>
 )
 
