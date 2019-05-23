@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/andersonleite/andersonleite.github.com#readme",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "express": "^4.17.0",
     "graphql": "^14.3.0",
     "next": "^8.1.0",
