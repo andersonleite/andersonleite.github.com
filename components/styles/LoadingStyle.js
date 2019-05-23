@@ -43,10 +43,10 @@ const LoadingStyle = styled.nav`
     100%{left:80%;}
   }
   @keyframes bg{
-    0%   {opacity: 1}
-    80%  {opacity: 1}
-    99%  {z-index: 2}
-    100% {opacity: 0; display: none; z-index: -1}
+    //0%   {opacity: 1}
+    //80%  {opacity: 1}
+    //99%  {z-index: 2}
+    //100% {opacity: 0; display: none; z-index: -1}
   }
 `
 
