@@ -65,20 +65,27 @@ const Layout = props => (
             opacity: 0;
             transition: opacity 2s ease-out 2s;
           }
+          .main:hover ~ .sidenav {
+            opacity: 0.5;
+            transition: opacity .3s ease-in;
+          }
         `}</style>
     <GlobalStyle />
-    <SidenavStyle>
+
+    <div className={`main`}>
+      <PageTransition timeout={300} classNames="page-transition">
+        <MainStyle key="al" >
+          {props.children}
+        </MainStyle>
+      </PageTransition>
+    </div>
+    <SidenavStyle className={`sidenav`}>
       <Intro />
       <Links />
       <Info />
       <ThemeSwitch />
     </SidenavStyle>
-    <PageTransition timeout={300} classNames="page-transition">
 
-    <MainStyle key="al">
-      {props.children}
-    </MainStyle>
-    </PageTransition>
   </>
 )
 
