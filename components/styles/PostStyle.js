@@ -7,24 +7,30 @@ const PostStyle = styled.div`
   
   h2 {
     color: ${theme.green};
-    font-size: 26px;
+    font-size: 16px;
     line-height: 20px;
+    text-align: right;
+
   }
   h3 {
-    font-size: 18px;
-    color: ${theme.white};
-    margin-top: 30px;    
+    font-size: 16px;
+    //color: ${theme.white};
+    margin-top: 30px;
+    font-weight: bold;
   }
   p {
   font-size: 16px;
     small {
-      margin-bottom: 50px;
+      margin-bottom: 80px;
       display: block;
+      font-size: 16px;
+      text-align: right;
     }
   }
   img {
-  margin-top: 20px;
-  margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
   }
   iframe {
     position: relative;

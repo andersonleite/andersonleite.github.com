@@ -9,7 +9,7 @@ const LoadingStyle = styled.nav`
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    background: #343334;
+    background: ${theme.grey_dark};
     z-index: 2;
     animation: bg 3s ease-out forwards;
   }

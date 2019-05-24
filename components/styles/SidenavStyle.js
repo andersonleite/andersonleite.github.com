@@ -3,7 +3,7 @@ import theme from "../colors";
 
 const SidenavStyle = styled.div`
   height: 100%;
-  width: 25%;
+  width: 22%;
   position: fixed;
   z-index: 1;
   top: 0;

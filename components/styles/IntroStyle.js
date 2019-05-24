@@ -9,6 +9,8 @@ const IntroStyle = styled.div`
     font-weight: bold;
     font-size: 24px;
     color: ${theme.white};
+    line-height: 0px;
+    font-family: 'circular_std';
   }
   span {
     color: ${theme.green};
@@ -18,6 +20,8 @@ const IntroStyle = styled.div`
   
   p {
     margin-top: 10px;
+    margin-top: 30px;
+    line-height: 20px;
   }
 `
 

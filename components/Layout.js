@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
-    font-family: 'circular_std';
+    font-family: monospace;
   }
   a {
     text-decoration: none;

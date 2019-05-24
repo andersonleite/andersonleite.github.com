@@ -12,7 +12,7 @@ const InfoStyle = styled.div`
       vertical-align: middle;
       width: 20px;
       height: 2px;
-      background: #59ead2;
+      background: ${theme.green};
       margin: 0 7px;
       margin-right: 6px;
       transition: all .3s;
