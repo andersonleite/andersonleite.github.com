@@ -36,6 +36,10 @@ const PostStyle = styled.div`
     position: relative;
     left: -10px;
   }
+  .post-container{
+    padding-left: 20px;
+    border-left: 1px solid ${theme.white}
+  }
 `
 
 export default PostStyle
