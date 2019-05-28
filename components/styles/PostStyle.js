@@ -7,13 +7,13 @@ const PostStyle = styled.div`
   
   h2 {
     color: ${theme.green};
-    font-size: 16px;
+    font-size: 24px;
     line-height: 20px;
     text-align: right;
 
   }
   h3 {
-    font-size: 16px;
+    font-size: 20px;
     //color: ${theme.white};
     margin-top: 30px;
     font-weight: bold;
@@ -23,7 +23,7 @@ const PostStyle = styled.div`
     small {
       margin-bottom: 80px;
       display: block;
-      font-size: 16px;
+      font-size: 12px;
       text-align: right;
     }
   }
@@ -38,7 +38,7 @@ const PostStyle = styled.div`
   }
   .post-container{
     padding-left: 20px;
-    border-left: 1px solid ${theme.white}
+    border-left: 1px solid #252525;
   }
 `
 

@@ -6,8 +6,7 @@ const Intro = () => (
     <p>Hi! I’m a Web Developer<br />
       currently working as a <br />
       Senior Frontend Developer at Apple.<br /><br />
-      Feel free to contact me and<br />
-      read my blog posts.</p>
+    </p>
   </IntroStyle>
 )
 
