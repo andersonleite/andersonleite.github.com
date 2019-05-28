@@ -38,6 +38,17 @@ const Layout = props => (
   <>
     <style jsx global>{`
       @font-face {
+        font-family: 'circular_std';
+        src: url('/static/fonts/CircularStd-Book.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'circular_std-bold';
+        src: url('/static/fonts/CircularStd-Bold.woff2') format('woff2');
+        font-weight: bold;
+      }
+      @font-face {
         font-family: 'Inconsolata';
         font-style: normal;
         font-weight: 400;
