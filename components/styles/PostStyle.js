@@ -37,7 +37,7 @@ const PostStyle = styled.div`
     left: -10px;
   }
   .post-container{
-    padding-left: 20px;
+    padding-left: 40px;
     border-left: 1px solid #252525;
   }
 `
