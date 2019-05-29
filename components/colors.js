@@ -1,8 +1,8 @@
 export const theme = {
-  white: '#E0E0E0',
-  green: '#0D9555',
-  grey_light: '#ebebeb',
-  grey_dark: '#050806'
+  white: '#fdfefe',
+  green: '#e65152',
+  grey_light: '#d9dcde',
+  grey_dark: '#111827'
 }
 
 export default theme
