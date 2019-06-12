@@ -135,8 +135,7 @@ const Layout = props => (
     <SidenavStyle className={`sidenav`}>
       <Intro />
       <Links />
-      <Info />
-      <ThemeSwitch />
+      {/*<ThemeSwitch />*/}
     </SidenavStyle>
 
   </>
