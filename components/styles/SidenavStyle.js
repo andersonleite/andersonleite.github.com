@@ -13,6 +13,7 @@ const SidenavStyle = styled.div`
   padding: 70px 50px;
   opacity: 1;
   transition: opacity .3s ease-out;
+  border-right: 1px solid rgb(37, 37, 37)
   }
 `
 
