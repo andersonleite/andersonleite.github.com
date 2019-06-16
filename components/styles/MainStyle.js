@@ -65,6 +65,15 @@ const MainStyle = styled.div`
     color: rgb(115, 115, 115);
     font-size: 17px;
     line-height: 30px;
+    a{
+      transition: all 200ms ease;
+      &:hover{
+        color: ${theme.green};
+        opacity: 0.5;
+        text-decoration: underline;
+      }
+    }
+    
  }
  
  h2 {
