@@ -20,7 +20,7 @@ class MyApp extends App {
 
     return (
       <>
-      <Loading/>
+      {/*<Loading/>*/}
       <Container>
         <ApolloProvider client={apollo}>
           <Component {...pageProps} />
