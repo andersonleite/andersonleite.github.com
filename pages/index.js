@@ -7,14 +7,17 @@ const Index = () => (
   <Layout>
     <section>
       <div className="social-links">
-        <a target="_blank" href="https://www.instagram.com/andersonleite/">
-          <div>Instagram</div>
+        <a className="social-link" target="_blank" href="https://www.instagram.com/andersonleite/">
+          <div className="social-link-name">Instagram</div>
+          <div className="social-link-underline"></div>
         </a>
-        <a target="_blank" href="https://twitter.com/anderson_leite">
-          <div>Twitter</div>
+        <a className="social-link" target="_blank" href="https://twitter.com/anderson_leite">
+          <div className="social-link-name">Twitter</div>
+          <div className="social-link-underline"></div>
         </a>
-        <a target="_blank" href="https://github.com/andersonleite">
-          <div>Github</div>
+        <a className="social-link" target="_blank" href="https://github.com/andersonleite">
+          <div className="social-link-name">Github</div>
+          <div className="social-link-underline"></div>
         </a>
       </div>
       <div className="parent">

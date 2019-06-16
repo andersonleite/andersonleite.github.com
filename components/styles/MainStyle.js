@@ -144,6 +144,44 @@ const MainStyle = styled.div`
     -ms-transform-origin: 0% 0%;
     transform-origin: 0% 0%;
     color: rgb(239, 239, 239);
+    
+    &:hover{
+      color: ${theme.green};
+      opacity: 0.5;
+      font-style: normal;
+      text-decoration: none;    
+    }
+    
+  }
+  
+  .social-link-name{
+    transform: translate3d(0px, 5px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+  .social-link-underline,
+  .social-link-name {
+    transition: all 200ms ease;
+  }
+  
+  .social-link:hover .social-link-underline{
+    width: 100%;
+    color: ${theme.green};
+    opacity: 0.5;
+
+  }
+  .social-link:hover .social-link-name{
+    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+  }
+
+  .social-link-underline{  
+    position: absolute;
+    left: 0px;
+    top: auto;
+    bottom: 0px;
+    width: 0%;
+    height: 1px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(197, 224, 232)), to(rgb(197, 224, 232)));
+    background-image: linear-gradient(180deg, rgb(197, 224, 232), rgb(197, 224, 232));
   }
  }
 
