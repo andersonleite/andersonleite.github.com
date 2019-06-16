@@ -37,7 +37,7 @@ const Index = () => (
         </div>
         <div className="area">
           <h2>About this site</h2>
-          <p className="summary">This is a web application is developed using React, Next.js, styled-components, Appolo, Yoga, GraphQL, Prisma, Heroku. wow!</p>
+          <p className="summary">This is a web application developed using React, Next.js, styled-components, Apollo, Yoga, GraphQL, Prisma, Heroku. wow!</p>
           <a className="area-link" target="_blank" href="https://github.com/andersonleite">
             <p>View source</p>
             <div className="area-link-underline"></div>
@@ -46,7 +46,7 @@ const Index = () => (
         </div>
         <div className="area">
           <h2>Go to the Blog</h2>
-          <p className="summary">I've been writing about web development web development web development since 2009.</p>
+          <p className="summary">I've been writing about web development with different technologies on this blog since 2009.</p>
           <Link href="/blog"><a className="area-link">
             <p>View posts</p>
             <div className="area-link-underline"></div>
@@ -54,7 +54,7 @@ const Index = () => (
         </div>
         <div className="area">
           <h2>Codepen</h2>
-          <p className="summary">I've been writing about web development web development web development since 2009.</p>
+          <p className="summary">I'm always coding some ideas on Codepen to explore animations, interactions, etc.</p>
           <a className="area-link" target="_blanket" href="https://codepen.io/andersonleite/">
             <p>Codepen</p>
             <div className="area-link-underline"></div>
@@ -62,7 +62,7 @@ const Index = () => (
         </div>
         <div className="area">
           <h2>Contact me</h2>
-          <p className="summary">I've been writing about web development web development web development since 2009.</p>
+          <p className="summary">Let's get in touch! I'll be happy to chat about web development and discuss new ideas.</p>
           <a className="area-link" target="_blanket" href="https://www.linkedin.com/in/leiteanderson/">
             <p>Linkedin</p>
             <div className="area-link-underline"></div>
