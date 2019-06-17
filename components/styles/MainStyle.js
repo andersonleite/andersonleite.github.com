@@ -13,6 +13,12 @@ const MainStyle = styled.div`
     margin-left: auto;
   }
   
+    @media (max-width: 991px) {
+    section{
+        margin-top: 25%;
+    } 
+  }
+  
   .me{
     padding-left: 10px;
   }
@@ -23,7 +29,7 @@ const MainStyle = styled.div`
     margin-top: 20%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-column-gap: 0px;
+    grid-column-gap: 10px;
     grid-row-gap: 150px;
     .description { grid-area: 1 / 2 / 2 / 5; }
     
@@ -73,9 +79,15 @@ const MainStyle = styled.div`
         text-decoration: underline;
       }
     }
-    
  }
- 
+  
+  @media (max-width: 991px) {
+    .description{
+        font-size: 14px;
+        line-height: 24px;
+    } 
+  }
+  
  h2 {
   margin-top: auto;
   font-size: 14px;
