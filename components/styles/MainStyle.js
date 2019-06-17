@@ -8,7 +8,7 @@ const MainStyle = styled.div`
     z-index: 1000;
     width: 75%;
     max-width: 1200px;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-right: auto;
     margin-left: auto;
   }
@@ -25,7 +25,7 @@ const MainStyle = styled.div`
   .parent {
     display: grid;
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 140px;
     grid-auto-columns: 1fr;
     grid-column-gap: 30px;
     grid-row-gap: 16px;
