@@ -38,6 +38,7 @@ const Layout = props => (
   <>
     <Head>
       <title>Anderson Leite — Web Developer</title>
+      <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
     </Head>
     <GlobalStyle />
     <div className={`main`}>

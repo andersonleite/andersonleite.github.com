@@ -1,7 +1,4 @@
 {
   "version": 2,
-  "builds": [{ "src": "package.json", "use": "@now/next" }],
-  "routes": [
-    {"src": "^/favicon.ico$", "dest": "/favicon.ico"}
-  ]
+  "builds": [{ "src": "package.json", "use": "@now/next" }]
 }
