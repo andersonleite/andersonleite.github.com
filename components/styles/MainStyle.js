@@ -15,7 +15,7 @@ const MainStyle = styled.div`
   
     @media (max-width: 991px) {
     section{
-        margin-top: 25%;
+        //margin-top: 25%;
     } 
   }
   
@@ -23,18 +23,39 @@ const MainStyle = styled.div`
     padding-left: 10px;
   }
   .parent {
-  
-    // grid
     display: grid;
-    margin-top: 20%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 16px;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 150px;
-    .description { grid-area: 1 / 2 / 2 / 5; }
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
     
-  }  
+  } 
   
+   @media (max-width: 479px){
+    .parent {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        grid-column-gap: 30px;
+        grid-template-areas: ". . . ." ". . . .";
+        -ms-grid-rows: auto auto;
+        grid-template-rows: auto auto;
+    }
+  }
+
+    .spacer._70 {
+      height: 70px;
+  }
+  @media (max-width: 479px){
+.spacer._70 {
+    display: none;
+    height: 70px;
+}
+}
   .circle01 {
     position: static;
     display: inline-block;
@@ -67,10 +88,21 @@ const MainStyle = styled.div`
     font-weight: 400;
   }
   
+@media (max-width: 991px) {
+h1 {
+    font-size: 16px;
+    line-height: 26px;
+}  
+  }
   .description {
     color: rgb(115, 115, 115);
     font-size: 17px;
     line-height: 30px;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    
     a{
       transition: all 200ms ease;
       &:hover{
@@ -80,6 +112,25 @@ const MainStyle = styled.div`
       }
     }
  }
+
+  @media screen and (max-width: 479px){
+    .me {
+      grid-column-end: 5;
+      grid-column-start: 1;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      padding-left: 0px;
+    }
+  }
+@media screen and (max-width: 479px){
+.description {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-end: 3;
+    justify-self: stretch;
+}
+}
   
   @media (max-width: 991px) {
     .description{
@@ -97,15 +148,36 @@ const MainStyle = styled.div`
   color: #efefef;
  }
  
+ 
+ 
  .area {
   position: relative;
   float: left;
-  width: 100%;
   min-height: 1px;
   padding-left: 10px;
   padding-right: 10px; 
+  
+  display: flex;
+  height: auto;
+  margin-top: auto;
+  flex-direction: column;
+  width: 25%;  
  }
- 
+
+  @media screen and (max-width: 767px){
+    .area {
+        width: 100%;
+        left: auto;
+        right: auto;
+    } 
+  }
+  
+@media (max-width: 767px) {
+.area{
+    margin-bottom: 60px;
+    margin-left: -10px;
+}   
+}
  .summary {
   margin-top: 4px;
   color: rgb(115, 115, 115);
@@ -124,7 +196,6 @@ const MainStyle = styled.div`
     transition: all 200ms ease;
     text-decoration: none;    
     
-    position: absolute;
     font-size: 12px;
     opacity: 0.5;    
     

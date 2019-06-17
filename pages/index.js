@@ -20,6 +20,7 @@ const Index = () => (
           <div className="social-link-underline"></div>
         </a>
       </div>
+      <div className="spacer _70"></div>
       <div className="parent">
         <div className="me">
           <h1>Anderson Leite</h1>
@@ -35,6 +36,10 @@ const Index = () => (
             Thanks for stopping by, please <a target="_blank" href="https://twitter.com/anderson_leite">get in touch</a>.
           </p>
         </div>
+      </div>
+
+      <div className="areas">
+
         <div className="area">
           <h2>About this site</h2>
           <p className="summary">This is a web application developed using React, Next.js, styled-components, Apollo, Yoga, GraphQL, Prisma, Heroku. wow!</p>
@@ -68,7 +73,9 @@ const Index = () => (
             <div className="area-link-underline"></div>
           </a>
         </div>
+
       </div>
+
     </section>
   </Layout>
 )
