@@ -231,6 +231,7 @@ h1 {
     
     p {
       opacity: 0.5;
+      transition: opacity 200ms ease;
     }
  }
  
