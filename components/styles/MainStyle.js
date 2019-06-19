@@ -19,8 +19,31 @@ const MainStyle = styled.div`
     } 
   }
   
+  @keyframes intro {
+    0% {
+      opacity: 0;
+      transform: translateY(20px)
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px) 
+    }
+  }
+  
+    @keyframes description {
+    0% {
+      opacity: 0;
+      transform: translateY(40px)
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px) 
+    }
+  }
+  
   .me{
     padding-left: 10px;
+    animation: .6s ease-in-out 0s 1 intro;
   }
   .parent {
     display: grid;
@@ -102,6 +125,7 @@ h1 {
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
+    animation: .6s ease-in-out 0s 1 description;
     
     a{
       transition: all 200ms ease;
@@ -196,11 +220,18 @@ h1 {
     transition: all 200ms ease;
     text-decoration: none;    
     
-    font-size: 12px;
-    opacity: 0.5;    
+    font-size: 12px;    
     
     transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
     transform-style: preserve-3d;
+    
+    &:hover p{
+      opacity: 1;
+    }
+    
+    p {
+      opacity: 0.5;
+    }
  }
  
  .social-links{
@@ -239,7 +270,7 @@ h1 {
     
     &:hover{
       color: ${theme.green};
-      opacity: 0.5;
+      // opacity: 0.5;
       font-style: normal;
       text-decoration: none;    
     }
@@ -264,14 +295,14 @@ h1 {
     bottom: 0px;
     width: 0%;
     height: 1px;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(197, 224, 232)), to(rgb(197, 224, 232)));
-    background-image: linear-gradient(180deg, rgb(197, 224, 232), rgb(197, 224, 232));
+    background: ${theme.green};
+    opacity: .5;
   }
   .area-link:hover .area-link-underline,
   .social-link:hover .social-link-underline{
     width: 100%;
     background: ${theme.green};
-    
+    opacity: 1;
   }
   
   .area-link-underline,
