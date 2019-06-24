@@ -8,7 +8,7 @@ const MainStyle = styled.div`
     z-index: 1000;
     width: 75%;
     max-width: 1200px;
-    margin-top: 5%;
+    margin-top: 7%;
     margin-right: auto;
     margin-left: auto;
   }
