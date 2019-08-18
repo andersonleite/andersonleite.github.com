@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 14px;
     font-family: sans-serif;
     background: ${theme.grey_dark};
-    overflow: hidden;
+    overflow: initial;
   }
   *, *:before, *:after {
     box-sizing: inherit;
