@@ -323,7 +323,7 @@ h1 {
     transition: height 1s ease;
     
     &.show {
-      height: 1200px;
+      height: 1500px;
     }
     
     .work-sub {
