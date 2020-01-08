@@ -87,7 +87,7 @@ const MainStyle = styled.div`
     margin-top: 0px;
     margin-right: 10px;
     border-radius: 10px;
-    background-color: rgb(65, 180, 103);
+    background-color: ${theme.green};
   }
   
   .c2 {

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Anderson Leite's website",
   "main": "index.js",
+  "engines": { "node": "12.x" },
   "directories": {
     "example": "examples"
   },
