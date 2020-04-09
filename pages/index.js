@@ -177,8 +177,9 @@ class Index extends React.Component {
             <div className="area">
               <h2>Work</h2>
               <p className="summary">From prototypes to production code, I love to be part of collaborative teams. </p>
-              <a className="area-link" id="toggle-work" onClick={this.toggleWork}>
-                <p>View work</p>
+              {/*<a className="area-link" id="toggle-work" onClick={this.toggleWork}>*/}
+              <a className="area-link" target="_blanket" href="https://www.linkedin.com/in/leiteanderson/">
+                <p>Linkein</p>
                 <div className="area-link-underline"></div>
               </a>
 
