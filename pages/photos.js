@@ -1,10 +1,7 @@
 import Layout from "../components/Layout";
-import PhotosStyle from "../components/styles/PhotosStyle";
-
 
 export default function Photos() {
   return(
-    <PhotosStyle>
       <div>
         <Layout>
           <p>Black Book</p>
@@ -47,7 +44,6 @@ export default function Photos() {
           </div>
         </Layout>
       </div>
-    </PhotosStyle>
   )
 }
 

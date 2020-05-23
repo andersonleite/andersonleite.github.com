@@ -27,15 +27,12 @@
   "homepage": "https://github.com/andersonleite/andersonleite.github.com#readme",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "express": "^4.17.0",
-    "graphql": "^14.3.0",
     "next-page-transitions": "^1.0.0-beta.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "styled-components": "^4.2.0"
+    "sass": "^1.26.5"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.0",
     "next": "^9.4.2"
   }
 }

@@ -1,14 +1,8 @@
 import Layout from "../components/Layout";
 import React from "react";
-import PostItem from "../_old/-blog";
 import Link from "next/link";
 
 class Index extends React.Component {
-
-  toggleWork() {
-    const work = document.querySelector('.work');
-    work.classList.toggle('show')
-  }
 
   render() {
     return (

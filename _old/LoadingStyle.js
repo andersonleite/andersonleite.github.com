@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import theme from "../colors";
+import theme from "./colors";
 
 const LoadingStyle = styled.nav`
   .centered{
