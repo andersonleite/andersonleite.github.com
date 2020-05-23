@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
 import React from "react";
-import PostItem from "../components/Post";
+import PostItem from "../_old/-blog";
 import Link from "next/link";
 
 class Index extends React.Component {
@@ -13,21 +13,7 @@ class Index extends React.Component {
   render() {
     return (
       <Layout>
-        <section>
-          <div className="social-links">
-            <a className="social-link" target="_blank" href="https://www.instagram.com/andersonleite/">
-              <div className="social-link-name">Instagram</div>
-              <div className="social-link-underline"></div>
-            </a>
-            <a className="social-link" target="_blank" href="https://twitter.com/anderson_leite">
-              <div className="social-link-name">Twitter</div>
-              <div className="social-link-underline"></div>
-            </a>
-            <a className="social-link" target="_blank" href="https://github.com/andersonleite">
-              <div className="social-link-name">Github</div>
-              <div className="social-link-underline"></div>
-            </a>
-          </div>
+
           <div className="spacer _70"></div>
           <div className="parent">
             <div className="me">
@@ -83,7 +69,6 @@ class Index extends React.Component {
 
           </div>
 
-        </section>
       </Layout>
     )
   }

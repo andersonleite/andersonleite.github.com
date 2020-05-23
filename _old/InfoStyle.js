@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import theme from "../colors";
+import theme from "../components/colors";
 
 const InfoStyle = styled.div`
     bottom: 0;

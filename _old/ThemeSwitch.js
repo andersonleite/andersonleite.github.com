@@ -1,4 +1,4 @@
-import ThemeSwitchStyle from "./styles/ThemeSwitchStyle";
+import ThemeSwitchStyle from "../components/styles/ThemeSwitchStyle";
 
 const ThemeSwitch = () => (
   <ThemeSwitchStyle>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Link from "next/link";
-import PostStyle from "./styles/PostStyle";
+import PostStyle from "../components/styles/PostStyle";
 
 const ALL_POSTS_QUERY = gql`
     query ALL_POSTS_QUERY {

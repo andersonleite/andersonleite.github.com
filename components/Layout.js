@@ -1,9 +1,9 @@
-import Intro from "../components/Intro";
+import Intro from "../_old/Intro";
 import SidenavStyle from "./styles/SidenavStyle";
 import MainStyle from "./styles/MainStyle";
-import Links from "./Links";
-import Info from "./Info";
-import ThemeSwitch from "./ThemeSwitch";
+import Links from "../_old/Links";
+import Info from "../_old/Info";
+import ThemeSwitch from "../_old/ThemeSwitch";
 import theme from "../components/colors"
 import reset from "../components/reset"
 import { PageTransition } from 'next-page-transitions'
@@ -46,7 +46,23 @@ const Layout = props => (
     <div className={`main`}>
       <PageTransition timeout={300} classNames="page-transition">
         <MainStyle key="al" >
+          <section>
+            <div className="social-links">
+              <a className="social-link" target="_blank" href="https://www.instagram.com/andersonleite/">
+                <div className="social-link-name">Instagram</div>
+                <div className="social-link-underline"></div>
+              </a>
+              <a className="social-link" target="_blank" href="https://twitter.com/anderson_leite">
+                <div className="social-link-name">Twitter</div>
+                <div className="social-link-underline"></div>
+              </a>
+              <a className="social-link" target="_blank" href="https://github.com/andersonleite">
+                <div className="social-link-name">Github</div>
+                <div className="social-link-underline"></div>
+              </a>
+            </div>
           {props.children}
+          </section>
         </MainStyle>
       </PageTransition>
     </div>

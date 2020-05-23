@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Anderson Leite's website",
   "main": "index.js",
-  "engines": { "node": "12.x" },
+  "engines": {
+    "node": "12.x"
+  },
   "directories": {
-    "example": "examples"
+    "example": "_old/examples"
   },
   "scripts": {
     "dev": "next -p 7777",
@@ -27,17 +29,13 @@
     "@zeit/next-css": "^1.0.1",
     "express": "^4.17.0",
     "graphql": "^14.3.0",
-    "next": "^8.1.0",
     "next-page-transitions": "^1.0.0-beta.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "apollo-boost": "^0.3.1",
-    "apollo-client": "^2.5.1",
     "babel-plugin-styled-components": "^1.10.0",
-    "next-with-apollo": "^3.4.0",
-    "react-apollo": "^2.5.5"
+    "next": "^9.4.2"
   }
 }

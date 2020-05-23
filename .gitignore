@@ -1,6 +1,6 @@
 .DS_Store
-_site/
-Gemfile.lock
+_old/_site/
+_old/Gemfile.lock
 .rvmrc
 node_modules/
 .next/*
