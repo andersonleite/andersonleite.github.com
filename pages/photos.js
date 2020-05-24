@@ -74,6 +74,7 @@ export default function Photos() {
               <img src="/photography/blackbook/070.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/074.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/078.jpg" style={{width:"100%"}} />
+              <img src="/photography/blackbook/081.jpg" style={{width:"100%"}} />
             </div>
             <div className="column">
               <img src="/photography/blackbook/004.jpg" style={{width:"100%"}} />
