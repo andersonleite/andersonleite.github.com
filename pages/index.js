@@ -39,10 +39,13 @@ class Index extends React.Component {
             <div className="area">
               <h2>Projects</h2>
               <p className="summary">Work in <progress></progress>.</p>
-              <Link href="/blog"><a className="area-link">
                 {/*<p>work in progress</p>*/}
+              <a className="area-link" href="/projects">
+                <p>Projects</p>
                 <div className="area-link-underline"></div>
-              </a></Link>
+              </a>
+              <div className="area-link-underline"></div>
+
             </div>
             <div className="area">
               <h2>Codepen</h2>
@@ -55,10 +58,12 @@ class Index extends React.Component {
             <div className="area">
               <h2>Photos</h2>
               <p className="summary">Work in <progress></progress>.</p>
-              <Link href="/blog"><a className="area-link">
                 {/*<p>work in progress</p>*/}
                 <div className="area-link-underline"></div>
-              </a></Link>
+              <a className="area-link" href="/photos">
+                <p>Street Photography</p>
+                <div className="area-link-underline"></div>
+              </a>
             </div>
 
           </div>
