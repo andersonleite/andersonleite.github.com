@@ -26,7 +26,6 @@ export default function Photos() {
               <img src="/photography/blackbook/054.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/058.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/060.jpg" style={{width:"100%"}} />
-              <img src="/photography/blackbook/064.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/068.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/072.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/076.jpg" style={{width:"100%"}} />
@@ -44,12 +43,10 @@ export default function Photos() {
               <img src="/photography/blackbook/034.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/038.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/042.jpg" style={{width:"100%"}} />
-              <img src="/photography/blackbook/047.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/051.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/055.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/059.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/061.jpg" style={{width:"100%"}} />
-              <img src="/photography/blackbook/065.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/069.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/073.jpg" style={{width:"100%"}} />
               <img src="/photography/blackbook/077.jpg" style={{width:"100%"}} />
