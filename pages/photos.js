@@ -27,28 +27,37 @@ class Photos extends Component {
 
           <div className={'photo-container'}>
 
-            <button type="button" className="collapsible">01</button>
+            <button type="button" className="collapsible">RICO GR - 28mm</button>
             <div className="content">
               <img src="/photography/01/1.jpeg" style={{width: '200px'}} />
               <img src="/photography/01/2.jpeg" style={{width: '200px'}} />
-              <img src="/photography/01/3.jpeg" style={{width: '200px'}} />
               <img src="/photography/01/4.jpeg" style={{width: '200px'}} />
-              <img src="/photography/01/5.jpeg" style={{width: '200px'}} />
               <img src="/photography/01/6.jpeg" style={{width: '200px'}} />
-              <img src="/photography/01/7.jpeg" style={{width: '200px'}} />
-              <img src="/photography/01/8.jpeg" style={{width: '200px'}} />
               <img src="/photography/01/9.jpeg" style={{width: '200px'}} />
-              <img src="/photography/01/10.jpeg" style={{width: '200px'}} />
               <img src="/photography/01/11.jpeg" style={{width: '200px'}} />
-              <img src="/photography/01/12.jpeg" style={{width: '200px'}} />
               <img src="/photography/01/13.jpeg" style={{width: '200px'}} />
-              <img src="/photography/01/14.jpeg" style={{width: '200px'}} />
               <img src="/photography/01/15.jpeg" style={{width: '200px'}} />
+              <img src="/photography/01/20.jpeg" style={{width: '200px'}} />
+            </div>
+
+            <button type="button" className="collapsible">Pentax K100 - 50mm</button>
+            <div className="content">
+              <img src="/photography/01/3.jpeg" style={{width: '200px'}} />
+              <img src="/photography/01/7.jpeg" style={{width: '200px'}} />
+            </div>
+
+            <button type="button" className="collapsible">Sony A7 - 50mm</button>
+            <div className="content">
+              <img src="/photography/01/5.jpeg" style={{width: '200px'}} />
+              <img src="/photography/01/8.jpeg" style={{width: '200px'}} />
+              <img src="/photography/01/10.jpeg" style={{width: '200px'}} />
+              <img src="/photography/01/12.jpeg" style={{width: '200px'}} />
+              <img src="/photography/01/14.jpeg" style={{width: '200px'}} />
+
               <img src="/photography/01/16.jpeg" style={{width: '200px'}} />
               <img src="/photography/01/17.jpeg" style={{width: '200px'}} />
               <img src="/photography/01/18.jpeg" style={{width: '200px'}} />
               <img src="/photography/01/19.jpeg" style={{width: '200px'}} />
-              <img src="/photography/01/20.jpeg" style={{width: '200px'}} />
             </div>
 
             <button type="button" className="collapsible">Black Book</button>
