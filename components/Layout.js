@@ -3,7 +3,7 @@ import Head from 'next/head'
 const Layout = props => (
   <>
     <Head>
-      <title>Anderson Leite — Web Developer</title>
+      <title>Anderson Leite</title>
       <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
       <meta name="description" content="Anderson Leite" />
     </Head>
