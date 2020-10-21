@@ -1,7 +1,0 @@
-npm run dev
-http://localhost:7777
-
-OLD
-================
-jekyll serve -w
-compass watch .
