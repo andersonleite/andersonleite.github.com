@@ -2,3 +2,6 @@ Production bundle
 JEKYLL_ENV=production bundle exec jekyll build
 
 Production deploy
+git add .
+git commit -m "xxx"
+git p
