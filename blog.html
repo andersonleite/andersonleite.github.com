@@ -1,0 +1,39 @@
+---
+layout: default
+title: Blog
+---
+{% include nav.html %}
+
+<h2>東京で</h2>
+
+<div class="grid">
+
+  {% for post in site.posts %}
+  <article style="background-image: url('{{ post.thumb }}')">
+    <a href="{{ post.url }}">
+      <div class="dark">
+      </div>
+      <div class="content">
+        <h4>{{ post.title }}</h4>
+        <div class="separator"></div>
+        <div class="sub">
+          <div class="date">{{ post.jp_date }}</div>
+          <div><img src="/assets/read.png" alt="Read more" />
+          </div>
+        </div>
+    </a>
+  </article>
+  {% endfor %}
+
+</div>
+
+
+<div class="about">
+  <h3>はじめまして、アンダーソンです</h3>
+  <p>気象庁によると、台風１２号が日本のほうに進んでいます。台風は２４日から２５日に、関東地方や東北地方の近くに来そうです。</p>
+  <a href="/">
+  <div class="button">連絡先</div>
+  </a>
+</div>
+
+
