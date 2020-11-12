@@ -132,6 +132,8 @@ nav { max-width: 980px; width: 80%; margin: 2% auto 0 auto; height: 88px; displa
 
 nav span { letter-spacing: 0.02em; font: normal normal normal 25px/1.4em helvetica-w01-bold,helvetica-w02-bold,helvetica-lt-w10-bold,sans-serif; }
 
+@media (max-width: 479px) { nav span { font: normal normal normal 14px/1.4em helvetica-w01-bold,helvetica-w02-bold,helvetica-lt-w10-bold,sans-serif; } }
+
 nav .nav-links { display: flex; align-items: center; justify-content: space-between; font: normal normal normal 16px/1.4em helvetica-w01-roman,helvetica-w02-roman,helvetica-lt-w10-roman,sans-serif; width: 150px; }
 
 nav img.instagram { width: 26px; height: 26px; object-fit: cover; }

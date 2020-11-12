@@ -10,6 +10,10 @@ nav {
   span {
     letter-spacing: 0.02em;
     font: normal normal normal 25px/1.4em helvetica-w01-bold,helvetica-w02-bold,helvetica-lt-w10-bold,sans-serif;
+
+    @media (max-width: 479px){
+      font: normal normal normal 14px/1.4em helvetica-w01-bold,helvetica-w02-bold,helvetica-lt-w10-bold,sans-serif;
+    }
   }
 
   .nav-links {
